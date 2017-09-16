@@ -1,0 +1,225 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>ADD - Add without Carry</title>
+
+<!--(Meta)==========================================================-->
+
+<meta HTTP-EQUIV=Content-Type CONTENT="text/html; charset=windows-1252">
+<meta HTTP-EQUIV=Content-Style-Type CONTENT="text/css">
+<meta name=date content="06 8, 2001 9:02:03 AM">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1082>
+<meta name=layout-width content=579>
+
+
+<!--(Links)=========================================================-->
+
+<link REL="StyleSheet" href="../main.css" TYPE="text/css" MEDIA="screen">
+
+
+
+<!--(Style Sheet)===================================================-->
+
+<style>
+<!--
+
+body {
+}
+
+-->
+</style>
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body><script language="javascript"> 
+        if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) ) 
+        document.write("<center><a href='../index.html?page=Html/ADD.html'>show framing</a></center>")
+        </script>
+
+<div>
+<h3 CLASS=heading-3>ADD - Add without Carry</h3>
+
+<div>
+<h3 CLASS=heading-3><img src="../images/add-1.gif" style="border-style: none;
+								width: 469px;
+								height: 12px;" width="469" height="12" border="0"> </h3>
+</div>
+
+<div>
+<h6 CLASS=Section-Sub-2>Description: </h6>
+
+<p CLASS=Body-Text>Adds two registers without the C flag and places the 
+ result in the destination register Rd.</p>
+
+<p CLASS=Table-Hd-9pt-L
+	style="font-family: 'Courier New', monospace;">Operation:</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">Rd &lt;- Rd + Rr </p>
+
+<p CLASS=Table-Hd-9pt-L
+	style="font-family: 'Courier New', monospace;">Syntax: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Operands: 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Program 
+ Counter:</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">ADD Rd,Rr <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->0 
+ &#8804; d &#8804; 31, 0 &#8804; r &#8804; 31 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->PC 
+ &lt;- PC + 1</p>
+
+<p CLASS=Table-Hd-9pt-L>16-bit Opcode:</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>0000</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>11rd</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>dddd</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>rrrr</td></tr>
+</table>
+
+<p CLASS=Normal>&nbsp;</p>
+</div>
+
+<div>
+<h6 CLASS=Section-Sub-2>Status Register (SREG) and Boolean Formulae:</h6>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>I</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>T</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>H</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>S</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>V</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>N</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>Z</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>C</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>&lt;&gt;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>&lt;&gt;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>&lt;&gt;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>&lt;&gt;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>&lt;&gt;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>&lt;&gt;</td></tr>
+</table>
+
+<p CLASS=Tabbed-Body>H:Rd3<em CLASS=Symbol-10pt> •</em> Rr3+Rr3<em CLASS=Symbol-10pt> 
+ •</em> <em CLASS=Overline>R3</em> +<em CLASS=Overline> R3</em> <em CLASS=Symbol-10pt>•</em> 
+ Rd3</p>
+
+<p CLASS=Tabbed-Body>Set if there was a carry from bit 3; cleared otherwise</p>
+
+<p CLASS=Tabbed-Body>S: N [+] V, For signed tests. </p>
+
+<p CLASS=Tabbed-Body>&nbsp;</p>
+
+<p CLASS=Tabbed-Body>V:Rd7<em CLASS=Symbol-10pt> •</em> Rr7<em CLASS=Symbol-10pt> 
+ •</em> <em CLASS=Overline>R7</em> +<em CLASS=Overline> Rd7</em> <em CLASS=Symbol-10pt>•</em> 
+ <em CLASS=Overline>Rr7</em> <em CLASS=Symbol-10pt>•</em> R7 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Set 
+ if two's complement overflow resulted from the operation; cleared otherwise.</p>
+
+<p CLASS=Tabbed-Body>&nbsp;</p>
+
+<p CLASS=Tabbed-Body>N:R7 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Set 
+ if MSB of the result is set; cleared otherwise.</p>
+
+<p CLASS=Tabbed-Body>Z:<em CLASS=Overline> R7</em> <em CLASS=Symbol-10pt>•</em> 
+ <em CLASS=Overline>R6</em> <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R5</em> 
+ <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R4</em> <em CLASS=Symbol-10pt>•</em> 
+ <em CLASS=Overline>R3</em> <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R2</em> 
+ <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R1</em> <em CLASS=Symbol-10pt>•</em> 
+ <em CLASS=Overline>R0</em> <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Set 
+ if the result is $00; cleared otherwise.</p>
+
+<p CLASS=Tabbed-Body>C:Rd7 <em CLASS=Symbol-10pt>•</em> Rr7 +Rr7 <em CLASS=Symbol-10pt>•</em> 
+ <em CLASS=Overline>R7</em> + <em CLASS=Overline>R7</em> <em CLASS=Symbol-10pt>•</em> 
+ Rd7 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Set 
+ if there was carry from the MSB of the result; cleared otherwise.</p>
+
+<p CLASS=Tabbed-Body>R (Result) equals Rd after the operation.</p>
+
+<p CLASS=Table-Hd-9pt-L>E<span style="font-family: 'Courier New', monospace;">xample:</span></p>
+
+<p CLASS=Code
+	style="margin-left: 40px; font-family: 'Courier New', monospace;">add 
+ r1,r2 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Add r2 to r1 (r1=r1+r2)</p>
+
+<p CLASS=Code
+	style="margin-left: 40px; font-family: 'Courier New', monospace;">add 
+ r28, r28 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Add r28 to itself (r28=r28+r28)</p>
+
+<p CLASS=Table-Hd-9pt-L>Words: <em CLASS=Default-No-Bold>1 (2 bytes)</em> 
+ </p>
+
+<p CLASS=Table-Hd-9pt-L>Cycles:<em CLASS=Default-No-Bold> 1</em> &nbsp;</p>
+</div>
+</div>
+
+</body>
+
+</html>

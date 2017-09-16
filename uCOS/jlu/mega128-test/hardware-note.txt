@@ -1,0 +1,37 @@
+Please Read This Note First!
+
+* The file 'README' in this folder is the author's original note.
+
+* THIS DEMO PROGRAM IS BASED ON uC/OS-II VERSION 2.52
+
+Tested on atmega128@16MHz(crystal).
+
+hardware connection:
+
+atmega128 <--> ft232bm :
+RXD0(PE0) <--> TXD(pin25)
+TXD0(PE1) <--> RXD(pin24)
+if atmega128 board is powered by its own,
+due to unknow reasons, the Vout of 7805 is
+only 4.5V, so the GND pins must be connected
+like this:
+GND(mega128 board) <--> GND (232bm board)
+
+power supply:
+megat128 board:
+VTG <-- STK500(5.0v)
+GND <-- STK500
+or 
+powered by its own. 
+(DC6.1Vin--7805-->DC4.5Vout--C117T-->DC3.3Vout)
+
+ft232bm board:
+VTG <-- usb bus(5v)
+GND <-- usb
+
+note:
+1)set efuse from 0xFD(default, mega103 compatible mode) to 0xFF.
+2)since F_CPU is 16M, in order to set uart baud rate 9600bps,
+UBRR0L should be set to 103.
+3)set lfuse from 0xe1 to 0xef.
+

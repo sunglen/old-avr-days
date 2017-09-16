@@ -1,0 +1,8 @@
+mega64 <--> ft232bm
+PE0(RXD0) <-->  TXD
+PE1(TXD0) <-->  RXD
+common VTG(Vbus), common GND.
+
+16M crystal.
+
+

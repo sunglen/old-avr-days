@@ -1,0 +1,2714 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>Atmel AVR Assembler - Directives</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=windows-1252">
+<meta name=date content="11 7, 2001 1:51:26 PM">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=9971>
+<meta name=layout-width content=709>
+
+
+<!--(Links)=========================================================-->
+
+<link REL="StyleSheet" href="../main.css" TYPE="text/css" MEDIA="screen">
+
+
+
+<!--(Style Sheet)===================================================-->
+
+<style>
+<!--
+
+body {
+}
+
+-->
+</style>
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body nosave>
+
+<h2>Assembler directives</h2>
+
+The Assembler supports a number of directives. The directives are not translated 
+ directly into opcodes. Instead, they are used to adjust the location of 
+ the program in memory, define macros, initialize memory and so on. An 
+ overview of the directives is given in the following table. 
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells
+		style="width: 62.173%;"
+		width=62.173%>
+<col>
+<col style="width: 333px;">
+
+<tr>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Directive</font></font></b></td>
+<td style="width: 333px;"
+	width=333px><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+													face=Arial><font style="font-size: x-small;"
+	size=2>Description</font></font></b></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#byte - Reserve bytes to a variable">BYTE</a></font></font></td>
+<td style="width: 333px;"
+	width=333px><font style="font-family: Arial, 'Times New Roman';"
+						face=Arial><font style="font-size: x-small;"
+										size=2><a href="#byte - Reserve bytes to a variable">Reserve 
+ byte to a variable</a></font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#cseg - Code segment">CSEG</a></font></font></td>
+<td style="width: 333px;"
+	width=333px><font style="font-family: Arial, 'Times New Roman';"
+						face=Arial><font style="font-size: x-small;"
+										size=2><a href="#cseg - Code segment">Code 
+ Segment</a></font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#csegsize - Program Memory Size">CSEGSIZE</a></font></font></td>
+<td style="width: 333px;"
+	width=333px><font style="font-family: Arial, 'Times New Roman';"
+						face=Arial><font style="font-size: x-small;"
+										size=2><a href="#csegsize - Program Memory Size">Program 
+ memory size</a></font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#db - Define constant byte(s) in program memory and">DB</a></font></font></td>
+<td style="width: 333px;"
+	width=333px><font style="font-family: Arial, 'Times New Roman';"
+						face=Arial><font style="font-size: x-small;"
+										size=2><a href="#db - Define constant byte(s) in program memory and">Define 
+ constant byte(s)</a></font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#def - Set a symbolic name on a register">DEF</a></font></font></td>
+<td style="width: 333px;"
+	width=333px><font style="font-family: Arial, 'Times New Roman';"
+						face=Arial><font style="font-size: x-small;"
+										size=2><a href="#def - Set a symbolic name on a register">Define 
+ a symbolic name on a register</a></font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#device - Define which device to assemble for">DEVICE</a></font></font></td>
+<td style="width: 333px;"
+	width=333px><font style="font-family: Arial, 'Times New Roman';"
+						face=Arial><font style="font-size: x-small;"
+										size=2><a href="#device - Define which device to assemble for">Define 
+ which device to assemble for</a></font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#dseg - Data Segment">DSEG</a></font></font></td>
+<td style="width: 333px;"
+	width=333px><font style="font-family: Arial, 'Times New Roman';"
+						face=Arial><font style="font-size: x-small;"
+										size=2><a href="#dseg - Data Segment">Data 
+ Segment</a></font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#dw - Define constant word(s) in program memory and EEPROM">DW</a></font></font></td>
+<td style="width: 333px;"
+	width=333px><font style="font-family: Arial, 'Times New Roman';"
+						face=Arial><font style="font-size: x-small;"
+										size=2><a href="#dw - Define constant word(s) in program memory and EEPROM">Define 
+ Constant word(s)</a></font></font></td></tr>
+
+<tr>
+<td>
+<p><font style="font-family: Arial, 'Times New Roman';"
+		face=Arial><font style="font-size: x-small;"
+						size=2><a href="#endmacro - End macro">ENDM, ENDMACRO</a></font></font></td>
+<td style="width: 333px;"
+	width=333px>
+<p style="font-family: Arial, 'Times New Roman'; font-size: x-small;"><span 
+ style="color: #000080; x-text-underline: normal; /*begin!kadov{{*/ text-decoration: underline; /*}}end!kadov*/ "><a 
+ href="#endmacro - End macro">EndMacro</a></span></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#equ - Set a symbol equal to an expression">EQU</a></font></font></td>
+<td style="width: 333px;"
+	width=333px><font style="font-family: Arial, 'Times New Roman';"
+						face=Arial><font style="font-size: x-small;"
+										size=2><a href="#equ - Set a symbol equal to an expression">Set 
+ a symbol equal to an expression</a></font></font></td></tr>
+
+<tr>
+<td>
+<p><font style="font-family: Arial, 'Times New Roman';"
+		face=Arial><font style="font-size: x-small;"
+						size=2><a href="#eseg - EEPROM Segment">ESEG</a></font></font></td>
+<td style="width: 333px;"
+	width=333px>
+<p><font style="font-family: Arial, 'Times New Roman';"
+		face=Arial><font style="font-size: x-small;"
+						size=2><a href="#eseg - EEPROM Segment">EEPROM 
+ Segment</a></font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#exit - Exit this file">EXIT</a></font></font></td>
+<td style="width: 333px;"
+	width=333px><font style="font-family: Arial, 'Times New Roman';"
+						face=Arial><font style="font-size: x-small;"
+										size=2><a href="#exit - Exit this file">Exit 
+ from file</a></font></font></td></tr>
+
+<tr>
+<td colspan=1
+	rowspan=1>
+<p><a href="#include - Include another file"><font style="font-size: x-small;"
+													size=2>INCLUDE</font></a></td>
+<td colspan=1
+	rowspan=1
+	style="width: 333px;"
+	width=333px>
+<p style="font-size: x-small;"><a href="#include - Include another file">Read 
+ source from another file</a></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#list - Turn the listfile generation on">LIST</a></font></font></td>
+<td style="width: 333px;"
+	width=333px><font style="font-family: Arial, 'Times New Roman';"
+						face=Arial><font style="font-size: x-small;"
+										size=2><a href="#list - Turn the listfile generation on">Turn 
+ listfile generation on</a></font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#listmac - Turn macro expansion on">LISTMAC</a></font></font></td>
+<td style="width: 333px;"
+	width=333px><font style="font-family: Arial, 'Times New Roman';"
+						face=Arial><font style="font-size: x-small;"
+										size=2><a href="#listmac - Turn macro expansion on">Turn 
+ Macro expansion in list file on</a></font></font></td></tr>
+
+<tr>
+<td colspan=1
+	rowspan=1>
+<p style="font-size: x-small;"><span style="font-size: x-small;"><a href="#macro - Begin macro">MACRO</a></span></td>
+<td colspan=1
+	rowspan=1
+	style="width: 333px;"
+	width=333px>
+<p style="font-size: x-small;"><a href="#macro - Begin macro">Begin Macro</a></td></tr>
+
+<tr>
+<td>
+<p><font style="font-family: Arial, 'Times New Roman';"
+		face=Arial><font style="font-size: x-small;"
+						size=2><a href="#nolist - Turn listfile generation off">NOLIST</a></font></font></td>
+<td style="width: 333px;"
+	width=333px>
+<p><font style="font-family: Arial, 'Times New Roman';"
+		face=Arial><font style="font-size: x-small;"
+						size=2><a href="#nolist - Turn listfile generation off">Turn 
+ listfile generation off</a></font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#org - Set program origin">ORG</a></font></font></td>
+<td style="width: 333px;"
+	width=333px><font style="font-family: Arial, 'Times New Roman';"
+						face=Arial><font style="font-size: x-small;"
+										size=2><a href="#org - Set program origin">Set 
+ program origin</a></font></font></td></tr>
+
+<tr>
+<td>
+<p style="font-size: x-small;"><a href="#set - Set a symbol equal to an expression">SET</a></td>
+<td style="width: 333px;"
+	width=333px><font style="font-family: Arial, 'Times New Roman';"
+						face=Arial><font style="font-size: x-small;"
+										size=2><a href="#set - Set a symbol equal to an expression">Set 
+ a symbol to an expression</a></font></font></td></tr>
+</table>
+
+&nbsp; 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}-->These 
+ directives were introduced in AVRASM v1.74: 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells
+		style="width: 62.173%;"
+		width=62.173%>
+<col>
+<col style="width: 333px;">
+
+<tr>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+										face=Arial
+										size=2>New Directives</font></b></td>
+<td style="width: 333px;"
+	width=333px><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+													face=Arial><font style="font-size: x-small;"
+	size=2>Description</font></font></b></td></tr>
+
+<tr>
+<td colspan=1
+	rowspan=1>
+<p style="font-size: x-small;
+			x-text-underline: normal;
+			color: #000080;
+			/*begin!kadov{{*/ text-decoration: underline; /*}}end!kadov*/ "><a 
+ href="#else">ELSE,ELIF</a></td>
+<td colspan=1
+	rowspan=1
+	style="width: 333px;"
+	width=333px>
+<p style="font-size: x-small;
+			color: #000080;
+			x-text-underline: normal;
+			/*begin!kadov{{*/ text-decoration: underline; /*}}end!kadov*/ "><a 
+ href="#else">Conditional assembly</a></td></tr>
+
+<tr>
+<td colspan=1
+	rowspan=1>
+<p style="font-size: x-small;
+			x-text-underline: normal;
+			color: #000080;
+			/*begin!kadov{{*/ text-decoration: underline; /*}}end!kadov*/ "><a 
+ href="#endif">ENDIF</a></td>
+<td colspan=1
+	rowspan=1
+	style="width: 333px;"
+	width=333px>
+<p style="font-size: x-small;
+			x-text-underline: normal;
+			color: #000080;
+			/*begin!kadov{{*/ text-decoration: underline; /*}}end!kadov*/ "><a 
+ href="#endif">Conditional assembly</a></td></tr>
+
+<tr>
+<td colspan=1
+	rowspan=1>
+<p style="font-size: x-small;"><a href="#error">ERROR</a></td>
+<td colspan=1
+	rowspan=1
+	style="width: 333px;"
+	width=333px>
+<p style="font-size: x-small;"><a href="#error">Outputs an error message</a></td></tr>
+
+<tr>
+<td>
+<p style="font-size: x-small;
+			color: #000080;
+			x-text-underline: normal;
+			/*begin!kadov{{*/ text-decoration: underline; /*}}end!kadov*/ "><a 
+ href="#ifdef">IF,IFDEF,IFNDEF</a></td>
+<td style="width: 333px;"
+	width=333px>
+<p style="font-size: x-small;
+			x-text-underline: normal;
+			color: #000080;
+			/*begin!kadov{{*/ text-decoration: underline; /*}}end!kadov*/ "><a 
+ href="#ifdef">Conditional assembly</a></td></tr>
+
+<tr>
+<td colspan=1
+	rowspan=1>
+<p style="font-size: x-small;"><a href="#message1">MESSAGE</a></td>
+<td colspan=1
+	rowspan=1
+	style="width: 333px;"
+	width=333px>
+<p style="font-size: x-small;"><a href="#message1">Outputs a message string</a> 
+ </td></tr>
+</table>
+
+&nbsp; 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}-->The 
+ following directives are only available with AVRASM2: 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_empty_p>}}-->&nbsp;<br><!--kadov_tag{{</implicit_empty_p>}}-->
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells
+		style="x-cell-content-align: top;
+				width: 71.228%;
+				border-spacing: 0px;
+				border-spacing: 0px;"
+		cellspacing=0
+		width=71.228%>
+<col style="width: 37.191%;">
+<col style="width: 62.809%;">
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td style="width: 37.191%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-top-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;
+			border-left-style: Solid;
+			border-top-color: #ffffff;
+			border-top-width: 1px;"
+	width=37.191%>
+<p style="font-family: Arial, 'Times New Roman'; font-size: x-small;"><b 
+ style="font-weight: bold;">AVRASM2 <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->Directives</b></td>
+<td style="width: 62.809%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-top-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-top-color: #ffffff;
+			border-top-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=62.809%>
+<p style="font-size: x-small;"><b style="font-weight: bold;">Description</b></td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td style="width: 37.191%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;
+			border-left-style: Solid;"
+	width=37.191%>
+<p style="font-size: x-small;"><a href="directives.html#dd - Define Doubleword"><span 
+ style="font-size: x-small;">DD</span></a></td>
+<td style="width: 62.809%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=62.809%>
+<p style="font-size: x-small;"><a href="directives.html#dd - Define Doubleword"><span 
+ style="font-size: x-small;">Define Doubleword</span></a></td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td style="width: 37.191%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;
+			border-left-style: Solid;"
+	width=37.191%>
+<p style="font-size: x-small; margin-left: 0px;"><a href="directives.html#dq - Define Quadword" style="font-size: x-small;">DQ</a></td>
+<td style="width: 62.809%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=62.809%>
+<p style="font-size: x-small;"><a href="directives.html#dq - Define Quadword"><span 
+ style="font-size: x-small;">Define Quadword</span></a></td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td style="width: 37.191%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;
+			border-left-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;"
+	width=37.191%>
+<p style="font-size: x-small;"><a href="directives.html#undef___undefine_register_symbol" style="font-size: x-small;">UNDEF</a></td>
+<td style="width: 62.809%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=62.809%>
+<p style="font-size: x-small;"><a href="directives.html#undef___undefine_register_symbol" style="font-size: x-small;">Undefine 
+ register symbol</a></td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 37.191%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-left-width: 1px;
+			border-left-color: #ffffff;
+			border-right-width: 1px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-bottom-width: 1px;
+			border-bottom-color: #ffffff;
+			border-bottom-style: Solid;"
+	width=37.191%>
+<p style="font-size: x-small;"><a href="directives.html#warning directive">WARNING</a></td>
+<td colspan=1
+	rowspan=1
+	style="width: 62.809%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-width: 1px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-bottom-width: 1px;
+			border-bottom-color: #ffffff;
+			border-bottom-style: Solid;"
+	width=62.809%>
+<p style="font-size: x-small;"><a href="directives.html#warning directive">Outputs 
+ a warning message</a></td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 37.191%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;"
+	width=37.191%>
+<p style="font-size: x-small;"><a href="directives.html#overlap/nooverlap">OVERLAP/NOOVERLAP</a></td>
+<td colspan=1
+	rowspan=1
+	style="width: 62.809%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;"
+	width=62.809%>
+<p style="font-size: x-small;"><a href="directives.html#overlap/nooverlap">Set 
+ up overlapping section</a> <span style="font-size: x-small;">(requires 
+ AVRASM2.1 or better)</span></td></tr>
+</table>
+
+<p>Note that all directives must be preceded by a period. </p>
+
+&nbsp; 
+
+<h3><a NAME="BYTE - Reserve bytes to a variable"></a>BYTE - Reserve bytes 
+ to a variable</h3>
+
+The BYTE directive reserves memory resources in the SRAM or EEPROM. In 
+ order to be able to refer to the reserved location, the BYTE directive 
+ should be preceded by a label. The directive takes one parameter, which 
+ is the number of bytes to reserve. The directive can not be used within 
+ a Code segment <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->(see 
+ directives <a href="directives.html#cseg - Code segment">CSEG</a>, <a href="directives.html#dseg - Data Segment">DSEG</a>, and <a href="directives.html#eseg - EEPROM Segment">ESEG</a>). 
+ Note that a parameter must be given. The allocated bytes are not initialized. 
+ 
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+LABEL: .BYTE expression</tt> </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.DSEG</tt> <tt><br>
+var1:&nbsp;&nbsp;&nbsp; .BYTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; reserve 1 byte to var1</tt> <tt><br>
+table:&nbsp;&nbsp; .BYTE tab_size&nbsp;&nbsp;&nbsp;&nbsp; ; reserve tab_size 
+ bytes</tt> </p>
+
+<p><tt style="font-family: monospace;">.CSEG</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ldi r30,low(var1)&nbsp; 
+ ; Load Z register low</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ldi r31,high(var1) ; Load 
+ Z register high</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ld r1,Z&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Load VAR1 into register 1</tt> </p>
+
+<h3><a NAME="CSEG - Code segment"></a>CSEG - Code segment</h3>
+
+<p>The CSEG directive defines the start of a Code Segment. An Assembler 
+ file can consist of several Code Segments, which are concatenated into 
+ one Code Segment when assembled. The BYTE directive can not be used within 
+ a Code Segment. The default segment type is Code. The Code Segments have 
+ their own location counter which is a word counter. The ORG directive 
+ can be used to place code and constants at specific locations in the Program 
+ memory. The directive does not take any parameters. </p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.CSEG</tt> </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.DSEG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Start data segment</tt> <tt><br>
+vartab: .BYTE 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Reserve 4 bytes in SRAM</tt> </p>
+
+<p><tt style="font-family: monospace;">.CSEG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Start code segment</tt> <tt><br>
+const:&nbsp; .DW 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Write 0x0002 in prog.mem.</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mov r1,r0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Do something</tt> </p>
+
+<h3><a NAME="CSEGSIZE - Program Memory Size"></a>CSEGSIZE - Program Memory 
+ Size</h3>
+
+<p>AT94K devices have a user configurable memory partition between the 
+ AVR Program memory and the data memory.&nbsp; The program and data SRAM 
+ is divided into three blocks: 10K x 16 dedicated program SRAM, 4K x 8 
+ dedicated data SRAM, and 6K x 16 or 12K x 8 configurable SRAM which may 
+ be swapped between program and data memory spaces in 2K x 16 or 4K x 8 
+ partitions. <br>
+This directive is used to specify the size of the program memory block. 
+ </p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.CSEGSIZE = 10 | 12 | 14 | 16</tt> </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.CSEGSIZE = 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Specifies the program meory size as 12K x 16</tt> <br>
+&nbsp; </p>
+
+<h3><a NAME="DB - Define constant byte(s) in program memory and"></a>DB 
+ - Define constant byte(s) in program memory and EEPROM</h3>
+
+<p>The DB directive reserves memory resources in the program memory or 
+ the EEPROM memory. In order to be able to refer to the reserved locations, 
+ the DB directive should be preceded by a label. The DB directive takes 
+ a list of expressions, and must contain at least one expression. The DB 
+ directive must be placed in a Code Segment or an EEPROM Segment. </p>
+
+<p>The expression list is a sequence of expressions, delimited by commas. 
+ Each expression must evaluate to a number between -128 and 255. If the 
+ expression evaluates to a negative number, the 8 bits twos complement 
+ of the number will be placed in the program memory or EEPROM memory location. 
+ </p>
+
+<p>If the DB directive is given in a Code Segment and the expressionlist 
+ contains more than one expression, the expressions are packed so that 
+ two bytes are placed in each program memory word. I<i>f the expressionlist 
+ contains an odd number of expressions, the last expression will be placed 
+ in a program memory word of its own, even if the next line in the assemby 
+ code contains a DB directive.</i> The unused half of the program word 
+ is set to zero. A warning is given, in order to notify the user that an 
+ extra zero byte is added to the .DB statement </p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+LABEL:&nbsp; .DB expressionlist</tt> </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.CSEG</tt> <tt><br>
+consts: .DB 0, 255, 0b01010101, -128, 0xaa</tt> </p>
+
+<p><tt style="font-family: monospace;">.ESEG</tt> <tt><br>
+const2: .DB 1,2,3</tt> </p>
+
+<h3><a NAME="DEF - Set a symbolic name on a register"></a>DEF - Set a symbolic 
+ name on a register</h3>
+
+<p>The DEF directive allows the registers to be referred to through symbols. 
+ A defined symbol can be used in the rest of the program to refer to the 
+ register it is assigned to. A register can have several symbolic names 
+ attached to it. A symbol can be redefined later in the program. </p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.DEF Symbol=Register</tt> </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.DEF temp=R16</tt> <tt><br>
+.DEF ior=R0</tt> </p>
+
+<p><tt style="font-family: monospace;">.CSEG</tt> <tt><br>
+&nbsp;ldi temp,0xf0&nbsp; ; Load 0xf0 into temp register</tt> <tt><br>
+&nbsp;in ior,0x3f&nbsp; ; Read SREG into ior register</tt> <tt><br>
+&nbsp;eor temp,ior&nbsp; ; Exclusive or temp and ior</tt> </p>
+
+<h3><a name=UNDEF___Undefine_register_symbol></a>UNDEF - Undefine a register 
+ symbolic name</h3>
+
+<p style="font-weight: bold;">This directive is only available with <a href="avr_assembler_2.htm" style="font-weight: bold;">AVRASM2</a>.</p>
+
+<p>'The UNDEF directive is used to undefine a symbol previously defined 
+ with the <a href="directives.html#def - Set a symbolic name on a register">DEF</a> 
+ directive. This provides a way to obtain a simple scoping of register 
+ definitions, to avoid warnings about register reuse.</p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.UNDEF symbol</tt></p>
+
+<p><tt style="font-family: monospace;"><b style="font-weight: bold;">E</tt>xample:</b> 
+ <tt><br>
+.DEF var1 = R16</tt> <br>
+ldi var1, 0x20<br>
+... ; do something more with var1<br>
+.UNDEF var1<br>
+<br>
+.DEF var2 = R16 <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ R16 can now be reused without warning.</p>
+
+<h3><a NAME="DEVICE - Define which device to assemble for"></a>DEVICE - 
+ Define which device to assemble for (deprecated)</h3>
+
+<p style="font-style: italic;"><span style="font-weight: bold;">Note: </span>The 
+ .DEVICE directive is deprecated and should no longer be used with AVRASM2. 
+ It is replaced with a number of <a href="avr_assembler_2_preprocessor.htm#pragma">#pragma 
+ directives</a>, describing the device properties. In AVRASM2, .device 
+ is roughly equivalent to <span style="font-family: 'Courier New', monospace; font-weight: bold;">#pragma 
+ AVRPART PART_NAME</span>, but the device name may be anything and is not 
+ limited to the table below. Also, only the device name is set by .device, 
+ the other device properties must be set separately. The descrjption and 
+ table below is only valid for AVRASM 1.x, ant the table is not updated 
+ with new devices.</p>
+
+<p>The DEVICE directive allows the user to tell the Assembler which device 
+ the code is to be executed on. Using this directive, a warning is issued 
+ if an instruction not supported by the specified device occurs. If the 
+ Code Segment or EEPROM Segment are larger than supplied by the device, 
+ a warning message is given. If the directive is not used, it is assumed 
+ that all instructions are supported and that there are no restrictions 
+ on Program and EEPROM memory.</p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.DEVICE &lt;device code&gt;</tt></p>
+
+<p style="font-weight: bold;">Table: Device codes for devices supported 
+ by AVRASM 1.x:</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells
+		style="x-cell-content-align: top;
+				width: 100%;
+				border-spacing: 0px;
+				border-spacing: 0px;"
+		cellspacing=0
+		width=100%>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td style="width: 25%;
+			background-color: #000080;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-top-width: 2px;
+			border-top-style: Solid;
+			border-top-color: #ffffff;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#000080
+	width=25%>
+<p style="text-align: center;
+			color: #ffffff;
+			font-weight: bold;"
+	align=center>Classic</td>
+<td style="width: 25%;
+			background-color: #000080;
+			border-top-width: 2px;
+			border-top-style: Solid;
+			border-top-color: #ffffff;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#000080
+	width=25%>
+<p style="color: #ffffff;
+			text-align: center;
+			font-weight: bold;"
+	align=center>Tiny</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #000080;
+			border-top-width: 2px;
+			border-top-style: Solid;
+			border-top-color: #ffffff;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#000080
+	width=25%>
+<p style="color: #ffffff;
+			text-align: center;
+			font-weight: bold;"
+	align=center>Mega</td>
+<td style="width: 25%;
+			background-color: #000080;
+			border-top-width: 2px;
+			border-top-style: Solid;
+			border-top-color: #ffffff;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#000080
+	width=25%>
+<p style="text-align: center;
+			color: #ffffff;
+			font-weight: bold;"
+	align=center>Other</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">AT90S120</tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATtiny11&nbsp; </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATmega8 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">AT94K&nbsp;</tt></td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center;
+			font-size: 10pt;
+			font-family: monospace;"
+	align=center><span style="font-size: 10pt;"><tt style="font-family: monospace;">AT90S4433 
+ </tt></span></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center;
+			font-size: 10pt;
+			font-family: monospace;"
+	align=center><span style="font-size: 10pt; font-family: monospace;">ATtiny2313</span></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center;
+			font-size: 10pt;
+			font-family: monospace;"
+	align=center><tt style="font-family: monospace;">ATmega48</tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><span style="font-size: 10pt;"><tt style="font-family: monospace;">AT86RF401 
+ </tt></span></td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">AT90S2313 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATtiny12 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATmega16&nbsp;</tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><span style="font-size: 10pt;"><tt style="font-family: monospace;">AT90CAN128</tt></span></td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">AT90S2323 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATtiny13 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATmega161 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">AT90S2333 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATtiny22 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATmega162 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">AT90S4414 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center;
+			font-size: 10pt;
+			font-family: monospace;"
+	align=center>ATtiny26</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATmega163 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center;
+			font-size: 10pt;
+			font-family: monospace;"
+	align=center><tt style="font-family: monospace;">AT90S4434 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="font-size: 10pt;
+			font-family: monospace;
+			text-align: center;"
+	align=center>ATtiny25</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center;
+			font-size: 10pt;
+			font-family: monospace;"
+	align=center>ATmega169</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center;
+			font-size: 10pt;
+			font-family: monospace;"
+	align=center><tt style="font-family: monospace;">AT90S8515 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center;
+			font-size: 10pt;
+			font-family: monospace;"
+	align=center>ATtiny45</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATmega32 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center;
+			font-size: 10pt;
+			font-family: monospace;"
+	align=center><tt style="font-family: monospace;">AT90S8534 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center;
+			font-size: 10pt;
+			font-family: monospace;"
+	align=center>ATtiny85</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATmega323 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center;
+			font-size: 10pt;
+			font-family: monospace;"
+	align=center><tt style="font-family: monospace;">AT90S8535 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATmega103 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center;
+			font-size: 10pt;
+			font-family: monospace;"
+	align=center><tt style="font-family: monospace;">AT90S2343 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATmega104 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p>&nbsp;</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATmega8515 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATmega8535 </tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATmega64</tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATmega128</tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center><tt style="font-family: monospace;">ATmega165</tt></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			padding-right: 10px;
+			padding-left: 10px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-width: 2px;
+			border-left-style: Solid;
+			border-left-color: #ffffff;
+			border-right-width: 2px;
+			border-right-style: Solid;
+			border-right-color: #ffffff;
+			border-bottom-color: #ffffff;
+			border-bottom-style: Solid;
+			border-bottom-width: 2px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-width: 2px;
+			border-right-style: Solid;
+			border-right-color: #ffffff;
+			border-bottom-color: #ffffff;
+			border-bottom-style: Solid;
+			border-bottom-width: 2px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-width: 2px;
+			border-right-style: Solid;
+			border-right-color: #ffffff;
+			border-bottom-color: #ffffff;
+			border-bottom-style: Solid;
+			border-bottom-width: 2px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>ATmega2560</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-width: 2px;
+			border-right-style: Solid;
+			border-right-color: #ffffff;
+			border-bottom-color: #ffffff;
+			border-bottom-style: Solid;
+			border-bottom-width: 2px;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-color: #ffffff;
+			border-left-style: Solid;
+			border-left-width: 2px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>ATmega2561</td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			background-color: #c0c0c0;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-color: #ffffff;
+			border-right-style: Solid;
+			border-right-width: 2px;
+			border-bottom-width: 2px;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;"
+	bgcolor=#C0C0C0
+	width=25%>
+<p style="text-align: center; font-size: 10pt;"
+	align=center>&nbsp;</td></tr>
+</table>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.DEVICE AT90S1200&nbsp; ; Use the AT90S1200</tt> </p>
+
+<p><tt style="font-family: monospace;">.CSEG</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; push r30&nbsp;&nbsp; ; This 
+ statement will generate a warning</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; since the specified device does not</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; have this instruction</tt> </p>
+
+<p><tt style="font-family: monospace;">Note: There has been a change of 
+ names that took effect 14.06.2001. The following devices are affected:</tt> 
+ </p>
+
+<p style="margin-top: 0; margin-bottom: 0;"><tt style="font-family: monospace;"><b 
+ style="font-weight: bold;">Old name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ New name</b></tt> </p>
+
+<p style="margin-top: 0; margin-bottom: 0;"><tt style="font-family: monospace;">ATmega104&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ATmega128</tt> </p>
+
+<p style="margin-top: 0; margin-bottom: 0;"><tt style="font-family: monospace;">ATmega32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ATmega323</tt> </p>
+
+<p style="margin-top: 0; margin-bottom: 0;"><tt style="font-family: monospace;">ATmega164&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ATmega16</tt></p>
+
+<p><tt style="font-family: monospace;">In order NOT to break old projects, 
+ both old and new device directives are allowed for the parts that are 
+ affected.</tt> </p>
+
+<h3><a NAME="DSEG - Data Segment"></a>DSEG - Data Segment</h3>
+
+<p>The DSEG directive defines the start of a Data segment. An assembler 
+ source file can consist of several data segments, which are concatenated 
+ into a single data segment when assembled. A data segment will normally 
+ only consist of BYTE directives (and labels). The Data Segments have their 
+ own location counter which is a byte counter. The ORG directive can be 
+ used to place the variables at specific locations in the SRAM. The directive 
+ does not take any parameters. </p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.DSEG&nbsp;</tt> </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.DSEG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Start data segment</tt> <tt><br>
+var1:&nbsp; .BYTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; reserve 1 byte to var1</tt> <tt><br>
+table:&nbsp; .BYTE tab_size&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; reserve 
+ tab_size bytes.</tt> </p>
+
+<p><tt style="font-family: monospace;">.CSEG</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ldi r30,low(var1)&nbsp;&nbsp;&nbsp; 
+ ; Load Z register low</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ldi r31,high(var1)&nbsp;&nbsp; 
+ ; Load Z register high</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ld r1,Z&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Load var1 into register 1</tt> </p>
+
+<h3><a NAME="DW - Define constant word(s) in program memory and EEPROM"></a>DW 
+ - Define constant word(s) in program memory and EEPROM</h3>
+
+<p>The DW directive reserves memory resources in the program memory or 
+ the EEPROM memory. In order to be able to refer to the reserved locations, 
+ the DW directive should be preceded by a label. <br>
+The DW directive takes a list of expressions, and must contain at least 
+ one expression. <br>
+The DB directive must be placed in a Code Segment or an EEPROM Segment. 
+ </p>
+
+<p>The expression list is a sequence of expressions, delimited by commas. 
+ Each expression must evaluate to a number between -32768 and 65535. If 
+ the expression evaluates to a negative number, the 16 bits two's complement 
+ of the number will be placed in the program memory or EEPROM memory location. 
+ </p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+LABEL: .DW expressionlist</tt> </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.CSEG</tt> <tt><br>
+varlist:&nbsp; .DW 0, 0xffff, 0b1001110001010101, -32768, 65535</tt> </p>
+
+<p><tt style="font-family: monospace;">.ESEG</tt> <tt><br>
+eevarlst: .DW 0,0xffff,10</tt> </p>
+
+<h3><a name="DD - Define Doubleword"></a>DD - Define constant doubleword(s) 
+ in program memory and EEPROM<br>
+<a name="DQ - Define Quadword"></a>DQ - Define constant quadword(s) in 
+ program memory and EEPROM</h3>
+
+<p style="font-weight: bold;">These directives are only available with 
+ <a href="avr_assembler_2.htm" style="font-weight: bold;">AVRASM2</a>.</p>
+
+<p>These directives <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->are 
+ very similar to the <a href="directives.html#dw - Define constant word(s) in program memory and EEPROM">.DW</a> 
+ directive, except they are used to define 32-bit (doubleword) and 64-bit 
+ (quadword) respectively. The data layout in memory is strictly little-endian.</p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+LABEL: .DD expressionlist<br>
+LABEL: .DQ expressionlist</tt></p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.CSEG</tt> <tt><br>
+varlist:&nbsp; .DD 0, 0xfadebabe, -</tt>2147483648, <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->1 
+ &lt;&lt; 30</p>
+
+<p><tt style="font-family: monospace;">.ESEG</tt> <tt><br>
+eevarlst: .DQ 0,0xfadebabedeadbeef, 1 &lt;&lt; 62</tt> </p>
+
+<h3><a name=ELSE><a NAME="SET - Set a symbol equal to an expression1"></a>ELIF,ELSE 
+ - <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->conditional 
+ assembly</a></h3>
+
+<p>.ELIF will include code until the corresponding ENDIF of the next ELIF 
+ at the same level if the expression is true, and both the initial .IF 
+ clause and all following .ELIF clauses are false.</p>
+
+<p>.ELSE will include code until the corresponding .ENDIF if the initial.IF 
+ clause and all .ELIF clauses (if any) all are false.</p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <br>
+.ELIF&lt;expression&gt;<br>
+.ELSE</p>
+
+<p><span style="font-family: monospace;">.</span>IFDEF &lt;symbol&gt; |.IFNDEF 
+ &lt;symbol&gt;<br>
+...<br>
+.ELSE | .ELIF&lt;expression&gt;<br>
+...<br>
+.ENDIF</p>
+
+<p><b style="font-weight: bold;">Example:</b> <br>
+.IFDEF DEBUG<br>
+.MESSAGE &quot;Debugging..&quot;<br>
+.ELSE<br>
+.MESSAGE &quot;Release..&quot;<br>
+.ENDIF</p>
+
+<h3><a name=ENDIF><a NAME="SET - Set a symbol equal to an expression111"></a>ENDIF 
+ - <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->conditional 
+ assembly</a></h3>
+
+<p>Conditional assembly includes a set of commands at assembly time. The 
+ ENDIF directive defines the end for the conditional IF or IFDEF or IFNDEF 
+ directives.</p>
+
+<p>Conditionals (.IF...ELIF...ELSE...ENDIF blocks) may be nested, but all 
+ conditionals must be terminated at the end of file (conditionals may not 
+ span multiple files).</p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <br>
+.ENDIF</p>
+
+<p><span style="font-family: monospace;">.</span>IFDEF &lt;symbol&gt; |.IFNDEF 
+ &lt;symbol&gt;<br>
+...<br>
+.ELSE | .ELIF&lt;expression&gt;<br>
+...<br>
+.ENDIF</p>
+
+<p><b style="font-weight: bold;">Example:</b> <br>
+.IFNDEF DEBUG <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}--><br>
+.MESSAGE &quot;Release..&quot;<br>
+.ELSE<br>
+.MESSAGE &quot;Debugging..&quot;<br>
+.ENDIF</p>
+
+<h3><a NAME="ENDMACRO - End macro"></a>ENDM, ENDMACRO - End macro</h3>
+
+<p>The ENDMACRO directive defines the end of a macro definition. The directive 
+ does not take any parameters. See the MACRO directive for more information 
+ on defining macros. ENDM is an alternative form, fully equivalent with 
+ ENDMACRO.</p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.ENDMACRO<br>
+.ENDM</tt></p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.MACRO SUBI16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Start macro definition</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; subi r16,low(@0)&nbsp;&nbsp;&nbsp; 
+ ; Subtract low byte</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sbci r17,high(@0)&nbsp;&nbsp; 
+ ; Subtract high byte</tt> <tt><br>
+.ENDMACRO</tt> </p>
+
+<h3><a NAME="EQU - Set a symbol equal to an expression"></a>EQU - Set a 
+ symbol equal to an expression</h3>
+
+<p>The EQU directive assigns a value to a label. This label can then be 
+ used in later expressions. A label assigned to a value by the EQU directive 
+ is a constant and can not be changed or redefined. </p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.EQU label = expression</tt> </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.EQU io_offset = 0x23</tt> <tt><br>
+.EQU porta&nbsp;&nbsp;&nbsp;&nbsp; = io_offset + 2</tt> </p>
+
+<p><tt style="font-family: monospace;">.CSEG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Start code segment</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; clr r2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Clear register 2</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out porta,r2&nbsp; ; Write to 
+ Port A</tt> </p>
+
+<h3><tt style="font-family: monospace;"><a name=ERROR></a><span style="font-family: Verdana, sans-serif;">ERROR</tt> 
+ -</span> Outputs an error message string</h3>
+
+<p>The ERROR directive outputs a string and halts the assembling. <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->May 
+ be used in conditional assembly.</p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.ERROR &quot;&lt;string&gt;&quot; </tt></p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.IFDEF TOBEDONE<br>
+.ERROR &quot;Still stuff to be done..&quot;<br>
+.ENDIF</tt></p>
+
+<h3><a name="Warning directive"></a>WARNING - Outputs a warning message 
+ string</h3>
+
+<p>The .WARNING directive outputs a warning string, but unlike the .ERROR 
+ directive does not halt assembling. <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->May 
+ be used in conditional assembly.</p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.WARNING&quot;&lt;string&gt;&quot; </tt></p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.IFDEF EXPERIMENTAL_FEATURE<br>
+.WARNING &quot;This is not properly tested, use at own risk.&quot;<br>
+.ENDIF</tt></p>
+
+<p>&nbsp;</p>
+
+<h3><a NAME="ESEG - EEPROM Segment"></a>ESEG - EEPROM Segment</h3>
+
+<p>The ESEG directive defines the start of an EEPROM segment. An assembler 
+ source file can consist of several EEPROM segments, which are concatenated 
+ into a single EEPROM segment when assembled. An EEPROM segment will normally 
+ only consist of DB and DW directives (and labels). The EEPROM segments 
+ have their own location counter which is a byte counter. The ORG directive 
+ can be used to place the variables at specific locations in the EEPROM. 
+ The directive does not take any parameters. </p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.ESEG&nbsp;&nbsp;&nbsp;</tt> </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.DSEG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Start data segment</tt> <tt><br>
+var1:&nbsp;&nbsp; .BYTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; reserve 1 byte to var1</tt> <tt><br>
+table:&nbsp; .BYTE tab_size&nbsp;&nbsp; ; reserve tab_size bytes.</tt> 
+ </p>
+
+<p><tt style="font-family: monospace;">.ESEG</tt> <tt><br>
+eevar1: .DW 0xffff&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; initialize 
+ 1 word in EEPRO</tt>M </p>
+
+<h3><a NAME="EXIT - Exit this file"></a>EXIT - Exit this file</h3>
+
+<p>The EXIT directive tells the Assembler to stop assembling the file. 
+ Normally, the Assembler runs until end of file (EOF). If an EXIT directive 
+ appears in an included file, the Assembler continues from the line following 
+ the INCLUDE directive in the file containing the INCLUDE directive. </p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <br>
+.EXIT </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.EXIT&nbsp; ; Exit this file</tt> </p>
+
+<h3><a NAME="INCLUDE - Include another file"></a>INCLUDE - Include another 
+ file</h3>
+
+<p>The INCLUDE directive tells the Assembler to start reading from a specified 
+ file. The Assembler then assembles the specified file until end of file 
+ (EOF) or an EXIT directive is encountered. An included file may itself 
+ contain INCLUDE directives. </p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.INCLUDE &quot;filename&quot;</tt> </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+; iodefs.asm:</tt> <tt><br>
+.EQU sreg&nbsp;&nbsp; = 0x3f&nbsp;&nbsp;&nbsp;&nbsp; ; Status register</tt> 
+ <tt><br>
+.EQU sphigh = 0x3e&nbsp;&nbsp;&nbsp;&nbsp; ; Stack pointer high</tt> <tt><br>
+.EQU splow&nbsp; = 0x3d&nbsp;&nbsp;&nbsp;&nbsp; ; Stack pointer low</tt> 
+ </p>
+
+<p><tt style="font-family: monospace;">; incdemo.asm</tt> <tt><br>
+.INCLUDE iodefs.asm&nbsp;&nbsp;&nbsp; ; Include I/O definitions</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; in r0,sreg&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Read status register</tt> </p>
+
+<h3>&nbsp;</h3>
+
+<h3><a name=IFDEF><a NAME="SET - Set a symbol equal to an expression11"></a>IF,IFDEF,IFNDEF 
+ - <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->conditional 
+ assembly</a></h3>
+
+<p>Conditional assembly includes a set of commands at assembly time. The 
+ IFDEF directive will include code till the corresponding ELSE directive 
+ if &lt;symbol&gt; is defined. <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->The 
+ symbol must be defined with the EQU or SET directive. (Will not work with 
+ the DEF directive) <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->The 
+ IF directive will include code if &lt;expression&gt; is evaluated different 
+ from 0. Valid till the corresponding ELSE or ENDIF directive.</p>
+
+<p>Up to 5 levels of nesting is possible.</p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <b style="font-weight: normal;"><br>
+.IFDEF</b> &lt;symbol&gt;<br>
+.IFNDEF &lt;symbol&gt;<br>
+.IF &lt;expression&gt;</p>
+
+<p><span style="font-family: monospace;">.</span>IFDEF &lt;symbol&gt; |.IFNDEF 
+ &lt;symbol&gt;<br>
+...<br>
+.ELSE | .ELIF&lt;expression&gt;<br>
+...<br>
+.ENDIF<br>&nbsp;</p>
+
+<p style="margin-left: 0px;"><b style="font-weight: bold;">Example:</b> 
+ <br>
+.MACRO SET_BAT<span style="margin-left: 40px;"><br>
+.IF @0&gt;0x3F<br>
+.MESSAGE &quot;Address larger than 0x3f&quot;<br>
+lds @2, @0<br>
+sbr @2, (1&lt;&lt;@1)<br>
+sts @0, @2<br>
+.ELSE<br>
+.MESSAGE &quot;Address less or equal 0x3f&quot;<br>
+.ENDIF<br>
+.ENDMACRO</span></p>
+
+<p>&nbsp;</p>
+
+<h3><a NAME="LIST - Turn the listfile generation on"></a>LIST - Turn the 
+ listfile generation on</h3>
+
+<p>The LIST directive tells the Assembler to turn listfile generation on. 
+ The Assembler generates a listfile which is a combination of assembly 
+ source code, addresses and opcodes. Listfile generation is turned on by 
+ default. The directive can also be used together with the NOLIST directive 
+ in order to only generate listfile of selected parts of an assembly source 
+ file. </p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <br>
+.LIST </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.NOLIST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Disable listfile generation</tt> <tt><br>
+.INCLUDE &quot;macro.inc&quot;&nbsp;&nbsp; ; The included files will not</tt> 
+ <tt><br>
+.INCLUDE &quot;const.def&quot;&nbsp;&nbsp; ; be shown in the listfile</tt> 
+ <tt><br>
+.LIST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Reenable listfile generation</tt> </p>
+
+<h3><a NAME="LISTMAC - Turn macro expansion on"></a>LISTMAC - Turn macro 
+ expansion on</h3>
+
+<p>The LISTMAC directive tells the Assembler that when a macro is called, 
+ the expansion of the macro is to be shown on the listfile generated by 
+ the Assembler. The default is that only the macro-call with parameters 
+ is shown in the listfile. </p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.LISTMAC</tt> </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.MACRO MACX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; Define an 
+ example macro</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add&nbsp; r0,@0&nbsp; ; Do something</tt> 
+ <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eor&nbsp; r1,@1&nbsp; ; Do something</tt> 
+ <tt><br>
+.ENDMACRO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 
+ End macro definition</tt> </p>
+
+<p><tt style="font-family: monospace;">.LISTMAC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Enable macro expansion</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MACX r2,r1&nbsp; ; Call macro, 
+ show expansion</tt> </p>
+
+<h3><a NAME="MACRO - Begin macro"></a>MACRO - Begin macro</h3>
+
+<p>The MACRO directive tells the Assembler that this is the start of a 
+ Macro. The MACRO directive takes the Macro name as parameter. When the 
+ name of the Macro is written later in the program, the Macro definition 
+ is expanded at the place it was used. A Macro can take up to 10 parameters. 
+ These parameters are referred to as @0-@9 within the Macro definition. 
+ When issuing a Macro call, the parameters are given as a comma separated 
+ list. The Macro definition is terminated by an ENDMACRO directive. </p>
+
+<p>By default, only the call to the Macro is shown on the listfile generated 
+ by the Assembler. In order to include the macro expansion in the listfile, 
+ a LISTMAC directive must be used. A macro is marked with a + in the opcode 
+ field of the listfile. <br>
+&nbsp; <b><br>
+Syntax:</b> <tt><br>
+.MACRO macroname</tt> </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.MACRO SUBI16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Start macro definition</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; subi @1,low(@0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Subtract low byte</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sbci @2,high(@0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Subtract high byte</tt> <tt><br>
+.ENDMACRO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; End macro definition</tt> </p>
+
+<p><tt style="font-family: monospace;">.CSEG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Start code segment</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SUBI16 0x1234,r16,r17&nbsp;&nbsp; 
+ ; Sub.0x1234 from r17:r16</tt> </p>
+
+<h3><a name=MESSAGE1></a>MESSAGE - Output a message string</h3>
+
+<p>The MESSAGE directive outputs a string. <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->Useful 
+ in conditional assembly.</p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.MESSAGE &quot;&lt;string&gt;&quot; </tt></p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.IFDEF DEBUG<br>
+.MESSAGE &quot;Debug mode&quot;<br>
+.ENDIF</tt></p>
+
+<h3><a NAME="NOLIST - Turn listfile generation off"></a>NOLIST - Turn listfile 
+ generation off</h3>
+
+<p>The NOLIST directive tells the Assembler to turn listfile generation 
+ off. The Assembler normally generates a listfile which is a combination 
+ of assembly source code, addresses and opcodes. Listfile generation is 
+ turned on by default, but can be disabled by using this directive. The 
+ directive can also be used together with the LIST directive in order to 
+ only generate listfile of selected parts of an assembly source file. </p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.NOLIST</tt> </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.NOLIST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Disable listfile generation</tt> <tt><br>
+.INCLUDE &quot;macro.inc&quot;&nbsp;&nbsp;&nbsp; ; The included files will 
+ not</tt> <tt><br>
+.INCLUDE &quot;const.def&quot;&nbsp;&nbsp;&nbsp; ; be shown in the listfile</tt> 
+ <tt><br>
+.LIST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Reenable listfile generation</tt> </p>
+
+<h3><a NAME="ORG - Set program origin"></a>ORG - Set program origin</h3>
+
+<p>The ORG directive sets the location counter to an absolute value. The 
+ value to set is given as a parameter. If an ORG directive is given within 
+ a Data Segment, then it is the SRAM location counter which is set, if 
+ the directive is given within a Code Segment, then it is the Program memory 
+ counter which is set and if the directive is given within an EEPROM Segment, 
+ it is the EEPROM location counter which is set. </p>
+
+<p>The default values of the Code and the EEPROM location counters are 
+ zero, and the default value of the SRAM location counter is the address 
+ immediately following the end of I/O address space (0x60 for devices without 
+ extended I/O, 0x100 or more for devices with extended I/O) when the assembling 
+ is started. Note that the SRAM and EEPROM location counters count bytes 
+ whereas the Program memory location counter counts words. <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->Also 
+ note that some devices lack SRAM and/or EEPROM.</p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.ORG expression</tt> </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.DSEG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Start data segment</tt> </p>
+
+<p><tt style="font-family: monospace;">.ORG 0x120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; 
+ Set SRAM address to hex 120</tt><tt><br>
+variable: .BYTE 1&nbsp;&nbsp;&nbsp; ; Reserve a byte at SRAM adr. 0x120</tt> 
+ </p>
+
+<p><tt style="font-family: monospace;">.CSEG</tt> <tt><br>
+.ORG 0x10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Set Program Counter to hex 10</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mov r0,r1&nbsp; 
+ ; Do something</tt> </p>
+
+<h3><a NAME="SET - Set a symbol equal to an expression"></a>SET - Set a 
+ symbol equal to an expression</h3>
+
+<p>The SET directive assigns a value to a label. This label can then be 
+ used in later expressions. A label assigned to a value by the SET directive 
+ can be changed later in the program. </p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.SET label = expression</tt> </p>
+
+<p><b style="font-weight: bold;">Example:</b> <tt><br>
+.SET io_offset = 0x23</tt> <tt><br>
+.SET porta&nbsp;&nbsp;&nbsp;&nbsp; = io_offset + 2</tt> </p>
+
+<p><tt style="font-family: monospace;">.CSEG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Start code segment</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; clr r2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Clear register 2</tt> <tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out porta,r2&nbsp; ; Write to 
+ Port A</tt> </p>
+
+<h3><a name="OVERLAP/NOOVERLAP"></a>OVERLAP/NOOVERLAP - Set up overlapping 
+ section</h3>
+
+<p style="font-style: italic;"><span style="font-style: normal;">Introduced 
+ in AVRASM 2.1. </span>These directives are for projects with special needs 
+ and should normally not be used.</p>
+
+<p>These directives only affect the currently active segment (<a href="directives.html#cseg - Code segment">cseg</a>/<a href="directives.html#dseg - Data Segment">dseg</a>/<a href="directives.html#eseg - EEPROM Segment">eseg</a>).</p>
+
+<p>The .overlap/nooverlap directives mark a section that <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->will 
+ be allowed to overlap code/data with code/data defined elsewhere, without 
+ any error or warning messages being generated. This is totally independent 
+ of what is set using the <a href="avr_assembler_2_preprocessor.htm#pragma1">#pragma 
+ overlap</a> directives. The overlap-allowed attribute will stay in effect 
+ across .org directives, but will not follow across .cseg/.eseg/.dseg directives 
+ (each segment marked separately). </p>
+
+<p><b style="font-weight: bold;">Syntax:</b> <tt><br>
+.OVERLAP<br>
+.NOOVERLAP</tt></p>
+
+<p style="font-weight: bold;">Example:<span style="font-family: monospace; font-weight: normal;"><br>
+.overlap <br>
+.org 0 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ section #1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rjmp&nbsp;&nbsp;&nbsp; default<br>
+.nooverlap<br>
+<br>
+.org 0 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ section #2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rjmp&nbsp;&nbsp;&nbsp; RESET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; No error given here<br>
+.org 0 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ section #3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rjmp&nbsp;&nbsp;&nbsp; RESET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ ; Error here because overlap with #2</span></p>
+
+<p>The typical use of this is to set up some form of default code or data 
+ that may or may not later be modified by overlapping code or data, without 
+ having to disable assembler overlap detection altogether.</p>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>

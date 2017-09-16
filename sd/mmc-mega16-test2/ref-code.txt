@@ -1,0 +1,203 @@
+Code:
+
+/*##############################################
+#                    SPI.h                     #
+# This header file defines functions for using #
+# the SPI  interface. Created  and tested on a #
+# ATMega16.                                    #
+#                                              #
+# Created by  : Mark v/d W. (microchip)        #
+#               markvanderw@gmail.com          #
+# Last change : 18-09-2005                     #
+# Compiler    : WinAVR (AVR-gcc)               #
+# Dependancies: std.h                          #
+# Uses        : SPI interface                  #
+# Tested on   : ATMega16 @ 8MHz                #
+# v1.0                                         #
+##############################################*/
+#ifndef SPI_H
+#define SPI_H
+#include <avr/io.h>
+#include "std.h"
+
+#define SPIDI   _BV(6)                        // Port B bit 6 (pin7): data in (data from MMC)
+#define SPIDO   _BV(5)                        // Port B bit 5 (pin6): data out (data to MMC)
+#define SPICLK   _BV(7)                        // Port B bit 7 (pin8): clock
+
+byte spiByteOut(byte d);
+void initSPI (void);
+
+byte spiByteOut(byte d) {                       // send and then recieve byte over SPI
+   SPDR = d;                                       // Send passed byte
+   while(!(SPSR & (1<<SPIF)));                      // Wait until new byte is recieved...
+   return(SPDR);                                   // Return the recieved byte
+}
+
+void initSPI (void) {
+   DDRB &= ~SPIDI;                             // set port B SPI data input to input
+   DDRB |= SPICLK | SPIDO;                        // set SPI clock and data out ports to output.
+   SPCR = (1 << SPE) | (1 << MSTR) | (1 << SPR1) | (1 << SPR0);                // init SPI
+}
+#endif
+
+
+
+
+
+
+
+/*##############################################
+#                    mmc.h                     #
+# Here you've got a real SD or MMC Flash drive #
+# interface.                                   #
+#                                              #
+# Created by  : Mark v/d W. (microchip)        #
+#               markvanderw@gmail.com          #
+# Last change : 24-09-2005                     #
+# Compiler    : WinAVR (AVR-gcc)               #
+# Dependancies: spi.h                          #
+# Uses        : Hogs the SPI interface up. You #
+#               can't connect other devices to #
+#               the SPI when using this.       #
+# Tested on   : ATMega16 @ 8MHz                #
+# Todo        : Deselect the mmc at the end of #
+#               each command. Other devices on #
+#               the SPI also work then.        #
+# v0.9                                         #
+##############################################*/
+#ifndef MMC_DRIVER_H
+#define MMC_DRIVER_H
+#include "spi.h"
+
+#define SPICS   4                           // PB4. Chip select for the mmc
+
+/*##############################################
+#         Frequently used mmc commands         #
+# Here are some mmc commands for you to use as #
+# much  as you want.  Take a look  at the  mmc #
+# datasheet  if you want  more information  on #
+# the commands, or more commands.              #
+# www.sandisk.com/pdf/oem/manual-rs-mmcv1.0.pdf#
+##############################################*/
+#define MMC_GO_IDLE_STATE         0
+#define MMC_SEND_OP_COND         1
+#define MMC_SEND_CSD            9
+#define MMC_SEND_CID            10
+#define MMC_SEND_STATUS            13
+#define MMC_SET_BLOCKLEN         16
+#define MMC_READ_SINGLE_BLOCK      17
+#define MMC_WRITE_BLOCK            24
+#define MMC_PROGRAM_CSD            27
+#define MMC_SET_WRITE_PROT         28
+#define MMC_CLR_WRITE_PROT         29
+#define MMC_SEND_WRITE_PROT         30
+#define MMC_TAG_SECTOR_START      32
+#define MMC_TAG_SECTOR_END         33
+#define MMC_UNTAG_SECTOR         34
+#define MMC_TAG_ERASE_GROUP_START    35
+#define MMC_TAG_ERARE_GROUP_END      36
+#define MMC_UNTAG_ERASE_GROUP      37
+#define MMC_ERASE               38
+#define MMC_CRC_ON_OFF            59
+
+/*##############################################
+#                  mmcCommand                  #
+# Send a 48 bit long command to the mmc. First #
+# parameter (byte) is the  command, the second #
+# is the 32 bit long parameter.                #
+##############################################*/
+byte mmcCommand(byte cmd, unsigned long arg) {
+   spiByteOut(0xFF);                               // Send a leading 0xFF
+   spiByteOut(cmd | 0x40);                         // Send the 6 bit command plus start & transmittion flag
+   spiByteOut(arg>>24);                            // Send the last byte of the parameter
+   spiByteOut(arg>>16);                            // Send the 3rd byte of the parameter
+   spiByteOut(arg>>8);                             // Send the 2nd byte of the parameter
+   spiByteOut(arg);                                // Send the lowest byte of the parameter
+   spiByteOut(0x95);                               // Send the 7 bit CRC and end bit
+   spiByteOut(0xFF);
+   return spiByteOut(0xFF);
+}
+
+/*##############################################
+#                    initMMC                   #
+# Initialises the SPI & MMC. You should always #
+# call this function before attempting to call #
+# any other mmc function.                      #
+##############################################*/
+byte initMMC (void) {
+    DDRB |= (1 << SPICS);                     // set chip select bit as output
+   initSPI();                                      // Initialise SPI
+   PORTB |= (1 << SPICS);                     // chip select high, so mmc disabled
+   byte i;
+   for (i = 0; i < 10; i++) {                      // Wait for 80 SPI clockcycles
+       spiByteOut(0xFF);                        // for the SPI to initialise
+   }
+   PORTB &= ~(1 << SPICS);                     // chip select low, so mmc enabled
+   byte result = mmcCommand(MMC_GO_IDLE_STATE, 0); // make mmc go to SPI mode
+   if (result != 1) {                              // if the command returns an error value...
+       return result;                              // stop inialising and return the error value
+   }
+   while (mmcCommand(MMC_SEND_OP_COND, 0) != 0);   // Wait until the mmc is ready to move on.
+   return 0;                                       // return that all is well
+}
+
+/*##############################################
+#                  mmcReadBlock                #
+# Reads a 512 byte block from the mmc. The max #
+# capacity of the mmc is 32MB. If you need any #
+# more,  just change  the 'unsigned  int' into #
+# 'unsigned long' and you're ready to go.      #
+# The first parameter is the block number, the #
+# second is a pointer to a 512 byte array.     #
+##############################################*/
+byte mmcReadBlock (unsigned int adress, byte *databuffer) {
+                                       // Send the read command, and the start adress as param
+   byte result = mmcCommand(MMC_READ_SINGLE_BLOCK, (unsigned long)(adress<<9));
+   if (result != 0) {                              // If the command returns an error value...
+       return result;                              // stop reading and return the error
+   }                                               // If all is well though...
+   //usartCharOut('a');
+   while (spiByteOut(0xFF) != (byte)0xFE);         // Wait for the start transmittion flag
+   //usartCharOut('b');
+   unsigned int i;
+   for (i = 0; i != 512; i++) {                    // And loop 512 times to recieve all the data.
+      *databuffer = spiByteOut(0xFF);             // Set an element from the array to the recieved byte
+      databuffer++;                               // And increase the pointer
+   }
+   spiByteOut(0xFF);                               // Recieve and ignore the checksum bytes.
+   spiByteOut(0xFF);
+   return 0;                                       // Return all is well.
+}
+/*##############################################
+# PS: I know it sucks that you can't read each #
+# byte out individually. I've tried, trust me. #
+##############################################*/
+
+/*##############################################
+#                 mmcWriteBlock                #
+# Writes a 512 byte block to the mmc. The rest #
+# is the same as mmcReadBlock.                 #
+##############################################*/
+byte mmcWriteBlock (unsigned int adress, byte *databuffer) {
+                                       //Send the write command, and the start adress as param
+   byte result = mmcCommand(MMC_WRITE_BLOCK, (unsigned long)(adress<<9));
+   if (result != 0) {                              // If the command returns an error code...
+       return result;                              // return it
+   }                                               // If everythings OK
+   spiByteOut(0xFF);                               // Send a dummy checksum
+   spiByteOut(0xFF);
+   spiByteOut(0xFE);                               // Send the start transmittion flag
+   unsigned int i;
+   for (i = 0; i < 512; i++) {                     // Send all 512 bytes.
+       spiByteOut(databuffer[i]);                  // Send the byte
+   }
+   spiByteOut(0xFF);                               // Recieve dummy checksum
+   spiByteOut(0xFF);
+   result = spiByteOut(0xFF) & 0x1F;               // Read the data response token
+   if (result != 0x05) {                           // If something bad happened...
+       return result;                              // Return the error
+   }                                               // If all is well...
+   while (!spiByteOut(0xFF));                      // Wait until the mmc isn't busy anymore
+   return 0;                                       // And return succes!
+}
+#endif 

@@ -1,0 +1,26 @@
+外接SRAM注意点:
+1) 硬件连接与软件代码见xram.S
+例子代码见test_uart.c
+2) 硬件工作正常(at90s8515, 4MHz crystal, use UART for test)
+8MHz crystal 也正常.
+3) 测试时发现定义的4096Bytes的大数组,
+跨越了内部RAM和外部RAM, 即跨越了栈区,
+导致栈区数据异常.
+4) 解决方法:
+4.1 将__stack定义到外部ram尾部, 即栈指针为ram尾部
+但这样会使栈访问变慢. 对某些器件也不适用. 尚未测试.
+4.2 将大数组全部定义到外部ram(通过在程序中指定地址). 测试可以正常读写4K
+的大数组.
+4.3 修改连接/定位器的flag
+可直接修改Makefile定义:
+LDFLAGS=-Wl,-Tdata,0x800260,-Map,$(TRG).map -lm $(LIBS)
+即指定.data段的起始地址为0x0260(90s8515的外部ram起始地址)
+,还要加上avr-gcc的偏移量0x800000,在.map文件中可以看到.data起始地址为0x800260, 
+.bss段的起始地址为0x800264. 这样, .data和.bss都在外部SRAM中, 保证了数据不会
+与栈区相交. 同时, 保持起始栈顶指针为0x025f,即90s8515的内部SRAM尾端, 栈为整个
+内部SRAM大小(512Bytes).
+5) 该目录下的Makefile值得借鉴.
+6) 用avr-objdump得到与源代码对照的汇编代码(见Makefile), 
+看看程序如何运转.
+7) 观察.map文件或用avr-nm elf格式.out工具查看连接/定位情况.
+

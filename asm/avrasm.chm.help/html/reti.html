@@ -1,0 +1,320 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>RETI - Return from Interrupt</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=windows-1252">
+<meta HTTP-EQUIV Content-Type&quot;&quot; CONTENT text/html; charset="ISO-8859-1&quot;&quot;">
+<meta HTTP-EQUIV Content-Style-Type&quot;&quot; CONTENT text/css&quot;&quot;>
+<meta NAME GENERATOR&quot;&quot; CONTENT Adobe FrameMaker 5.5/HTML Export Filter&quot;&quot;>
+<meta name=date content="06 8, 2001 1:43:57 PM">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1265>
+<meta name=layout-width content=579>
+
+
+<!--(Links)=========================================================-->
+
+<link REL="StyleSheet" href="../main.css" TYPE="text/css" MEDIA="screen">
+
+
+
+<!--(Style Sheet)===================================================-->
+
+<style>
+<!--
+
+body {
+}
+
+-->
+</style>
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body #ffffff&quot;&quot;>
+
+<div>
+<h3 CLASS
+	heading-3&quot;&quot;>RETI - Return from Interrupt</h3>
+
+<div>
+<h3 CLASS
+	heading-3&quot;&quot;><img src="../images/eor-1.gif" style="border-style: none;
+										width: 469px;
+										height: 12px;" width="469" height="12" border="0"> </h3>
+</div>
+
+<div>
+<h6 CLASS
+	Section-Sub-2&quot;&quot;>Description: </h6>
+
+<p CLASS
+	Body-Text&quot;&quot;>Returns from interrupt. The return address is 
+ loaded from the <a href="io_reg.html#stack">STACK</a> and the global interrupt 
+ flag is set.</p>
+
+<p CLASS
+	Body-Text&quot;&quot;>Note that the status register is not automatically 
+ stored when entering an interrupt routine, and it is not restored when 
+ returning from an interrupt routine. This must be handled by the application 
+ program. The stack pointer uses a pre-increment scheme during RETI.</p>
+
+<p CLASS
+	Normal&quot;&quot;>&nbsp;</p>
+
+<p CLASS
+	Table-Hd-9pt-L&quot;&quot;
+	style="font-family: 'Courier New', monospace;">Operation:</p>
+
+<p CLASS
+	Tabbed-Body&quot;&quot;
+	style="font-family: 'Courier New', monospace;">(i)PC(15:0) &#8592; 
+ STACKDevices with 16 bits PC, 128K bytes program memory maximum.</p>
+
+<p CLASS
+	Tabbed-Body&quot;&quot;
+	style="font-family: 'Courier New', monospace;">(ii)PC(21:0) &#8592; 
+ STACKDevices with 22 bits PC, 8M bytes program memory maximum.</p>
+
+<p CLASS
+	Normal&quot;&quot;
+	style="font-family: 'Courier New', monospace;">&nbsp;</p>
+
+<p CLASS
+	Table-Hd-9pt-L4&quot;&quot;
+	style="font-family: 'Courier New', monospace;">Syntax: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Operands: 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Program 
+ Counter: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Stack</p>
+
+<p CLASS
+	Tabbed-Body-4&quot;&quot;
+	style="font-family: 'Courier New', monospace;">(i) RETI <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->None 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->See 
+ Operation <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->SP 
+ &#8592; SP + 2 (2 bytes, 16 bits)</p>
+
+<p CLASS
+	Tabbed-Body-4&quot;&quot;
+	style="font-family: 'Courier New', monospace;">(ii) RETI <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->None 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->See 
+ Operation <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->SP 
+ &#8592; SP + 3 (3 bytes, 22 bits)</p>
+
+<p CLASS
+	Normal&quot;&quot;>&nbsp;</p>
+
+<p CLASS
+	Table-Hd-9pt-L&quot;&quot;>16-bit Opcode:</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Code&quot;&quot;>1001</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Code&quot;&quot;>0101</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Code&quot;&quot;>0001</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Code&quot;&quot;>1000</td></tr>
+</table>
+
+<p CLASS
+	Normal&quot;&quot;>&nbsp;</p>
+</div>
+
+<div>
+<h6 CLASS
+	Section-Sub-2&quot;&quot;>Status Register (SREG) and Boolean Formula:</h6>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>I</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>T</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>H</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>S</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>V</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>N</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>Z</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>C</td></tr>
+
+<tr>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>1</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>-</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>-</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>-</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>-</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>-</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>-</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>-</td></tr>
+</table>
+
+<p CLASS
+	Normal&quot;&quot;>&nbsp;</p>
+
+<p CLASS
+	Tabbed-Body&quot;&quot;>I: 1</p>
+
+<p CLASS
+	Tabbed-Body&quot;&quot;>The I flag is set.</p>
+
+<p CLASS
+	Normal&quot;&quot;>&nbsp;</p>
+
+<p CLASS
+	Table-Hd-9pt-L&quot;&quot;
+	style="font-family: 'Courier New', monospace;">Example:</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="font-family: 'Courier New', monospace; margin-left: 80px;">...</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="font-family: 'Courier New', monospace;">extint: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->push 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->r0 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Save r0 on the stack</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="font-family: 'Courier New', monospace; margin-left: 80px;">...</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="font-family: 'Courier New', monospace; margin-left: 80px;">pop 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->r0 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Restore r0 </p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="font-family: 'Courier New', monospace; margin-left: 80px;">reti 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Return and enable interrupts</p>
+
+<p CLASS
+	Normal&quot;&quot;>&nbsp;</p>
+
+<p CLASS
+	Table-Hd-9pt-L&quot;&quot;>Words: <em CLASS
+											Default-No-Bold&quot;&quot;>1 
+ (2 bytes)</em> </p>
+
+<p CLASS
+	Table-Hd-9pt-L&quot;&quot;>Cycles:<em CLASS
+											Default-No-Bold&quot;&quot;> 
+ 4 devices with 16-bit PC</em> </p>
+
+<p CLASS
+	Table-Hd-9pt-L&quot;&quot;><em CLASS
+									Default-No-Bold&quot;&quot;
+									style="font-style: italic;">5 devices 
+ with 22-bit PC</em> </p>
+
+<p CLASS
+	Body&quot;&quot;>&nbsp;</p>
+</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+uIP-AVR v0.6 test on a ATmega88 and ENC28J60.
+
+1) Hardware
+I bought a SPI Ethernet Kit(based on enc28j60 ethernet chip) from IT-plaza, 
+Akihabara, Tokyo.(2300 Yen)
+
+The IT-plaza have a website for technical support:
+http://optimize.ath.cx/
+
+In the uip06-test.tar.gz, You can find spi_ether.htm(Japanese manual for soldering 
+and testing) and spi_ether.pdf(schematic for this board). You can also find
+these files in the mentioned website.
+
+If you can not read Japanese, since the schematic is offered, the circuit
+is easy to build by yourself.
+
+Once the SPI ethernet board is available, you can test uIP version 0.6
+by this two-way connection:
+
+ENC28J60 board <--> ATmega88(10MHz crystal, lfuse=0xef)
++3.3 <--> VTG(3.3V, from STK500)
+GND <--> GND
+SO <--> MISO
+SI <--> MOSI
+SCK <--> SCK
+CS <--> /SS(PB2)
+
+ENC28J60 board <--> PC
+RJ45 <--*CROSS* ETHERNET CABLE--> RJ45 of PC
+
+2)Firmware of mega88 
+
+2.1)In uipopt.h:
+IP address was set to:
+192.168.1.12
+Mask was set to:
+255.255.255.0
+
+2.2)enc28j60.h, enc28j60.h from Pascal Stang's avrlib.
+
+2.3)uIP v0.6:
+uip.c uip.h
+uipopt.h
+uip_arp.h uip_arch.c
+uip_arch.h uip_arch.c
+main.c
+compiler.h: capable of older avr-libc
+VERSION.h
+
+3) Setup IP address on Linux PC(Fedora Core 3)
+
+Setup a new ethernet connection,
+IP address was set to:
+192.168.1.11
+Mask was set to:
+255.255.255.0
+then activate this connection.
+
+4)test
+On your PC,
+$telnet 192.168.1.12 80

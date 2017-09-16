@@ -1,0 +1,145 @@
+/*=(===============================================================)*/
+
+/*=(===============================================================)*/
+/*=(Created with RoboEditor.)=======================================*/
+/*=(===============================================================)*/
+
+body {
+	font-family: Verdana, Arial, "times new roman", "MS Sans Serif", sans-serif;
+	font-size: 70%;
+	background-color: #ffffff;
+	background-repeat: repeat-x;
+	color: #000000;
+}
+
+a:link {
+	background: transparent;
+	color: #000099;
+}
+
+a:visited {
+	color: #996699;
+}
+
+a:active {
+	color: #999999;
+}
+
+H1,
+H2,
+H3,
+H4,
+H5,
+H6 {
+	color: DarkBlue;
+}
+
+/*=(Generated Code)=================================================*/
+/*=(WARNING: DO NOT EDIT OR DELETE THIS SECTION!)===================*/
+/*begin!kadov{{=====================================================*/ 
+LI.kadov-H1,
+LI.kadov-H2,
+LI.kadov-H3,
+LI.kadov-H4,
+LI.kadov-H5,
+LI.kadov-H6 {
+	color: DarkBlue;
+}
+/*}}end!kadov=======================================================*/ 
+
+
+
+H1 {
+	text-align: center;
+}
+
+/*=(Generated Code)=================================================*/
+/*=(WARNING: DO NOT EDIT OR DELETE THIS SECTION!)===================*/
+/*begin!kadov{{=====================================================*/ 
+LI.kadov-H1 {
+	text-align: center;
+}
+/*}}end!kadov=======================================================*/ 
+
+
+
+P.cr {
+	margin-top: 2 em;
+	color: #505050;
+	font-size: 80%;
+}
+
+/*=(Generated Code)=================================================*/
+/*=(WARNING: DO NOT EDIT OR DELETE THIS SECTION!)===================*/
+/*begin!kadov{{=====================================================*/ 
+LI.kadov-P-Ccr {
+	color: #505050;
+	font-size: 80%;
+}
+/*}}end!kadov=======================================================*/ 
+
+
+
+table {
+	font-size: 100%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	text-align: left;
+}
+
+th {
+	background: #95B0D0;
+	text-align: left;
+}
+
+td {
+	background: #C8D0E0;
+}
+
+td.warning {
+	background: #FF7777;
+}
+
+td.white {
+	background: #FFFFFF;
+}
+
+H6 {
+}
+
+/*=(Generated Code)=================================================*/
+/*=(WARNING: DO NOT EDIT OR DELETE THIS SECTION!)===================*/
+/*begin!kadov{{=====================================================*/ 
+LI.kadov-H6 {
+}
+/*}}end!kadov=======================================================*/ 
+
+
+
+P.Preformatted-code {
+	line-height: normal;
+	margin-bottom: 14pt;
+	margin-top: 14pt;
+	x-text-tab-stops: repeat 1in;
+	white-space: nowrap;
+	background: #DDDDDD;
+	font-size: 100%;
+	font-family: courier;
+}
+
+/*=(Generated Code)=================================================*/
+/*=(WARNING: DO NOT EDIT OR DELETE THIS SECTION!)===================*/
+/*begin!kadov{{=====================================================*/ 
+LI.kadov-P-CPreformatted-code {
+	line-height: normal;
+	x-text-tab-stops: repeat 1in;
+	white-space: nowrap;
+	font-size: 100%;
+	font-family: courier;
+}
+/*}}end!kadov=======================================================*/ 
+
+
+
+
+/*=(===============================================================)*/

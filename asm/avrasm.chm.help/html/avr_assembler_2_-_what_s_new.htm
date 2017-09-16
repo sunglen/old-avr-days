@@ -1,0 +1,357 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>AVR Assembler 2 - What's New</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=windows-1252">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=3452>
+<meta name=layout-width content=709>
+
+
+<!--(Links)=========================================================-->
+
+<link rel="StyleSheet" href="../main.css">
+
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body><script language="javascript"> 
+        if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) ) 
+        document.write("<center><a href='../index.html?page=Html/AVR_Assembler_2_-_What_s_New.htm'>show framing</a></center>")
+        </script>
+
+<h2>AVR Assembler 2 - What's New</h2>
+
+<p>AVRASM 2.1 is now released. Refer to the <a href="avr_assembler_2_-_what_s_new.htm#avrasm2_changes">changelog</a> 
+ below for a summary of changes from the previous release.</p>
+
+<p style="font-weight: bold;"><a href="avr_assembler_2_-_what_s_new.htm#changelog"><span 
+ style="font-weight: bold;">AVRASM2 Changelog</span></a></p>
+
+<p style="font-weight: bold;"><a href="avr_assembler_2_-_what_s_new.htm#avrasm2_changes" style="font-weight: bold;">Changes between 
+ Assembler 1 and Assembler 2</a><a href="avr_assembler_2_-_what_s_new.htm#c_style_preprocessor"><span 
+ style="margin-left: 48px; font-weight: normal;"><br>
+C-style Preprocessor</a><a href="avr_assembler_2_-_what_s_new.htm#tightened Syntax" style="font-weight: normal;"><br>
+Tightened Syntax</a><a href="avr_assembler_2_-_what_s_new.htm#new assembler directives" style="font-weight: normal;"><br>
+New assembler directives</a><a href="avr_assembler_2_-_what_s_new.htm#improved expression evaluation" style="font-weight: normal;"><br>
+Improved expression evaluation</a><a href="avr_assembler_2_-_what_s_new.htm#built_in_known_place_for_included_files" style="font-weight: normal;"><br>
+Built-in &quot;known place&quot; for included files</a><a href="avr_assembler_2_-_what_s_new.htm#motorola_hex_for_large_files" style="font-weight: normal;"><br>
+Motorola hex for large files</a><a href="avr_assembler_2_-_what_s_new.htm#macro_improvements" style="font-weight: normal;"><br>
+Macro improvements</a><a href="avr_assembler_2_-_what_s_new.htm#changelog" style="font-weight: normal;"><br>
+&nbsp;</a></span></p>
+
+<h3><a name=Changelog></a>AVRASM2 Changelog</h3>
+
+<p>This changelog identifies major changes made in each AVRASM2 release.</p>
+
+<h4><a name=Changes></a>Changes in 2.1.0 released with AVR Studio 4.12</h4>
+
+<ul style="list-style: disc;"
+	type=disc>
+	
+	<li class=kadov-p><p>Preprocessor: <a href="avr_assembler_2_preprocessor.htm#concatenation">Concatenation</a> 
+ (##) and <a href="avr_assembler_2_preprocessor.htm#stringification">stringification</a> 
+ (#) operators implemented.</p></li>
+	
+	<li class=kadov-p><p>Assembler: ANSI C style <a href="avr_assembler_2_syntax.htm#strings_and_character_constants">string 
+ concatenation</a>.</p></li>
+	
+	<li class=kadov-p><p>Assembler: Added <a href="expressions.html#conditional operator">conditional 
+ operator</a> ('?') in expressions (Same as in C, e.g., <span style="font-family: 'Courier New', monospace;">a 
+ &gt; b? a : b</span><span style="font-family: Verdana, sans-serif;">)</span></p></li>
+	
+	<li class=kadov-p><p style="font-family: Verdana, sans-serif;">Assembler: 
+ Produce extended object format when source files have more than 64k lines, 
+ to enable debugging of such files (see <a href="avr_assembler_2_command_line_options.htm#command_line_-f">-f 
+ command-line option</a>)</p></li>
+	
+	<li class=kadov-p><p style="font-family: Verdana, sans-serif;">The 
+ <a href="avr_assembler_2_preprocessor.htm#pragma1">#pragma overlap</a> 
+ directive has been enhanced to be better capable of differentiating handling 
+ in different sections of a source file.</p></li>
+	
+	<li class=kadov-p><p>Problems with preprocessor macros and C-style 
+ comments in assembler macro calls fixed</p></li>
+	
+	<li class=kadov-p><p>Problems with mixture of preprocessor (#if) and 
+ assembler (.if) conditionals fixed</p></li>
+	
+	<li class=kadov-p><p>Preprocessor macros now evaluated when assembler 
+ macro is defined, not when it is called.</p></li>
+	
+	<li class=kadov-p><p>Conditionals may now span macro begin or end directives.</p></li>
+</ul>
+
+<h4>Changes in 2.0.31 released with AVR Studio 4.11 SP3</h4>
+
+<ul style="list-style: disc;"
+	type=disc>
+	
+	<li class=kadov-p><p>Fixed: Mis-parsing of ',' and '\'' character constant 
+ in preprocessor, causing syntax errors.</p></li>
+	
+	<li class=kadov-p><p>Fixed: Cryptic &quot;internal error&quot; messages 
+ when attempting to do assembler conditionals on forward-referenced symbols 
+ (see <a href="avr_assembler_2_-_known_issues.htm#forward_references">known 
+ issue</a>).</p></li>
+	
+	<li class=kadov-p><p>Fixed: Assembler producing &quot;empty&quot; (containing 
+ header only) output files when the source file could not be opened.</p></li>
+</ul>
+
+<h4>Changes in 2.0.30 released with AVR Studio 4.11 SP2</h4>
+
+<ul style="list-style: disc;"
+	type=disc>
+	
+	<li class=kadov-p><p>Fixed: Off-by-one error caused relative branches 
+ (rjmp/rcall) to be reported out of range for exactly one target location 
+ in devices with 8kB flash.</p></li>
+</ul>
+
+<h4>Changes in 2.0.29 released with AVR Studio 4.11 SP1</h4>
+
+<ul style="list-style: disc;"
+	type=disc>
+	
+	<li class=kadov-p><p>Fixed error when attempting to include files by 
+ absolute pathname</p></li>
+	
+	<li class=kadov-p><p>Allow form-feeds in assembler source (treat as 
+ whitespace).</p></li>
+</ul>
+
+<h4>Changes in 2.00 RELEASE (2.0.28) released with AVR Studio 4.11</h4>
+
+<ul style="list-style: disc;"
+	type=disc>
+	
+	<li class=kadov-p><p><a href="xml_converter.htm">New include files</a>.</p></li>
+	
+	<li class=kadov-p><p>New <a href="avr_assembler_2_preprocessor.htm#pre-defined macros">Pre-defined 
+ macros</a></p></li>
+	
+	<li class=kadov-p><p><a href="avr_assembler_2_command_line_options.htm#fdformat">-FD/-FT</a> 
+ options control __DATE__/__TIME__ <a href="avr_assembler_2_preprocessor.htm#pre-defined macros">pre-defined 
+ macro</a> format.</p></li>
+	
+	<li class=kadov-p><p>A lot of bugs reported by beta testers are fixed 
+ for the final release. These include</p></li>
+	
+	<ul style="list-style: disc;"
+		type=disc>
+		
+		<li class=kadov-p><p>Improved error reporting. I.e., less &quot;Syntax 
+ error: Unexpected FOOBAR&quot; messages in common error situations.</p></li>
+		
+		<li class=kadov-p><p>Fixed binary number case sensitivity bug - 
+ i.e., 0b and 0B are now equivalent.</p></li>
+		
+		<li class=kadov-p><p>Fixed bug in macro argument propagation in 
+ nested macro calls. </p></li>
+		
+		<li class=kadov-p><p>Fixed incorrect #elif/.elif conditional evaluation. 
+ </p></li>
+		
+		<li class=kadov-p><p>Fixed some of bugs causing assembler to crash 
+ or hang when incorrect programs were assembled.</p></li>
+		
+		<li class=kadov-p><p>Fixed off-by-one error in reference to include 
+ statement line number.</p></li>
+		
+		<li class=kadov-p><p>Missing .warning assembler directive implemented.</p></li>
+		
+		<li class=kadov-p><p>Default byte operand range check is now sane.</p></li>
+		
+		<li class=kadov-p><p>Delete all output files (.hex,.obj,.lst,.map) 
+ on failure.</p></li>
+		
+		<li class=kadov-p
+			class=kadov-p>Warn about empty source files (no code or data), 
+ produce no output if source file is empty.</li>
+	</ul>
+</ul>
+
+<p>This following identifies the changes made in the latest AVRASM2 beta 
+ releases.</p>
+
+<h4>Changes in BETA5:</h4>
+
+<ul style="list-style: disc;"
+	type=disc>
+	
+	<li class=kadov-p><p>Preprocessor conditionals in assembler macros 
+ now work </p></li>
+	
+	<li class=kadov-p><p>Command-line options and pragmas for byte operand 
+ out of range warnings.</p></li>
+	
+	<li class=kadov-p><p>List files: Code inside false conditionals is 
+ not listed.</p></li>
+	
+	<li class=kadov-p><p>Bugfix: Incorrect filename in error message when 
+ error in nested include files.</p></li>
+	
+	<li class=kadov-p><p>Bugfix: Assembler directives like .dw didn't work 
+ in preprocessor</p></li>
+	
+	<li class=kadov-p><p>Bugfix: Use of preprocessor macros in assembler 
+ macros caused @x parameters to <br>
+	be incorrectly evaluated</p></li>
+</ul>
+
+<h4>Changes in BETA4:</h4>
+
+<ul style="list-style: disc;"
+	type=disc>
+	
+	<li class=kadov-p><p>Allow .set and .def directives in macros</p></li>
+	
+	<li class=kadov-p><p>.exit directive fixed</p></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h2><a name=AVRASM2_Changes>Changes between Assembler 1 and Assembler 2</a></h2>
+
+<h3><a name=C_style_Preprocessor></a>C-style <a href="avr_assembler_2_preprocessor.htm">preprocessor</a> 
+ </h3>
+
+<p>AVRASM2 features directives modeled after the C preprocessor; see <!--kadov_tag{{<spaces>}}-->&nbsp;<a href="avr_assembler_2_preprocessor.htm"><!--kadov_tag{{</spaces>}}-->AVR 
+ Assembler 2 Preprocessor</a>. Preprocessor symbols may be defined and 
+ undefined from the <a href="avr_assembler_2_command_line_options.htm#command_line__d_option">command 
+ line</a>.</p>
+
+<h3><a name="Tightened Syntax"></a>Tightened syntax</h3>
+
+<p>The <a href="avr_assembler_2_syntax.htm">assembler syntax</a> has been 
+ tightened up a bit, assembler keywords (instructions, registers, built-in 
+ functions) can no longer be used as user-defined symbols (labels, names 
+ in .def/.equ/.set directives). Even though this breaks some existing code, 
+ it should help avoiding some nasty bugs and generally cause programs to 
+ become more readable.</p>
+
+<h4>Unsupported instructions</h4>
+
+<p>The use of unsupported instructions will now generate an assembler error, 
+ not a warning. This behaviour may be changed in the Studio assembler settings 
+ window, and with the command-line option -W+iw.</p>
+
+<h3><a name="New assembler directives"></a>New assembler directives</h3>
+
+<h4><a href="directives.html#undef___undefine_register_symbol">.undef <span 
+ style="font-style: italic;">symbol</span> </a></h4>
+
+<p>Undefines a register definition created with the <a href="directives.html#def - Set a symbolic name on a register">.def</a> 
+ directive. Use this to avoid “already defined by the .DEF directive” warnings.</p>
+
+<h4><a href="directives.html#dd - Define Doubleword">.dd <span style="font-style: italic;">expression</span>[, 
+ <span style="font-style: italic;">expression</span> ...]</a><a href="directives.html#dq - Define Quadword"><br>
+.dq <span style="font-style: italic;">expression</span>[, <span style="font-style: italic;">expression</span> 
+ ...]</a></h4>
+
+<p>These directives are similar to the <a href="directives.html#dw - Define constant word(s) in program memory and EEPROM">.dw</a> 
+ directive, except they are used to define doublewords (32-bit) and quadwords 
+ (64-bit), respectively. The byte and word ordering is strictly little-endian.</p>
+
+<h4><a href="directives.html#warning directive">.warning &quot;&lt;message&gt;&quot;</a></h4>
+
+<p>Print a warning message.</p>
+
+<h3><a name="Improved expression evaluation"></a>Improved expression evaluation</h3>
+
+<p>Constant expressions can be integer or floating point, and follow the 
+ C rules for operator precedence and type propagation. Symbols and instruction 
+ operands are always integer, a suitable conversion function should be 
+ used to convert before assignment (eg, int(), q7() described below).</p>
+
+<p>Implicit float<symbol name="Nonbreaking Hyphen"><!--begin!kadov{{-->&#45<!--}}end!kadov-->&gt;int 
+ conversion cause a warning and the fractional part is discarded. Both 
+ integers and floating point numbers have 64-bit internal representation.</p>
+
+<p>AVRASM2 supports the same <a href="expressions.html#operators">operators</a> 
+ as AVRASM, and additionally % (modulo/remainder).</p>
+
+<p>In addition to the <a href="expressions.html#functions">functions</a> 
+ supported by AVRASM, the following new functions are supported by AVRASM2:</p>
+
+<h4>int()</h4>
+
+<p>Truncates a floating point expression to integer (ie discards fractional 
+ part)</p>
+
+<h4>frac()</h4>
+
+<p>Extracts fractional part of a floating point expression (ie discards 
+ integer part).</p>
+
+<h4>q7()</h4>
+
+<p>Converts a fractional floating point expression to a form suitable for 
+ the <a href="fmul.html">FMUL</a>/<a href="fmuls.html">FMULS</a>/<a href="fmulsu.html">FMULSU</a> 
+ instructions. (sign + 7-bit fraction)</p>
+
+<h4>q15()</h4>
+
+<p>Converts a fractional floating point to the form returned by the FMUL/FMULS/FMULSY 
+ instructions (sign + 15-bit fraction).</p>
+
+<h4>abs()</h4>
+
+<p>Returns the absolute value of a constant expression.</p>
+
+<h3><a name=Built_in_known_place_for_included_files></a>Built-in “known 
+ place” for included files</h3>
+
+<p>Unlike AVRASM1, when AVRASM2 is installed as part of an AVR Studio installation, 
+ it will know where the Appnotes (include) directory is, and doesn’t need 
+ to be told this via a command line option like</p>
+
+<p style="font-family: 'Courier New', monospace;">-I “C:\Program Files\Atmel\AVR 
+ Tools\AvrAssembler2\Appnotes”</p>
+
+<p>This is convenient when the assembler is invoked as a standalone program 
+ from the <a href="avr_assembler_2_command_line_options.htm">command line</a>.</p>
+
+<h3><a name=Motorola_hex_for_large_files></a>Motorola hex for large files</h3>
+
+<p>A <a href="known_issues.htm#motorola_hex_bug">long-standing bug in AVRASM</a> 
+ is fixed in AVRASM2: Motorola hex (S-record) output format is now implemented 
+ for addresses above the 64kB limit, using S2 data records when segment 
+ size exceeds 64 k bytes.</p>
+
+<h3><a name=Macro_improvements></a>Macro improvements</h3>
+
+<ul style="list-style: disc;"
+	type=disc>
+	
+	<li class=kadov-p><p>The number of parameters to an assembler macro 
+ is unlimited in AVRASM2 (max 10 in AVRASM)</p></li>
+	
+	<li class=kadov-p><p>Nested macro calls (i.e., one macro calling another) 
+ is allowed in AVRASM2 - overuse of this feature is <span style="font-weight: bold;">not</span> 
+ recommended, however.</p></li>
+</ul>
+
+</body>
+
+</html>

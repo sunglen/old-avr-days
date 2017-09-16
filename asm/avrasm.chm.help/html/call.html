@@ -1,0 +1,264 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>CALL - Long Call to a Subroutine</title>
+
+<!--(Meta)==========================================================-->
+
+<meta HTTP-EQUIV=Content-Type CONTENT="text/html; charset=windows-1252">
+<meta HTTP-EQUIV=Content-Style-Type CONTENT="text/css">
+<meta name=date content="06 8, 2001 9:46:00 AM">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1325>
+<meta name=layout-width content=579>
+
+
+<!--(Links)=========================================================-->
+
+<link REL="StyleSheet" href="../main.css" TYPE="text/css" MEDIA="screen">
+
+
+
+<!--(Style Sheet)===================================================-->
+
+<style>
+<!--
+
+body {
+}
+
+-->
+</style>
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body><script language="javascript"> 
+        if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) ) 
+        document.write("<center><a href='../index.html?page=Html/CALL.html'>show framing</a></center>")
+        </script>
+
+<div>
+<h2 CLASS=heading-3>CALL - Long Call to a Subroutine </h2>
+
+<div>
+<h2 CLASS=heading-3><img src="../images/call-1.gif" style="border-style: none;
+								width: 469px;
+								height: 12px;" width="469" height="12" border="0"> </h2>
+</div>
+
+<div>
+<h5 CLASS=Section-Sub-2>Description: </h5>
+
+<p CLASS=Body-Text>Calls to a subroutine within the entire program memory. 
+ The return address (to the instruction after the CALL) will be stored 
+ onto the stack. (See also <a href="rcall.html">RCALL</a>). The stack pointer 
+ uses a post-decrement scheme during CALL.</p>
+
+<p CLASS=Body-Text>This instruction is not available in all devices. Refer 
+ to the device specific instruction set summary.</p>
+
+<p CLASS=Body-Text>&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L
+	style="font-family: 'Courier New', monospace;">Operation:</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">PC &lt;- kDevices with 
+ 16 bits PC, 128K bytes program memory maximum.</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">PC &lt;- kDevices with 
+ 22 bits PC, 8M bytes program memory maximum.&nbsp;</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L
+	style="font-family: 'Courier New', monospace;">Syntax: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Operands: 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Program 
+ Counter <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Stack:</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">CALL k <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->0 
+ &#8804; k &lt; 64K <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->PC 
+ &lt;- k <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->STACK 
+ &lt;- PC+2</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;"><!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->SP 
+ &lt;- SP-2, (2 bytes, 16 bits)</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">CALL k <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->0 
+ &#8804; k &lt; 4M <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->PC 
+ &lt;- k <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->STACK 
+ &lt;- PC+2</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;"><!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->SP 
+ &lt;- SP-3 (3 bytes, 22 bits)</p>
+
+<p CLASS=Normal
+	style="font-family: 'Courier New', monospace;">&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L>32-bit Opcode:</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>1001</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>010k</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>kkkk</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>111k</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>kkkk</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>kkkk</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>kkkk</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>kkkk</td></tr>
+</table>
+
+<p CLASS=Normal>&nbsp;</p>
+</div>
+
+<div>
+<h5 CLASS=Section-Sub-2>Status Register (SREG) and Boolean Formula:</h5>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>I</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>T</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>H</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>S</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>V</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>N</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>Z</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>C</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td></tr>
+</table>
+
+<p CLASS=Table-Hd-9pt-L>Example:</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">mov r16,r0 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Copy r0 to r16</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">call check <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Call subroutine</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">nop <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Continue (do nothing)</p>
+
+<p CLASS=Code>...</p>
+
+<p CLASS=Code><span style="margin-left: 40px;">check: cpi r16, $42 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Check if r16 has a special value</span></p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">breq error <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Branch if equal </p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">ret <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Return from subroutine</p>
+
+<p CLASS=Code>...</p>
+
+<p CLASS=Code>error: rjmp error <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Infinite loop</p>
+
+<p CLASS=Table-Hd-9pt-L>Words: <em CLASS=Default-No-Bold>2 (4 bytes)</em> 
+ </p>
+
+<p CLASS=Table-Hd-9pt-L>Cycles:<em CLASS=Default-No-Bold> 4, devices with 
+ 16 bit PC</em> </p>
+
+<p CLASS=Table-Hd-9pt-L><em CLASS=Default-No-Bold
+							style="font-style: italic;"><!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->5, 
+ devices with 22 bit PC</em> </p>
+
+<p CLASS=Body>&nbsp;</p>
+</div>
+</div>
+
+</body>
+
+</html>

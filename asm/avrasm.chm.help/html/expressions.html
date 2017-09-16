@@ -1,0 +1,693 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>Atmel AVR Assembler - Expressions</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=windows-1252">
+<meta name=date content="06 1, 2001 2:26:48 PM">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=4513>
+<meta name=layout-width content=709>
+
+
+<!--(Links)=========================================================-->
+
+<link REL="StyleSheet" href="../main.css" TYPE="text/css" MEDIA="screen">
+
+
+
+<!--(Style Sheet)===================================================-->
+
+<style>
+<!--
+
+body {
+}
+
+-->
+</style>
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body nosave>
+
+<h2>Expressions</h2>
+
+The Assembler incorporates constant expressions. Expressions can consist 
+ of <a href="#operands">operands</a>, <a href="#operators">operators</a> 
+ and <a href="#functions">functions</a>. All expressions are internally 
+ 32 bits in AVRASM, and 64 bits in <a href="avr_assembler_2.htm">AVRASM2</a>. 
+ 
+
+<h3><a NAME=Operands></a>Operands</h3>
+
+The following operands can be used: 
+
+<ul>
+	
+	<li class=kadov-p
+		class=kadov-p>User defined labels which are given the value of 
+ the location counter at the place they appear.</li>
+	
+	<li class=kadov-p
+		class=kadov-p>User defined variables defined by the SET directive</li>
+	
+	<li class=kadov-p
+		class=kadov-p>User defined constants defined by the EQU directive</li>
+	
+	<li class=kadov-p
+		class=kadov-p>Integer constants: constants can be given in several 
+ formats, including</li>
+	
+	<ul>
+		
+		<li class=kadov-p
+			class=kadov-p>Decimal (default): 10, 255</li>
+		
+		<li class=kadov-p
+			class=kadov-p>Hexadecimal (two notations): 0x0a, $0a, 0xff, 
+ $ff</li>
+		
+		<li class=kadov-p
+			class=kadov-p>Binary: 0b00001010, 0b11111111</li>
+		
+		<li class=kadov-p
+			class=kadov-p>Octal (leading zero): 010, 077</li>
+	</ul>
+	
+	<li class=kadov-p
+		class=kadov-p>PC - the current value of the Program memory location 
+ counter</li>
+	
+	<li class=kadov-p
+		class=kadov-p>Floating point constants - <a href="avr_assembler_2.htm">AVRASM2</a> 
+ only.</li>
+</ul>
+
+<h3><a NAME=Operators></a>Operators</h3>
+
+The Assembler supports a number of operators which are described here. 
+ The higher the precedence, the higher the priority. Expressions may be 
+ enclosed in parentheses, and such expressions are always evaluated before 
+ combined with anything outside the parentheses. <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->The 
+ associativity of binary operators indicates the evaluation order of chained 
+ operators, left associativity meaning they are evaluated left to right, 
+ i.e., 2&nbsp;-&nbsp;3&nbsp;-&nbsp;4 is (2&nbsp;-&nbsp;3)&nbsp;-&nbsp;4, 
+ while right associativity would mean 2-3-4 is 2&nbsp;-&nbsp;(3&nbsp;-&nbsp;4). 
+ Some operators are not assoiciative, meaning chaining has no meaning. 
+ 
+
+<p>The following operators are defined: <br>
+&nbsp; </p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells
+		style="width: 49.263%;
+				x-border-left: 4px table-solid;
+				x-border-top: 4px table-solid;
+				x-border-right: 4px table-solid;
+				x-border-bottom: 4px table-solid;
+				border-collapse: separate;
+				x-border-left: 4px table-solid;
+				x-border-top: 4px table-solid;
+				x-border-right: 4px table-solid;
+				x-border-bottom: 4px table-solid;
+				border-collapse: separate;"
+		width=49.263%
+		border=4>
+<col>
+<col style="width: 209px;">
+
+<tr>
+<td><b style="font-weight: bold;">Symbol</b></td>
+<td style="width: 209px;"
+	width=209px><b style="font-weight: bold;">Description</b></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#logical Not">!</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#logical Not">Logical Not</a></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#bitwise Not">~</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#bitwise Not">Bitwise Not</a></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#unary Minus">-</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#unary Minus">Unary Minus</a></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#multiplication">*</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#multiplication">Multiplication</a></td></tr>
+
+<tr>
+<td>
+<p><tt style="font-family: monospace;"><a href="#division">/</a></tt></td>
+<td style="width: 209px;"
+	width=209px>
+<p><a href="#division">Division</a></td></tr>
+
+<tr>
+<td colspan=1
+	rowspan=1>
+<p><a href="expressions.html#modulo">%</a></td>
+<td colspan=1
+	rowspan=1
+	style="width: 209px;"
+	width=209px>
+<p><a href="expressions.html#modulo">Modulo</a> (<a href="avr_assembler_2.htm">AVRASM2</a> 
+ only)</td></tr>
+
+<tr>
+<td>
+<p><tt style="font-family: monospace;"><a href="#addition">+</a></tt></td>
+<td style="width: 209px;"
+	width=209px>
+<p><a href="#addition">Addition</a></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#subtraction">-</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#subtraction">Subtraction</a></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#shift left">&lt;&lt;</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#shift left">Shift left</a></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#shift right">&gt;&gt;</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#shift right">Shift right</a></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#less than">&lt;</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#less than">Less than</a></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#less or Equal">&lt;=</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#less or Equal">Less than or equal</a></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#greater than">&gt;</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#greater than">Greater than</a></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#greater or equal">&gt;=</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#greater or equal">Greater than or equal</a></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#equal">==</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#equal">Equal</a></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#not equal">!=</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#not equal">Not equal</a></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#bitwise And">&amp;</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#bitwise And">Bitwise And</a></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#bitwise Xor">^</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#bitwise Xor">Bitwise Xor</a></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#bitwise Or">|</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#bitwise Or">Bitwise Or</a></td></tr>
+
+<tr>
+<td><tt style="font-family: monospace;"><a href="#logical And">&amp;&amp;</a></tt></td>
+<td style="width: 209px;"
+	width=209px><a href="#logical And">Logical And</a></td></tr>
+
+<tr>
+<td>
+<p><tt style="font-family: monospace;"><a href="#logical Or">||</a></tt></td>
+<td style="width: 209px;"
+	width=209px>
+<p><a href="#logical Or">Logical Or</a></td></tr>
+
+<tr>
+<td colspan=1
+	rowspan=1>
+<p><a href="expressions.html#conditional operator">?</a></td>
+<td colspan=1
+	rowspan=1
+	style="width: 209px;"
+	width=209px>
+<p><a href="expressions.html#conditional operator">Conditional operator</a> 
+ (<a href="avr_assembler_2.htm">AVRASM2</a> only)</td></tr>
+</table>
+
+<h4><a NAME="Logical Not"></a>Logical Not</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ !</tt> <tt><br>
+Description:&nbsp;&nbsp; Unary operator which returns 1 if the expression 
+ was zero, and returns 0 if the expression was nonzero</tt> <tt><br>
+Precedence:&nbsp;&nbsp;&nbsp; 12</tt> 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ None<br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ldi r16,!0xf0&nbsp; ; Load 
+ r16 with 0x00</tt> 
+
+<h4><a NAME="Bitwise Not"></a>Bitwise Not</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->~</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Unary 
+ operator which returns the input expression with all bits inverted</tt> 
+ <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->12<br>
+Associativity: None<br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->ldi 
+ r16,~0xf0&nbsp; ; Load r16 with 0x0f</tt> 
+
+<h4><a NAME="Unary Minus"></a>Unary Minus</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->-</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Unary 
+ operator which returns the arithmetic negation of an expression</tt> <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->14</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ None<br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->ldi 
+ r16,-2&nbsp; ; Load -2(0xfe) in r16</tt> 
+
+<h4><a NAME=Multiplication></a>Multiplication</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->*</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns the product of two expressions</tt> <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->13</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ Left</tt> <tt><br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->ldi 
+ r30,label*2 ; Load r30 with label*2</tt> 
+
+<h4><a NAME=Division></a>Division</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->/</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns the integer quotient of the left expression divided 
+ by the right expression</tt> <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->13</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ Left <br>
+Example:&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->&nbsp;&nbsp; 
+ ldi r30,label/2 ; Load r30 with label/2</tt> 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}-->&nbsp; 
+ 
+
+<h4><a name=Modulo></a>Modulo (AVRASM2 Only)</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->&nbsp; 
+ %<br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns the integer remainder of the left expression divided 
+ by the right expression</tt> <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->13</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ Left <br>
+Example:&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->&nbsp;&nbsp; 
+ ldi r30,label%2 ; Load r30 with label%2</tt> 
+
+<h4><a NAME=Addition></a>Addition</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->+</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns the sum of two expressions</tt> <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->12</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ Left</tt> <!--kadov_tag{{<spaces>}}-->&nbsp;<tt><!--kadov_tag{{</spaces>}}--><br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->ldi 
+ r30,c1+c2&nbsp; ; Load r30 with c1+c2</tt> 
+
+<h4><a NAME=Subtraction></a>Subtraction</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->-</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns the left expression minus the right expression</tt> 
+ <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->12</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ Left</tt> <!--kadov_tag{{<spaces>}}-->&nbsp;<tt><!--kadov_tag{{</spaces>}}--><br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->ldi 
+ r17,c1-c2&nbsp; ;Load r17 with c1-c2</tt> 
+
+<h4><a NAME="Shift left"></a>Shift left</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->&lt;&lt;</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns the left expression shifted left the number given 
+ by the right expression</tt> <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->11</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ Left</tt> <!--kadov_tag{{<spaces>}}-->&nbsp;<tt><!--kadov_tag{{</spaces>}}--><br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->ldi 
+ r17,1&lt;&lt;bitmask&nbsp; ;Load r17 with 1 shifted left bitmask times</tt> 
+ 
+
+<h4><a NAME="Shift right"></a>Shift right</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->&gt;&gt;</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns the left expression shifted right the number given 
+ by the right expression</tt> <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->11</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ Left</tt> <!--kadov_tag{{<spaces>}}-->&nbsp;<tt><!--kadov_tag{{</spaces>}}--><br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->ldi 
+ r17,c1&gt;&gt;c2&nbsp; ;Load r17 with c1 shifted right c2 times</tt> 
+
+<h4><a NAME="Less than"></a>Less than</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->&lt;</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns 1 if the signed expression to the left is Less 
+ than the signed expression to the right, 0 otherwise</tt> <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->10</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ None</tt> <tt><br>
+Example:&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->&nbsp; 
+ ori r18,bitmask*(c1&lt;c2)+1&nbsp; ;Or r18 with an expression</tt> <br>
+&nbsp; 
+
+<h4><a NAME="Less or Equal"></a>Less or equal</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->&lt;=</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns 1 if the signed expression to the left is Less 
+ than or Equal to the signed expression to the right, 0 otherwise</tt> 
+ <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->10</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ None <br>
+Example:&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->&nbsp; 
+ ori r18,bitmask*(c1&lt;=c2)+1 ;Or r18 with an expression</tt> 
+
+<h4><a NAME="Greater than"></a>Greater than</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->&gt;</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns 1 if the signed expression to the left is Greater 
+ than the signed expression to the right, 0 otherwise</tt> <tt><br>
+Precedence: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->10</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ None <br>
+Example: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->&nbsp;&nbsp;&nbsp; 
+ ori r18,bitmask*(c1&gt;c2)+1&nbsp; ;Or r18 with an expression</tt> 
+
+<h4><a NAME="Greater or equal"></a>Greater or equal</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->&nbsp; 
+ &gt;=</tt> <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns 1 if the signed expression to the left is Greater 
+ than or Equal to the signed expression to the right, 0 otherwise</tt> 
+ <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->10</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ None</tt> <!--kadov_tag{{<spaces>}}-->&nbsp;<tt><!--kadov_tag{{</spaces>}}--><br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->ori 
+ r18,bitmask*(c1&gt;=c2)+1 ;Or r18 with an expression</tt> 
+
+<h4><a NAME=Equal></a>Equal</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->==</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns 1 if the signed expression to the left is Equal 
+ to the signed expression to the right, 0 otherwise</tt> <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->9</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ None</tt> <!--kadov_tag{{<spaces>}}-->&nbsp;<tt><!--kadov_tag{{</spaces>}}--><br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->andi 
+ r19,bitmask*(c1==c2)+1 ;And r19 with an expression</tt> 
+
+<h4><a NAME="Not equal"></a>Not equal</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->!=</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns 1 if the signed expression to the left is Not Equal 
+ to the signed expression to the right, 0 otherwise</tt> <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->9</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ None</tt> <!--kadov_tag{{<spaces>}}-->&nbsp;<tt><!--kadov_tag{{</spaces>}}--><br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->.SET 
+ flag=(c1!=c2)&nbsp; ;Set flag to 1 or 0</tt> 
+
+<h4><a NAME="Bitwise And"></a>Bitwise And</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->&amp;</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns the bitwise And between two expressions</tt> <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->8</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ Left</tt> <tt><br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->ldi 
+ r18,High(c1&amp;c2) ;Load r18 with an expression</tt> 
+
+<h4><a NAME="Bitwise Xor"></a>Bitwise Xor</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->^</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns the bitwise Exclusive Or between two expressions</tt> 
+ <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->7</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ Left <br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->ldi 
+ r18,Low(c1^c2) ;Load r18 with an expression</tt> 
+
+<h4><a NAME="Bitwise Or"></a>Bitwise Or</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->|</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns the bitwise Or between two expressions</tt> <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->6</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ Left <br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->ldi 
+ r18,Low(c1|c2) ;Load r18 with an expression</tt> 
+
+<h4><a NAME="Logical And"></a>Logical And</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->&amp;&amp;</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns 1 if the expressions are both nonzero, 0 otherwise</tt> 
+ <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->5</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ Left <br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->ldi 
+ r18,Low(c1&amp;&amp;c2)&nbsp; ;Load r18 with an expression</tt> 
+
+<h4><a NAME="Logical Or"></a>Logical Or</h4>
+
+<tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->||</tt> 
+ <tt><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Binary 
+ operator which returns 1 if one or both of the expressions are nonzero, 
+ 0 otherwise</tt> <tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->4</tt> 
+ 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}--><tt>Associativity: 
+ Left <br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->ldi 
+ r18,Low(c1||c2)&nbsp; ;Load r18 with an expression</tt> 
+
+<h4><a name="Conditional operator"></a>Conditional operator (AVRASM2 only)</h4>
+
+<p><tt style="font-family: monospace;">Symbol:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->? 
+ :<br>
+Syntax: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span 
+ style="font-style: italic;"><!--kadov_tag{{</spaces>}}-->condtion</span>? 
+ <span style="font-style: italic;">expression1</span> : <span style="font-style: italic;">expression2</span><br>
+Description: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Ternary 
+ operator which returns <span style="font-style: italic;">expression1</span> 
+ if <span style="font-style: italic;">condition</span> is true, <span style="font-style: italic;">expression2</span> 
+ otherwise.</tt><tt><br>
+Precedence:&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->3</tt> 
+ <tt><br>
+Associativity: None<br>
+Example:&nbsp;&nbsp;&nbsp;&nbsp; <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->ldi 
+ r18, a &gt; b? a : b <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Load r18 with the maximum numeric value of a and b.<br>
+Note: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->This 
+ feature was introduced in AVRASM 2.1 and is not available in 2.0 or earlier 
+ versions.</tt></p>
+
+<h3><a NAME=Functions></a>Functions</h3>
+
+The following functions are defined: 
+
+<ul>
+	
+	<li class=kadov-p
+		class=kadov-p>LOW(expression) returns the low byte of an expression</li>
+	
+	<li class=kadov-p
+		class=kadov-p>HIGH(expression) returns the second byte of an expression</li>
+	
+	<li class=kadov-p
+		class=kadov-p>BYTE2(expression) is the same function as HIGH</li>
+	
+	<li class=kadov-p
+		class=kadov-p>BYTE3(expression) returns the third byte of an expression</li>
+	
+	<li class=kadov-p
+		class=kadov-p>BYTE4(expression) returns the fourth byte of an expression</li>
+	
+	<li class=kadov-p
+		class=kadov-p>LWRD(expression) returns bits 0-15 of an expression</li>
+	
+	<li class=kadov-p
+		class=kadov-p>HWRD(expression) returns bits 16-31 of an expression</li>
+	
+	<li class=kadov-p
+		class=kadov-p>PAGE(expression) returns bits 16-21 of an expression</li>
+	
+	<li class=kadov-p
+		class=kadov-p>EXP2(expression) returns 2 to the power of expression</li>
+	
+	<li class=kadov-p
+		class=kadov-p>LOG2(expression) returns the integer part of log2(expression)</li>
+</ul>
+
+The following functions are only defined in <a href="avr_assembler_2.htm">AVRASM2</a>: 
+ 
+
+<ul style="list-style: disc;"
+	type=disc>
+	
+	<li class=kadov-p
+		class=kadov-p>INT(expression) Truncates a floating point expression 
+ to integer (ie discards fractional part)</li>
+	
+	<li class=kadov-p
+		class=kadov-p>FRAC(expression) Extracts fractional part of a floating 
+ point expression (ie discards integer part).</li>
+	
+	<li class=kadov-p
+		class=kadov-p>Q7(expression) Converts a fractional floating point 
+ expression to a form suitable for the <a href="fmul.html">FMUL</a>/<a href="fmuls.html">FMULS</a>/<a href="fmulsu.html">FMULSU</a> instructions. 
+ (sign + 7-bit fraction)</li>
+	
+	<li class=kadov-p
+		class=kadov-p>Q15(expression) Converts a fractional floating point 
+ expression to a form suitable for the <!--kadov_tag{{<spaces>}}-->&nbsp;<a href="fmul.html"><!--kadov_tag{{</spaces>}}-->FMUL</a>/<a href="fmuls.html">FMULS</a>/<a href="fmulsu.html">FMULSU</a> instructions. (sign +15-bit fraction)</li>
+	
+	<li class=kadov-p
+		class=kadov-p>ABS() Returns the absolute value of a constant expression.</li>
+</ul>
+
+&nbsp; 
+
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+<Project name="lcdclock"><File path="makefile"></File><File path="lcd.h"></File><File path="main.c"></File><File path="lcd.c"></File><File path="lcdbignum.h"></File><File path="lcdbignum.c"></File><File path="rtcasync.h"></File><File path="rtcasync.c"></File><File path="readme.txt"></File><File path="connect.txt"></File></Project>

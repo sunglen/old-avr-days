@@ -1,0 +1,5 @@
+如果mega48使用内部RC,uart不能工作.
+使用8MHz的crystal,经由FT232BM,与Linux通信正常.
+据 FAQ from avr-libc-1.4.0 manual,
+这是因为usart模块对时间要求严格.
+

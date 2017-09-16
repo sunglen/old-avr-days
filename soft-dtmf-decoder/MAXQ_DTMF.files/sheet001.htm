@@ -1,0 +1,221 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=GB2312">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 9">
+<link id=Main-File rel=Main-File href="../MAXQ_DTMF.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Edit-Time-Data href=editdata.mso>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+@page
+	{margin:1.0in .75in 1.0in .75in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;}
+ruby
+	{ruby-align:left;}
+rt
+	{color:windowtext;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-char-type:none;
+	display:none;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(0);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../MAXQ_DTMF.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]><!--[if gte mso 9]><xml>
+ <x:WorksheetOptions>
+  <x:Print>
+   <x:ValidPrinterInfo/>
+   <x:HorizontalResolution>600</x:HorizontalResolution>
+   <x:VerticalResolution>0</x:VerticalResolution>
+  </x:Print>
+  <x:Selected/>
+  <x:Panes>
+   <x:Pane>
+    <x:Number>3</x:Number>
+    <x:ActiveRow>1</x:ActiveRow>
+    <x:ActiveCol>7</x:ActiveCol>
+   </x:Pane>
+  </x:Panes>
+  <x:ProtectContents>False</x:ProtectContents>
+  <x:ProtectObjects>False</x:ProtectObjects>
+  <x:ProtectScenarios>False</x:ProtectScenarios>
+ </x:WorksheetOptions>
+</xml><![endif]-->
+</head>
+
+<body link=blue vlink=purple>
+
+<table x:str border=0 cellpadding=0 cellspacing=0 width=636 style='border-collapse:
+ collapse;table-layout:fixed;width:477pt'>
+ <col width=64 span=2 style='width:48pt'>
+ <col width=95 style='mso-width-source:userset;mso-width-alt:3474;width:71pt'>
+ <col width=64 style='width:48pt'>
+ <col width=89 style='mso-width-source:userset;mso-width-alt:3254;width:67pt'>
+ <col width=64 style='width:48pt'>
+ <col width=89 style='mso-width-source:userset;mso-width-alt:3254;width:67pt'>
+ <col width=107 style='mso-width-source:userset;mso-width-alt:3913;width:80pt'>
+ <tr class=xl37 height=34 style='height:25.5pt'>
+  <td height=34 class=xl37 width=64 style='height:25.5pt;width:48pt'></td>
+  <td class=xl36 width=64 style='width:48pt'>x</td>
+  <td class=xl36 width=95 style='width:71pt'>x(Hex)</td>
+  <td class=xl36 width=64 style='width:48pt'>b</td>
+  <td class=xl36 width=89 style='width:67pt'>b(Hex)</td>
+  <td class=xl36 width=64 style='width:48pt'>x*b</td>
+  <td class=xl36 width=89 style='width:67pt'>accumulated sum</td>
+  <td class=xl36 width=107 style='width:80pt'>accumulated sum(hex)</td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 style='height:12.75pt'></td>
+  <td class=xl35 x:num>1</td>
+  <td class=xl35 x:fmla="=DEC2HEX(B2)">1</td>
+  <td class=xl35 x:num>6</td>
+  <td class=xl35 x:fmla="=DEC2HEX(D2)">6</td>
+  <td class=xl35 x:num x:fmla="=B2*D2">6</td>
+  <td class=xl35 x:num x:fmla="=F2">6</td>
+  <td class=xl35 x:fmla="=DEC2HEX(G2)">6</td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 style='height:12.75pt'></td>
+  <td class=xl35 x:num x:fmla="=B2+1">2</td>
+  <td class=xl35 x:fmla="=DEC2HEX(B3)">2</td>
+  <td class=xl35 x:num x:fmla="=D2+1">7</td>
+  <td class=xl35 x:fmla="=DEC2HEX(D3)">7</td>
+  <td class=xl35 x:num x:fmla="=B3*D3">14</td>
+  <td class=xl35 x:num x:fmla="=G2+F3">20</td>
+  <td class=xl35 x:fmla="=DEC2HEX(G3)">14</td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 style='height:12.75pt'></td>
+  <td class=xl35 x:num x:fmla="=B3+1">3</td>
+  <td class=xl35 x:fmla="=DEC2HEX(B4)">3</td>
+  <td class=xl35 x:num x:fmla="=D3+1">8</td>
+  <td class=xl35 x:fmla="=DEC2HEX(D4)">8</td>
+  <td class=xl35 x:num x:fmla="=B4*D4">24</td>
+  <td class=xl35 x:num x:fmla="=G3+F4">44</td>
+  <td class=xl35 x:fmla="=DEC2HEX(G4)">2C</td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 style='height:12.75pt'></td>
+  <td class=xl35 x:num x:fmla="=B4+1">4</td>
+  <td class=xl35 x:fmla="=DEC2HEX(B5)">4</td>
+  <td class=xl35 x:num x:fmla="=D4+1">9</td>
+  <td class=xl35 x:fmla="=DEC2HEX(D5)">9</td>
+  <td class=xl35 x:num x:fmla="=B5*D5">36</td>
+  <td class=xl35 x:num x:fmla="=G4+F5">80</td>
+  <td class=xl35 x:fmla="=DEC2HEX(G5)">50</td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 style='height:12.75pt'></td>
+  <td class=xl35 x:num x:fmla="=B5+1">5</td>
+  <td class=xl35 x:fmla="=DEC2HEX(B6)">5</td>
+  <td class=xl35 x:num x:fmla="=D5+1">10</td>
+  <td class=xl35 x:fmla="=DEC2HEX(D6)">A</td>
+  <td class=xl35 x:num x:fmla="=B6*D6">50</td>
+  <td class=xl35 x:num x:fmla="=G5+F6">130</td>
+  <td class=xl35 x:fmla="=DEC2HEX(G6)">82</td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 style='height:12.75pt'></td>
+  <td colspan=7 class=xl35 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 style='height:12.75pt'></td>
+  <td colspan=7 class=xl35 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 style='height:12.75pt'></td>
+  <td class=xl35 x:num>-1</td>
+  <td class=xl35 x:fmla="=DEC2HEX(B9)">FFFFFFFFFF</td>
+  <td class=xl35 x:num>789</td>
+  <td class=xl35 x:fmla="=DEC2HEX(D9)">315</td>
+  <td class=xl35 x:num x:fmla="=B9*D9">-789</td>
+  <td class=xl35 x:num x:fmla="=F9">-789</td>
+  <td class=xl35 x:fmla="=DEC2HEX(G9)">FFFFFFFCEB</td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 style='height:12.75pt'></td>
+  <td class=xl35 x:num>23</td>
+  <td class=xl35 x:fmla="=DEC2HEX(B10)">17</td>
+  <td class=xl35 x:num>-79</td>
+  <td class=xl35 x:fmla="=DEC2HEX(D10)">FFFFFFFFB1</td>
+  <td class=xl35 x:num x:fmla="=B10*D10">-1817</td>
+  <td class=xl35 x:num x:fmla="=G9+F10">-2606</td>
+  <td class=xl35 x:fmla="=DEC2HEX(G10)">FFFFFFF5D2</td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 style='height:12.75pt'></td>
+  <td class=xl35 x:num>56</td>
+  <td class=xl35 x:fmla="=DEC2HEX(B11)">38</td>
+  <td class=xl35 x:num>45</td>
+  <td class=xl35 x:fmla="=DEC2HEX(D11)">2D</td>
+  <td class=xl35 x:num x:fmla="=B11*D11">2520</td>
+  <td class=xl35 x:num x:fmla="=G10+F11">-86</td>
+  <td class=xl35 x:fmla="=DEC2HEX(G11)">FFFFFFFFAA</td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 style='height:12.75pt'></td>
+  <td class=xl35 x:num>89</td>
+  <td class=xl35 x:fmla="=DEC2HEX(B12)">59</td>
+  <td class=xl35 x:num>343</td>
+  <td class=xl35 x:fmla="=DEC2HEX(D12)">157</td>
+  <td class=xl35 x:num x:fmla="=B12*D12">30527</td>
+  <td class=xl35 x:num x:fmla="=G11+F12">30441</td>
+  <td class=xl35 x:fmla="=DEC2HEX(G12)">76E9</td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 style='height:12.75pt'></td>
+  <td class=xl35 x:num>-3</td>
+  <td class=xl35 x:fmla="=DEC2HEX(B13)">FFFFFFFFFD</td>
+  <td class=xl35 x:num>-578</td>
+  <td class=xl35 x:fmla="=DEC2HEX(D13)">FFFFFFFDBE</td>
+  <td class=xl35 x:num x:fmla="=B13*D13">1734</td>
+  <td class=xl35 x:num x:fmla="=G12+F13">32175</td>
+  <td class=xl35 x:fmla="=DEC2HEX(G13)">7DAF</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=95 style='width:71pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=89 style='width:67pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=89 style='width:67pt'></td>
+  <td width=107 style='width:80pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

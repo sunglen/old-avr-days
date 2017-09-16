@@ -1,0 +1,39 @@
+# Created by Octave 2.1.57, Sun Jan 22 16:09:50 2006 JST <sunge@localhost.localdomain>
+# name: Xsw_ext_fa
+# type: matrix
+# rows: 1
+# columns: 4
+ 40 44 48 54
+# name: Xsw_ext_fb
+# type: matrix
+# rows: 4
+# columns: 1
+ 23
+ 25
+ 27
+ 31
+# name: f_sine_base
+# type: scalar
+244.140625
+# name: Nc
+# type: scalar
+128
+# name: f1
+# type: scalar
+31250
+# name: fa
+# type: matrix
+# rows: 1
+# columns: 4
+ 1209 1336 1477 1633
+# name: fb
+# type: matrix
+# rows: 4
+# columns: 1
+ 697
+ 770
+ 825
+ 941
+# name: fck
+# type: scalar
+8000000

@@ -1,0 +1,21 @@
+uCOS252 test env. and hardware connection:
+
+Tested on atmega64@16MHz(crystal),
+
+hardware connection:
+atmega64 <--> ft232bm board:
+RXD0(PE0) <--> TXD(pin25)
+TXD0(PE1) <--> RXD(pin24)
+megat64:
+VTG <-- STK500(5.0v)
+GND <-- STK500
+ft232bm:
+VTG <-- usb bus(5v)
+GND <-- usb
+
+port from mega128 to mega64:
+1)set efuse from 0xFD(default, mega103 compatible mode) to 0xFF.
+2)since F_CPU is 16M, in order to set uart baud rate 9600bps,
+UBRR0L should be set to 103.
+
+

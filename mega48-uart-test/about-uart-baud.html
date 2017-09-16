@@ -1,0 +1,2256 @@
+
+
+
+
+
+
+
+<br>
+  
+	
+		
+	
+	
+		
+	
+
+	
+	
+	   
+	
+	
+	  
+	<link REL='STYLESHEET' HREF='css/bbs.css' TYPE='text/css'><body bgcolor=#ffffff  background='images/starsky.gif' bgproperties='fixed' text='#000000' leftmargin='15' topmargin='0' marginwidth='15' marginheight='0'>
+ 
+
+
+
+   	
+	
+
+
+<table width='100%' height='20' border=0 cellspacing=1 cellpadding=0 height=40 bgcolor=#eeeeee>
+   <tr>
+      <td width='22%'>
+	     <span class='f01'>
+            <img src=pixel.GIF width='14' height='1'>你尚未登录
+		 </span>
+	  </td>	 	
+      <td width='78%' align='right'>
+           <img src=pixel.GIF width='7' height='1'><a href=http://www.ouravr.com/shop title='会员邮购服务部' class='tt11'>阿莫的邮购部</a>
+           <img src=pixel.GIF width='7' height='1'><a href=../index.html title='回到本站首页' class='tt4'>网站首页</a>           
+           <img src=pixel.GIF width='7' height='1'><a href='login_interface.jsp?mother_form=bbs_content.jsp&bbs_sn=340242&bbs_id=1000&bbs_page_no=2' title='登录本论坛' class='tt4'>登录</a>
+           <img src=pixel.GIF width='7' height='1'><a href='register_interface.jsp?mother_form=bbs_content.jsp&bbs_sn=340242&bbs_id=1000&bbs_page_no=2' title='注册新用户' class='tt4'>注册</a>
+           <img src=pixel.GIF width='7' height='1'><span class='f03'><font color=#444444>退出</font></span>
+           <img src=pixel.GIF width='7' height='1'><a href='bbs_help.jsp' target='_blank' title='论坛使用帮助' class='tt4'>帮助</a>
+		   <img src=pixel.GIF width='7' height='1'><span class='f03'><font color=#444444>搜索</font></span>
+           <img src=pixel.GIF width='7' height='1'><span class='f03'><font color=#444444>资料</font></span>
+		   <img src=pixel.GIF width='7' height='1'><a href='online_members_list.jsp' title='当前在线会员' target='_blank' class='tt4'>在线</a>
+		   <img src=pixel.GIF width='7' height='1'><span class='f03'><font color=#444444>排行</font></span>	
+		   <img src=pixel.GIF width='7' height='1'><span class='f03'><font color=#444444>统计</font></span>	
+		   <img src=pixel.GIF width='7' height='1'><span class='f03'><font color=#444444>通知</font></span>		
+		   <img src=pixel.GIF width='7' height='1'><a href='http://61.144.28.245/ouravr/free_ftp_index.html' title='使用FTP上传或下载' target='_blank' class='tt4'>自由FTP</a>			      		   		   		   		   		   		   
+     </td>
+  </tr>
+</table>
+ 
+	
+	
+<table width=100% border=0 height=60 cellspacing='0' cellpadding='6' bgcolor=#ffffff>
+  <tr>
+    <td align=left valign=top>
+      <span class=tt1>
+	   <a href=index.jsp class=tt4>OurAVR.com 论坛 </a> -> <a href=bbs_list.jsp?bbs_id=1000&sub_kind_id=2065&bbs_page_no=2 class=tt4>“我们的AVR”技术论坛</a> -> 斗胆下个关于UART波特率的结论,请拍砖
+	  </span>
+   </td>
+   
+   <td align=center valign=top>
+    <span class=tt1>跳转至：</span>
+	<select name="forumid" 	onchange="window.location=('bbs_list.jsp?bbs_id='+this.options[this.selectedIndex].value)">
+		<option selected value='1000'>“我们的AVR”技术论坛</option><option value='1041'>FastAVR/Bascom-AVR 讨论区</option><option value='1031'>mirrorok的“AVR的以太网应用板”</option><option value='1036'>小松的“AVR高压编程器范例”</option><option value='1003'>马潮老师专栏</option><option value='1033'>菜农hotpower的自留地</option><option value='0020'>招聘与自荐</option><option value='1025'>自由上传及资料交流</option><option value='1020'>悠闲休息区 (灌水坛)</option><option value='1005'>邮购部服务论坛</option><option value='1032'>atmel ARM 论坛 (OurARM.com)</option><option value='1024'>“Our Robot 1 号”机器人研发小组</option><option value='1037'>--(旧)Proteus仿真论坛</option><option value='1026'>--(旧)Protel/PCB 设计论坛</option><option value='1027'>--(旧)自制AVR芯片内核</option><option value='1040'>--(旧)C++ Builder 上位机软件设计论坛</option><option value='1029'>--(旧)USB应用活动</option><option value='1030'>--(旧)Delphi上位机软件设计论坛</option><option value='1004'>--(旧)智能充电器设计小组活动</option><option value='1006'>--(旧)MP3 制作活动</option><option value='1009'>--(旧)步进电机专题讨论</option><option value='1008'>--(旧)马老师AVR-51实验板使用论坛</option><option value='1007'>--(旧)开关电源项目</option><option value='1002'>--(旧)全国大学生电子设计大赛专用论坛</option>
+	</select>
+
+    </td>
+	
+    <td align=right valign=top>
+	   
+   </td>
+      
+ </tr>
+  </table> 	  
+	 	  	
+	   	
+  
+	
+  	
+	
+	
+
+<title>斗胆下个关于UART波特率的结论,请拍砖 ---“我们的AVR”技术论坛</title> 
+	
+	
+
+<table width='100%' border='0' height='30' cellspacing='0' cellpadding='6'>
+  <tr bgcolor=#5D7790>
+        <td width='81%' align='left'>
+		  <span class='f06'><font color='#ffffff'>贴子主题：斗胆下个关于UART波特率的结论,请拍砖</font></span>
+		</td>
+        <td width='19%' align='center'>
+		   <span class='f06'><font color='#FFFFFF'>回复数：</font><font color='#FFFFFF'>28</font>
+           (其中0条已删除)</font>
+		   </span>
+		</td>
+ </tr>
+</table> 
+
+    	  
+
+ 
+<table width='100%' border='0' height='30' cellspacing='0' cellpadding='0' bgcolor='#e8e8e8'>
+   <tr>
+      <td>
+         <img src='pixel.gif' width='20' height='2'>
+		 <span class='f06'><font color='#444444'>相关链接:</font>
+		 <font color='#444444'>本贴没有相关链接</span></font>
+	 </td>
+  </tr>
+</table>
+    	
+		
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' rowspan=2 style='border-top:solid #ffffff .5pt;border-left:solid #bbbbbb .5pt;border-bottom:solid #ffffff .5pt;border-right:solid #ffffff .5pt' valign=top>
+					【楼主位】 <font color=#000000>crazyeda  </font><br>
+					
+					积分：<font color=#000000>184</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:solid #ffffff .5pt;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>按照AVR的波特率发生器的结构(51也类似),可以得出波特率发生器的发生频率在+\-4%内漂动都可以保证10位UART(包括起始,终止位)的正确接收,这意味着什么???意味着UBRR值(或51的T1补值)在25以上时,波特率就可以向更低的速度"无级调节",换言之,单片机无论主频如何,都可以无条件适应低于"UBRR=25时所对应波特率"以下的所有波特率(不管是不是标准的波特率值),所以带来的结论是,你若希望UART能适应尽量大的波特率范围上限里"无级适应",那么这个上限就是UBRR=25的时候对应的波特率.提高主频是扩大此自由境界的路子之一<br><br>_________________________________________________________________________________________<br>PS:对于任何RC振荡产生主频的系统,使用异步通信都涉及到时基配合上位机的问题,而RC振荡电路天生的性能离散性,导致我们很大程度上要花费精力来将其(或其分频)校准使用.对于数字系统,校准频率最常见的方法就是调整分频比,缺点是在分频比比较小的情况下,步进分辨率不理想,本贴就是定性指出到底分频比要大到什么程度才能为我所灵活使用.<br>另一个调整RC振荡器的办法是直接调整RC参数,这个用数字电路实现起来比较难,我个人猜测比较简单的办法是采用电子开关距阵配合电阻构成可以数字方式设定阻值的数控电阻,这样对MCU设计来说比较好实现些(请看贴http://www.ouravr.com/bbs/bbs_content.jsp?bbs_sn=339563&bbs_page_no=1&sub_kind_id=1050&bbs_id=1000)<br>说到底异步通信必须要面对要时基同步的问题,而比如I2C,SPI等同步系统就不需要特定约定波特率时基.那么如果你不是使用专门的硬件UART口,你可以自己定义一个脉宽编码的通信方式,用宽脉代表0,用窄脉代表1,一个脉就是一个比特,这样就可以弱化时基对位同步的影响(说弱化而不说避免是因为测量脉宽也是要用时间基准的,但裕度可以放的很宽,不至于要在4%内)<br><br>-----<font color=blue>此内容被crazyeda于2005-01-12,12:20:03编辑过</font><br></font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#D1D9E2 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #ffffff .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #ffffff .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-01-12,09:59:01
+		        </td>
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=crazyeda'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>邮件</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' rowspan=2 style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt' valign=top>
+					【1楼】 <font color=#000000>PROTEL  </font><br>
+					
+					积分：<font color=#000000>89</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>可以从以几个方面测试AVR的片内RC振荡器：<br><br>AVR片内倒底有几个RC振荡器？从硬件上来看，以下器件需要时钟：系统主时钟、看门狗、波特率发生器。已确认用主时钟的就不提了。<br><br>系统时钟是可以校正的，这点毫无质疑。<br><br>波特率发生器：从不校正主时钟则波特率不正确来看，这两个时钟为同一源。<br>波特率发生器的发生频率可校正，应该仅仅是调节分频。<br><br>看门狗：手册上提到是独立振荡器，等会就去用示波器看看，修改主时钟会否改变看门狗溢出时间。这个问题，我是一直有怀疑的：不同源，则无法保证每个芯片的的喂狗位置相同。从理论上讲，有可能出现调好的程序，不校准主时钟会出现异常。相同则手册骗人。</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#e8e8e8 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-01-12,10:39:59
+		        </td>
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=PROTEL'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>邮件</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' rowspan=2 style='border-top:solid #ffffff .5pt;border-left:solid #bbbbbb .5pt;border-bottom:solid #ffffff .5pt;border-right:solid #ffffff .5pt' valign=top>
+					【2楼】 <font color=#000000>crazyeda  </font><br>
+					
+					积分：<font color=#000000>184</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:solid #ffffff .5pt;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>看门狗独立震荡我也觉得有点不妥当,不过喂狗时间还是可以比较宽余的,问题不大</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#D1D9E2 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #ffffff .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #ffffff .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-01-12,10:49:22
+		        </td>
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=crazyeda'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>邮件</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' rowspan=2 style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt' valign=top>
+					【3楼】 <font color=#000000>hotpower  菜农   </font><br>
+					<img src=./bbs_upload3478120090320/files_usericon/armok0191006.gif width=120 height=87><br>
+					积分：<font color=#000000>1658</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000>西安大雁塔村</font><br>
+				</td>	
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>"比如I2C,SPI等同步系统就不需要特定约定波特率时基"<br>因为他们至少有同步时钟及数据线.<br><br>异步UART通信的同步时钟及数据等只能在一个方向的传输线上了...<br><br>所以,异步UART通信受的条件约束自然会多些,这个要体谅些嘛...</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#e8e8e8 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  __________________________<br>●█〓██▄▄▄▄▄▄&nbsp;●●●●●●→&nbsp;'''',,;;<br>▄▅██████▅▄▃▂&nbsp;灌水入坛，传播非典！;&nbsp;<br>██████████████&nbsp;'''',,,;,.,,,;,;;<br>◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲◤&nbsp;'''',,,;,.,,,;,;;<br>','''',''',,,;,.',''',,',,,'.╭⌒╮⌒╮,,',,;;<br>⌒╮'╭⌒╮⌒╮.╭WWWW╮'''',,',,',,.,.,,.,.;;<br>╱◥██◣''；',(&nbsp;●_●),,,,东戳一下西顶一下;;<br>︱田︱田田|&nbsp;⌒╮''/▇\&nbsp;'','''',,,;,.,,,;,.,,;;<br>╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-01-12,19:39:26
+		        </td>
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=hotpower'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='mailto:HotPower@126.Com' class=tt4>邮件</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' rowspan=2 style='border-top:solid #ffffff .5pt;border-left:solid #bbbbbb .5pt;border-bottom:solid #ffffff .5pt;border-right:solid #ffffff .5pt' valign=top>
+					【4楼】 <font color=#000000>crazyeda  </font><br>
+					
+					积分：<font color=#000000>184</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:solid #ffffff .5pt;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>HOTPOWER,我都望眼欲穿了，快出招啊，给小弟们讲讲你的RC振荡器校准</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#D1D9E2 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #ffffff .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #ffffff .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-01-12,21:57:08
+		        </td>
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=crazyeda'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>邮件</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' rowspan=2 style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt' valign=top>
+					【5楼】 <font color=#000000>hotpower  菜农   </font><br>
+					<img src=./bbs_upload3478120090320/files_usericon/armok0191006.gif width=120 height=87><br>
+					积分：<font color=#000000>1658</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000>西安大雁塔村</font><br>
+				</td>	
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>不是我"卖关",因为我发现一个奇怪的问题,及5V用不成此算法,正在找原因...<br><br>我所要发表的"水文",必须先要过"水关"才行...<br><br>没把握的我绝不胡来...这就是一个技术工作者的"原则"...<br><br>误人子弟我绝对不做...虽然我这辈子也不想出名,也不想出书,但"江湖道义"我还是知道些...</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#e8e8e8 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  __________________________<br>●█〓██▄▄▄▄▄▄&nbsp;●●●●●●→&nbsp;'''',,;;<br>▄▅██████▅▄▃▂&nbsp;灌水入坛，传播非典！;&nbsp;<br>██████████████&nbsp;'''',,,;,.,,,;,;;<br>◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲◤&nbsp;'''',,,;,.,,,;,;;<br>','''',''',,,;,.',''',,',,,'.╭⌒╮⌒╮,,',,;;<br>⌒╮'╭⌒╮⌒╮.╭WWWW╮'''',,',,',,.,.,,.,.;;<br>╱◥██◣''；',(&nbsp;●_●),,,,东戳一下西顶一下;;<br>︱田︱田田|&nbsp;⌒╮''/▇\&nbsp;'','''',,,;,.,,,;,.,,;;<br>╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-01-12,22:04:07
+		        </td>
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=hotpower'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='mailto:HotPower@126.Com' class=tt4>邮件</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' rowspan=2 style='border-top:solid #ffffff .5pt;border-left:solid #bbbbbb .5pt;border-bottom:solid #ffffff .5pt;border-right:solid #ffffff .5pt' valign=top>
+					【6楼】 <font color=#000000>crazyeda  </font><br>
+					
+					积分：<font color=#000000>184</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:solid #ffffff .5pt;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>老师傅就是稳重，要是现在人都能这么认真就好了．<br><br>ＨＯＴＰＯＷＥＲ大叔，能否把你遇到的问题给小弟讲讲，也许．．．．．．我的笨脑瓜还能偶尔拐到一条阳关道上．人多力量大嘛</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#D1D9E2 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #ffffff .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #ffffff .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-01-13,11:08:01
+		        </td>
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=crazyeda'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>邮件</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' rowspan=2 style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt' valign=top>
+					【7楼】 <font color=#000000>ldxepthnn  小熊</font><br>
+					
+					积分：<font color=#000000>66</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000>广东省珠海</font><br>
+				</td>	
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>crazyeda&nbsp;你有什么办法好让UART稳定,但是可以不用外部晶振!<br>我在测试过程中,如果将校准位填上,然后串口波特率不高(9600)的情况下,串口出错的机会是相当小的!再考虑将电源稳定一下,我想不会有太大麻烦!<br><br>就是得烦请hotpower&nbsp;大侠说说RC自校准的原理了!</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#e8e8e8 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-02-28,14:22:38
+		        </td>
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=ldxepthnn'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='mailto:ldxepthnn@sina.com' class=tt4>邮件</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' rowspan=2 style='border-top:solid #ffffff .5pt;border-left:solid #bbbbbb .5pt;border-bottom:solid #ffffff .5pt;border-right:solid #ffffff .5pt' valign=top>
+					【8楼】 <font color=#000000>wogudan  </font><br>
+					
+					积分：<font color=#000000>88</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:solid #ffffff .5pt;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>RC自校准?我也想听听hotpower的高招</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#D1D9E2 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #ffffff .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #ffffff .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-02-28,18:54:35
+		        </td>
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=wogudan'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>邮件</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' rowspan=2 style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt' valign=top>
+					【9楼】 <font color=#000000>machao  </font><br>
+					
+					积分：<font color=#000000>1492</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>仅对1楼的以下两句加说明：<br><br>“波特率发生器：从不校正主时钟则波特率不正确来看，这两个时钟为同一源。”<br><br>对的。<br><br>&nbsp;“波特率发生器的发生频率可校正，应该仅仅是调节分频。”<br><br>不准确。调节分频（即USART的波特率分频寄存器的值），不是“校正”发生的频率，而是确定分频数，产生满足4800、9600等标准波特率。<br><br>&nbsp;&nbsp;而楼主的“波特率发生器的发生频率在+\-4%内漂动”的理解是不正确的。AVR的USART硬件在接受数据时，对一个数据位用16个采样点检测，对8、9、10点采用大数方式确定电平高低，这与51的相同（请仔细看AVR的器件手册）。但对停止位检测时，当8、9、10点确定为低电平后（停止位），后边的11-16点取消了，立即开始检测下一个起始位。因此，AVR在接收时，可以在确定的9600bps时，当两个通信机的波特率偏差+\-4%内，还能正确的接收数据。这个特点保证了采用RS232传送大批量数据时的可靠性，因为异步通信中两个通信机的频率不会完全相同的，这也是AVR芯片USART的优点之一（仅USART就有3-4个优点比51强）。<br>&nbsp;&nbsp;&nbsp;注意的是：这个自动的调整，不是调整波特率，而是通过提前检测起始位实现的。<br><br>&nbsp;&nbsp;&nbsp;当然，使用RS232通信，应尽量保证双方波特率的准确。要保证通信的高可靠，或采用高速通信，AVR应采用外部晶体，并且是专用频率的晶体。<br><br>&nbsp;&nbsp;&nbsp;一般4M晶体，AVR产生的9600bps为2%的误差。我的使用经验，采用9600，连续数据长度在48字节以内的话，发送和接收都正常的。<br><br>&nbsp;&nbsp;&nbsp;如果采用内部RC，我会尽量使用内部的1M，因为出厂效正过。同时波特率采用4800或更低一些。这样会省掉很多的麻烦。<br>&nbsp;&nbsp;&nbsp;<br><br><br>-----<font color=blue>此内容被machao于2005-03-01,02:06:48编辑过</font><br></font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#e8e8e8 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-03-01,01:58:51
+		        </td>
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=machao'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>邮件</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' rowspan=2 style='border-top:solid #ffffff .5pt;border-left:solid #bbbbbb .5pt;border-bottom:solid #ffffff .5pt;border-right:solid #ffffff .5pt' valign=top>
+					【10楼】 <font color=#000000>crazyeda  </font><br>
+					
+					积分：<font color=#000000>184</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:solid #ffffff .5pt;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>多谢马老师指教，不过还是不明白＂但对停止位检测时，当8、9、10点确定为低电平后（停止位），后边的11-16点取消了，立即开始检测下一个起始位。＂和我说的有矛盾吗，我的４％正是因此而得到的．</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#D1D9E2 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #ffffff .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #ffffff .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-03-01,11:59:45
+		        </td>
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=crazyeda'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>邮件</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' rowspan=2 style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt' valign=top>
+					【11楼】 <font color=#000000>machao  </font><br>
+					
+					积分：<font color=#000000>1492</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>&nbsp;&nbsp;你所指的“波特率发生器的发生频率在+\-4%内漂动”可能你非常清楚，但容易使人误解。<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;既：这4%的容差是由于：AVR的是波特率发生器的发生频率可以自动微调获得的？还是由于它通过硬件检测方式的改善获得的。<br><br>&nbsp;&nbsp;两个通信机的波特率偏差，以及温度变化引起频率漂动的问题，不管使用51还是AVR都是客观存在的。但AVR的硬件检测方式的改善，获得了4%（强调是在9600bps,10位条件下）的容差，使得通信特性更加可靠些，这正是AVR的优点之一。</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#e8e8e8 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-03-01,16:44:56
+		        </td>
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=machao'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>邮件</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' rowspan=2 style='border-top:solid #ffffff .5pt;border-left:solid #bbbbbb .5pt;border-bottom:solid #ffffff .5pt;border-right:solid #ffffff .5pt' valign=top>
+					【12楼】 <font color=#000000>bany  </font><br>
+					
+					积分：<font color=#000000>297</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:solid #ffffff .5pt;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>打扰一下，我通常都是用8M片内，9600，好象还没出过错。是我运气好，还是232标准之内？232标准是多少？</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#D1D9E2 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #ffffff .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #ffffff .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-03-01,23:39:51
+		        </td>
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=bany'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>邮件</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' rowspan=2 style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt' valign=top>
+					【13楼】 <font color=#000000>HJJourAVR  </font><br>
+					
+					积分：<font color=#000000>4799</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000>“我们的AVR”研发部</font><br>
+				</td>	
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>bany:<br>&nbsp;&nbsp;&nbsp;部分AVR&nbsp;MEGA芯片对1，2，4，8MHz都作了出厂校准，(5V&nbsp;25'c&nbsp;&nbsp;+/-1%)<br>&nbsp;&nbsp;&nbsp;0'c/50'c温度时就可能不行了。<br>&nbsp;&nbsp;&nbsp;</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#e8e8e8 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  __________________________<br>因为有些事情&nbsp;我知道你不知道，<br>也有一些事情&nbsp;你知道我不知道，<br>还有些事情&nbsp;他知道你我不知道，<br>所有这些事情&nbsp;说了大家才知道。
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-03-01,23:52:13
+		        </td>
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=HJJourAVR'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='mailto:HJJnow@126.com' class=tt4>邮件</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' rowspan=2 style='border-top:solid #ffffff .5pt;border-left:solid #bbbbbb .5pt;border-bottom:solid #ffffff .5pt;border-right:solid #ffffff .5pt' valign=top>
+					【14楼】 <font color=#000000>ltvxworks  </font><br>
+					
+					积分：<font color=#000000>17</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:solid #ffffff .5pt;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>马老师讲的精辟，这个4%我查了半天，终于在这里找到了。</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#D1D9E2 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #ffffff .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #ffffff .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-06-24,16:13:53
+		        </td>
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=ltvxworks'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>邮件</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' rowspan=2 style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt' valign=top>
+					【15楼】 <font color=#000000>tif2000  </font><br>
+					
+					积分：<font color=#000000>65</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>我是刚刚开始学习AVR,问一个低级问题<br>为什么不用11.0592M的外接晶振,在2400/4800/9600等处误差均为0。用外部晶振是不是有什么负作用</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#e8e8e8 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-09-10,16:46:06
+		        </td>
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=tif2000'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='mailto:tongyifan@126.com' class=tt4>邮件</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' rowspan=2 style='border-top:solid #ffffff .5pt;border-left:solid #bbbbbb .5pt;border-bottom:solid #ffffff .5pt;border-right:solid #ffffff .5pt' valign=top>
+					【16楼】 <font color=#000000>chuxue  </font><br>
+					
+					积分：<font color=#000000>99</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:solid #ffffff .5pt;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>学习中</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#D1D9E2 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #ffffff .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #ffffff .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-09-10,22:02:20
+		        </td>
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=chuxue'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>邮件</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' rowspan=2 style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt' valign=top>
+					【17楼】 <font color=#000000>zhoupix  </font><br>
+					
+					积分：<font color=#000000>32</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>使用内部RC振荡器,我曾经实现波特率的自校准.<br>思路是这样的:<br>首先接收一个0x7F的数据,它实际上是一个数据位的低电平和7个数据位宽的高电平的脉冲,用定时器测量这个高电平的宽度,单片机的振荡频率的偏差影响这个宽度的数值,然后根据宽度的数值去调整波特率的设置值.<br>-----<font color=blue>此内容被zhoupix于2005-09-27,10:20:11编辑过</font><br></font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#e8e8e8 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-09-27,10:17:05
+		        </td>
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=zhoupix'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>邮件</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' rowspan=2 style='border-top:solid #ffffff .5pt;border-left:solid #bbbbbb .5pt;border-bottom:solid #ffffff .5pt;border-right:solid #ffffff .5pt' valign=top>
+					【18楼】 <font color=#000000>HJJourAVR  </font><br>
+					
+					积分：<font color=#000000>4799</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000>“我们的AVR”研发部</font><br>
+				</td>	
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:solid #ffffff .5pt;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>需要主机(采用标准的通讯格式)配合----需要定时重同步。<br>好像PHILIPS的一款单片机的ISP就是采用这种自同步技术(忘了)。<br><br>觉得采用RC时钟做通讯的意义在哪里？<br>1&nbsp;如果单片机的引脚很少，没法接晶振---但那内部的FLASH也是很小的<br>2&nbsp;如果单片机的FLASH足够，那引脚一般也不少，可以接晶振<br><br>多用在功能简单，成本低，采用少引脚的单片机的场合</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#D1D9E2 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #ffffff .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  __________________________<br>因为有些事情&nbsp;我知道你不知道，<br>也有一些事情&nbsp;你知道我不知道，<br>还有些事情&nbsp;他知道你我不知道，<br>所有这些事情&nbsp;说了大家才知道。
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #ffffff .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-09-27,10:27:37
+		        </td>
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=HJJourAVR'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='mailto:HJJnow@126.com' class=tt4>邮件</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' rowspan=2 style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt' valign=top>
+					【19楼】 <font color=#000000>wft2  王海峰</font><br>
+					
+					积分：<font color=#000000>6</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>紧急求助:<br><br>本人用M162双串口芯片,串口0工作在波特率为115200.<br>发送时,用串口调试软件接受,就是不正确,如何解决?<br><br>MSN:WFT2@HOTMAIL.COM<br>QQ:11639882<br><br>我在上海,有空来喝酒</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#e8e8e8 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-09-28,17:05:04
+		        </td>
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=wft2'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='mailto:wft2@hotmail.com' class=tt4>邮件</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' rowspan=2 style='border-top:solid #ffffff .5pt;border-left:solid #bbbbbb .5pt;border-bottom:solid #ffffff .5pt;border-right:solid #ffffff .5pt' valign=top>
+					【20楼】 <font color=#000000>HJJourAVR  </font><br>
+					
+					积分：<font color=#000000>4799</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000>“我们的AVR”研发部</font><br>
+				</td>	
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:solid #ffffff .5pt;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>to&nbsp;wft2&nbsp;王海峰<br>&nbsp;&nbsp;请另帖提问。<br><br>&nbsp;&nbsp;&nbsp;PS:&nbsp;你的描叙不详细，说了跟没说差不多。</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#D1D9E2 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #ffffff .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  __________________________<br>因为有些事情&nbsp;我知道你不知道，<br>也有一些事情&nbsp;你知道我不知道，<br>还有些事情&nbsp;他知道你我不知道，<br>所有这些事情&nbsp;说了大家才知道。
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #ffffff .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-09-28,17:09:24
+		        </td>
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=HJJourAVR'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='mailto:HJJnow@126.com' class=tt4>邮件</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' rowspan=2 style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt' valign=top>
+					【21楼】 <font color=#000000>wft2  王海峰</font><br>
+					
+					积分：<font color=#000000>6</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>就是能发送,但接受却是乱码.<br>波特率不匹配,但设置都对啊.<br>搞不懂:(</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#e8e8e8 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-09-28,20:15:36
+		        </td>
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=wft2'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='mailto:wft2@hotmail.com' class=tt4>邮件</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' rowspan=2 style='border-top:solid #ffffff .5pt;border-left:solid #bbbbbb .5pt;border-bottom:solid #ffffff .5pt;border-right:solid #ffffff .5pt' valign=top>
+					【22楼】 <font color=#000000>crazyeda  </font><br>
+					
+					积分：<font color=#000000>184</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:solid #ffffff .5pt;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>philips那个自校准的程序，原先看过一篇HOTPOWER的分析，基本原理就是上位机发0x55（方波），下位机用计算出来的定时器装载值设定波特率并返回握手数据，如果沟通了，即为波特率已对上，我已经用这个方法很久例如，只不过把校准值写进EEPROM，以后直接调用。</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#D1D9E2 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #ffffff .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #ffffff .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-09-29,14:07:06
+		        </td>
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=crazyeda'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>邮件</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' rowspan=2 style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt' valign=top>
+					【23楼】 <font color=#000000>zhaofree2001  绿叶子</font><br>
+					<img src=./bbs_upload3478120090320/files_usericon/armok01105370.jpg width=112 height=138><br>
+					积分：<font color=#000000>584</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>我用M162双串口时曾出现乱码,&nbsp;串口0和串口1的波特率都是9600<br><br>后来改为外部晶振,&nbsp;乱码的问题就解决了</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#e8e8e8 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2005-09-29,23:21:52
+		        </td>
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=zhaofree2001'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='mailto:zhaofree2001@yahoo.com' class=tt4>邮件</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' rowspan=2 style='border-top:solid #ffffff .5pt;border-left:solid #bbbbbb .5pt;border-bottom:solid #ffffff .5pt;border-right:solid #ffffff .5pt' valign=top>
+					【24楼】 <font color=#000000>WWF7911  </font><br>
+					
+					积分：<font color=#000000>14</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:solid #ffffff .5pt;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>to&nbsp;wft2&nbsp;王海峰<br>&nbsp;M162与232接口时进行电平转换了吗<br><br></font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#D1D9E2 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #ffffff .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #ffffff .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2006-02-07,11:25:42
+		        </td>
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=WWF7911'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='mailto:wwf7811@sohu.com' class=tt4>邮件</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' rowspan=2 style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt' valign=top>
+					【25楼】 <font color=#000000>jdewbh  </font><br>
+					
+					积分：<font color=#000000>0</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>我的经验:一般情况下,读出内部RC校正值写入校正寄存器后,通讯的波特率出错的概率很小,<br>但是当温度变化到70度已上时,出错的概率非常大,以致不能正常通讯.而且ATMega的内部RC振荡器随温度增高频率一般是下降的,一致性也不太好,我曾尝试通过监测温度调城校正寄存器<br>有一点效果,前提是必须附加芯片自身温度监测电路.</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#e8e8e8 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2006-02-16,15:55:19
+		        </td>
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=jdewbh'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='mailto:wenggong@tom.com' class=tt4>邮件</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' rowspan=2 style='border-top:solid #ffffff .5pt;border-left:solid #bbbbbb .5pt;border-bottom:solid #ffffff .5pt;border-right:solid #ffffff .5pt' valign=top>
+					【26楼】 <font color=#000000>yc985055  </font><br>
+					
+					积分：<font color=#000000>42</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:solid #ffffff .5pt;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>请教各位大虾:我用Mega64的单片机与CDMA的CM300系统模块通信,但收到的都是乱码!请问这是不是两者波特率不匹配的原因?有谁能告诉我该怎么办?谢谢</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#D1D9E2 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #ffffff .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #ffffff .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2006-02-24,21:26:21
+		        </td>
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=yc985055'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>邮件</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' rowspan=2 style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt' valign=top>
+					【27楼】 <font color=#000000>mored  </font><br>
+					
+					积分：<font color=#000000>38</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000></font><br>
+				</td>	
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>出于成本的原因可以考虑RC，但在需要通信的场合，建议使用晶体。<br><br>我用M16&nbsp;8M内部，25度校正好的参数在温度变化时会出错，即使加了温度补偿，对于生产也是得不偿失</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#e8e8e8 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#e8e8e8 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2006-03-17,13:34:24
+		        </td>
+				<td width='81%' bgcolor=#e8e8e8 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=mored'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>邮件</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+				
+
+	 
+	
+
+	 
+		
+	
+		<table style='TABLE-LAYOUT: fixed; WORD-BREAK: break-all' width='100%' border='0' cellpadding='6' cellspacing='0' >
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' rowspan=2 style='border-top:solid #ffffff .5pt;border-left:solid #bbbbbb .5pt;border-bottom:solid #ffffff .5pt;border-right:solid #ffffff .5pt' valign=top>
+					【28楼】 <font color=#000000>DIYer  DIY爱好者</font><br>
+					<img src=./bbs_upload3478120090320/files_usericon/armok0198707.jpg width=120 height=100><br>
+					积分：<font color=#000000>170</font><br>
+					派别：<font color=#000000></font><br>
+					等级：<font color=#000000>------</font><br>
+					来自：<font color=#000000>龙宫菜虾府办公室</font><br>
+				</td>	
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:solid #ffffff .5pt;border-left:none;border-bottom:none;border-right:solid #bbbbbb .5pt'>		
+			       <font color=#000000>想稳定就用晶体，想便宜和简单用RC，好使的东西不好使了不要哭；晶体再差，只要不坏，总也比一般的RC振荡器好。做的最好的RC振荡器是430的21xx系列的，宽温、宽电压；PIC的其次，AVR的还要差一些。小弟玩的吐水得出的结论。<br><br>总的来说呢，RC振荡器在量产的时候并不低成本，除非你不用调试。</font>
+				</td>
+			</tr>	
+			<tr>
+			   <td bgcolor=#D1D9E2 valign=bottom class='f03' style='border-top:none;border-left:none;border-bottom:solid #ffffff .5pt;border-right:solid #bbbbbb .5pt'>
+			   	  　
+			   </td>
+			</tr>
+			<tr>
+				<td width='19%' bgcolor=#D1D9E2 align='left' class='f03' style='border-top:none;border-left:solid #bbbbbb .5pt;border-bottom:solid #bbbbbb .5pt;border-right:solid #ffffff .5pt'>
+		         <img src=pixel.GIF width='7' height='1'>2006-03-17,17:22:27
+		        </td>
+				<td width='81%' bgcolor=#D1D9E2 class='f03' valign='top' style='border-top:none;border-left:none;border-bottom:solid #bbbbbb .5pt;border-right:solid #bbbbbb .5pt''>
+					<table width='100%'>
+						<tr>
+						   <td align='left'>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='user_information.jsp?user_name=DIYer'  target=_blank class='tt4' target=_blank>资料</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <a href='mailto:finland2000@163.com' class=tt4>邮件</a>
+						   <img src=pixel.GIF width='7' height='1'>
+						    
+						   </td>
+						   
+						   <td align='right'>
+				   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>						   
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>
+						   
+						   <img src=pixel.GIF width='2' height='1'>									   
+						   
+						   <img src=pixel.GIF width='2' height='1'>			
+						      	
+												   
+						   <span class=f01>编辑</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   <span class=f01>删除</span>
+						   <img src=pixel.GIF width='7' height='1'>
+						   
+						   <img src=pixel.GIF width='7' height='1'>				   				   
+						   </td>
+						</tr>
+					</table>
+				</td>	
+			</tr>	
+		</table>
+		
+
+ 
+	
+
+	<table width='100%' border='0' cellspacing='0' cellpadding='6'>
+		<tr>
+			<td align='left' bgcolor='#5D7790'>
+				<span class='f03'><font color='#FFFFFF'>快速回复帖子主题：斗胆下个关于UART波特率的结论,请拍砖</font></span>
+			</td>
+		</tr>
+	</table>
+	<table width='100%' border='0' cellspacing='1' cellpadding='6'>
+		</tr>			
+			<td bgcolor='#E6E6E6'>
+			<span class=f06><font color=#888888>你尚未登录，不能回复以上帖子。</font></span>
+			</td>
+		</tr>
+	</table> 
+  
+		
+	
+	
+<table width=100% border=0 height=60 cellspacing='0' cellpadding='6' bgcolor=#ffffff>
+  <tr>
+    <td align=left valign=top>
+      <span class=tt1>
+	   <a href=index.jsp class=tt4>OurAVR.com 论坛 </a> -> <a href=bbs_list.jsp?bbs_id=1000&sub_kind_id=2065&bbs_page_no=2 class=tt4>“我们的AVR”技术论坛</a> -> 斗胆下个关于UART波特率的结论,请拍砖
+	  </span>
+   </td>
+   
+   <td align=center valign=top>
+    <span class=tt1>跳转至：</span>
+	<select name="forumid" 	onchange="window.location=('bbs_list.jsp?bbs_id='+this.options[this.selectedIndex].value)">
+		<option selected value='1000'>“我们的AVR”技术论坛</option><option value='1041'>FastAVR/Bascom-AVR 讨论区</option><option value='1031'>mirrorok的“AVR的以太网应用板”</option><option value='1036'>小松的“AVR高压编程器范例”</option><option value='1003'>马潮老师专栏</option><option value='1033'>菜农hotpower的自留地</option><option value='0020'>招聘与自荐</option><option value='1025'>自由上传及资料交流</option><option value='1020'>悠闲休息区 (灌水坛)</option><option value='1005'>邮购部服务论坛</option><option value='1032'>atmel ARM 论坛 (OurARM.com)</option><option value='1024'>“Our Robot 1 号”机器人研发小组</option><option value='1037'>--(旧)Proteus仿真论坛</option><option value='1026'>--(旧)Protel/PCB 设计论坛</option><option value='1027'>--(旧)自制AVR芯片内核</option><option value='1040'>--(旧)C++ Builder 上位机软件设计论坛</option><option value='1029'>--(旧)USB应用活动</option><option value='1030'>--(旧)Delphi上位机软件设计论坛</option><option value='1004'>--(旧)智能充电器设计小组活动</option><option value='1006'>--(旧)MP3 制作活动</option><option value='1009'>--(旧)步进电机专题讨论</option><option value='1008'>--(旧)马老师AVR-51实验板使用论坛</option><option value='1007'>--(旧)开关电源项目</option><option value='1002'>--(旧)全国大学生电子设计大赛专用论坛</option>
+	</select>
+
+    </td>
+	
+    <td align=right valign=top>
+	   
+   </td>
+      
+ </tr>
+  </table>   
+	<table width=100% border=0 align=center cellpadding=0 cellspacing=1 bgcolor=#0099FF>
+
+<tr bgcolor=#444444><td colSpan=5 align=center height=30 class=f02><font color=white>可以通过以下方式，与我们联系</font></td></tr> 
+
+<tr bgcolor=#dddddd> 
+  <td width=20% height=22 align=right class=f02>网站负责人: </td>
+  <td width=80% height=22 align=left class=f02>　阿莫(armok)手机：13433056000， 电邮： 13902245677@21cn.com</td>
+</tr>
+
+
+<tr bgcolor=#dddddd> 
+  <td width=20% height=22 align=right class=f02>邮购部联系方式:</td>
+  <td width=80% height=22 align=left class=f02>　电话：0769-2307998，传真：22456114，手机：13711915767</td>
+</tr>
+
+<tr bgcolor=#dddddd> 
+  <td width=20% height=22 align=right class=f02>地址:</td>
+  <td width=80% height=22 align=left class=f02>　展示、现场销售处：东莞东城中路赛格电子市场1D25<br>
+    　研发部、邮购部、生产部：东莞市东城八一路同沙工业园内<br>
+    　网站开发部：东莞市旗峰路方中电脑城B606　　</td>
+</tr>
+
+<tr bgcolor=#dddddd> 
+  <td width=20% height=22 align=right class=f02>版权声明: </td>
+  <td width=80% height=22 align=left class=f02>　Armok Using Oracle + Java/JSP + Linux 制作2001/12/20 -- 2005/10/20<br>
+  　本BBS所有代码均为原创，版权归 armok 所有<br>
+  　本网站自：2004-10-03,16:31:17 起开始运行。</td>
+</tr>
+
+</table>
+<br>
+
+	
+

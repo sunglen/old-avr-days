@@ -1,0 +1,16 @@
+todo:
+1)用mega48接mega64(master)的字符,用uart显示.
+
+结果:
+2006.02.26
+mega48不能使用8515的uartlib,所以用8515做slave,
+但是也有问题,可能是与uartlib的同步问题.
+所以放弃使用uart为spi slave来debug.
+
+在7 segment led display的counter测试中,同样出现了
+如果定义buffer为volatile,则显示的是错误的东西,(而且是不变的).
+但是中断应该是正常产生的.
+见7disp/counter1和7disp/counter2目录的描述.
+
+下一步用mega48/1602lcd来调试.
+

@@ -1,0 +1,584 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>FMULSU - Fractional Multiply Signed with Unsigned</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=windows-1252">
+<meta HTTP-EQUIV Content-Type&quot;&quot; CONTENT text/html; charset="ISO-8859-1&quot;&quot;">
+<meta HTTP-EQUIV Content-Style-Type&quot;&quot; CONTENT text/css&quot;&quot;>
+<meta NAME GENERATOR&quot;&quot; CONTENT Adobe FrameMaker 5.5/HTML Export Filter&quot;&quot;>
+<meta name=date content="06 8, 2001 10:17:24 AM">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=2198>
+<meta name=layout-width content=579>
+
+
+<!--(Links)=========================================================-->
+
+<link REL="StyleSheet" href="../main.css" TYPE="text/css" MEDIA="screen">
+
+
+
+<!--(Style Sheet)===================================================-->
+
+<style>
+<!--
+
+body {
+}
+
+-->
+</style>
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body #ffffff&quot;&quot;>
+
+<div>
+<h3 CLASS
+	heading-3&quot;&quot;>FMULSU - Fractional Multiply Signed with Unsigned</h3>
+
+<div>
+<h3 CLASS
+	heading-3&quot;&quot;><img src="../images/eijmp-1.gif" style="border-style: none;
+										width: 469px;
+										height: 12px;" width="469" height="12" border="0"></h3>
+</div>
+
+<div>
+<h6 CLASS
+	Section-Sub-2&quot;&quot;>Description: </h6>
+
+<p CLASS
+	Normal&quot;&quot;>This instruction performs 8-bit × 8-bit &#8594; 
+ 16-bit signed multiplication and shifts the result one bit left.</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;
+	style="text-align: center;"
+	align=center>Rd</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Normal&quot;&quot;
+	style="text-align: center;"
+	align=center>&nbsp;</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;
+	style="text-align: center;"
+	align=center>Rr</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Normal&quot;&quot;
+	style="text-align: center;"
+	align=center>&nbsp;</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;
+	style="text-align: center;"
+	align=center>R1</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;
+	style="text-align: center;"
+	align=center>R0</td></tr>
+
+<tr>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;
+	style="text-align: center;"
+	align=center>Multiplicand</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Normal&quot;&quot;
+	style="text-align: center;"
+	align=center>×</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;
+	style="text-align: center;"
+	align=center>Multiplier</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Normal&quot;&quot;
+	style="text-align: center;"
+	align=center>-&gt;</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;
+	style="text-align: center;"
+	align=center>Product High</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;
+	style="text-align: center;"
+	align=center>Product Low</td></tr>
+
+<tr>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;
+	style="text-align: center;"
+	align=center>8</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Normal&quot;&quot;
+	style="text-align: center;"
+	align=center>&nbsp;</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;
+	style="text-align: center;"
+	align=center>8</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Normal&quot;&quot;
+	style="text-align: center;"
+	align=center>&nbsp;</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN
+	2&quot;&quot;>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;
+	style="text-align: center;"
+	align=center>16</td>
+<td>
+<p style="text-align: center;"
+	align=center>&nbsp;</td></tr>
+</table>
+
+<p CLASS
+	Body-Text&quot;&quot;>Let (N.Q) denote a fractional number with N binary 
+ digits left of the radix point, and Q binary digits right of the radix 
+ point. A multiplication between two numbers in the formats (N1.Q1) and 
+ (N2.Q2) results in the format ((N1+N2).(Q1+Q2)). For signal processing 
+ applications, the format (1.7) is widely used for the inputs, resulting 
+ in a (2.14) format for the product. A left shift is required for the high 
+ byte of the product to be in the same format as the inputs. The FMULSU 
+ instruction incorporates the shift operation in the same number of cycles 
+ as MULSU.</p>
+
+<p CLASS
+	Body-Text&quot;&quot;>The (1.7) format is most commonly used with signed 
+ numbers, while FMULSU performs a multiplication with one unsigned and 
+ one signed input. This instruction is therefore most useful for calculating 
+ two of the partial products when performing a signed multiplication with 
+ 16-bit inputs in the (1.15) format, yielding a result in the (1.31) format. 
+ Note: the result of the FMULSU operation may suffer from a 2's complement 
+ overflow if interpreted as a number in the (1.15) format. The MSB of the 
+ multiplication before shifting must be taken into account, and is found 
+ in the carry bit. See the following example.</p>
+
+<p CLASS
+	Body-Text&quot;&quot;>The multiplicand Rd and the multiplier Rr are 
+ two registers containing fractional numbers where the implicit radix point 
+ lies between bit 6 and bit 7. The multiplicand Rd is a signed fractional 
+ number, and the multiplier Rr is an unsigned fractional number. The 16-bit 
+ signed fractional product with the implicit radix point between bit 14 
+ and bit 15 is placed in R1 (high byte) and R0 (low byte).</p>
+
+<p CLASS
+	Body-Text&quot;&quot;>This instruction is not available in all devices. 
+ Refer to the device specific instruction set summary.</p>
+
+<p CLASS
+	Body-Text&quot;&quot;>&nbsp;</p>
+
+<p CLASS
+	Table-Hd-9pt-L&quot;&quot;
+	style="font-family: 'Courier New', monospace;">Operation:</p>
+
+<p CLASS
+	Tabbed-Body&quot;&quot;
+	style="font-family: 'Courier New', monospace;">R1:R0 &lt;- Rd × Rr(signed 
+ (1.15) &#8592; signed (1.7) × unsigned (1.7))</p>
+
+<p CLASS
+	Body-Text&quot;&quot;
+	style="font-family: 'Courier New', monospace;">&nbsp;</p>
+
+<p CLASS
+	Table-Hd-9pt-L&quot;&quot;
+	style="font-family: 'Courier New', monospace;">Syntax: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Operands: 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Program 
+ Counter:</p>
+
+<p CLASS
+	Tabbed-Body&quot;&quot;
+	style="font-family: 'Courier New', monospace;">FMULSU Rd,Rr <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->16 
+ &#8804; d &#8804; 23, 16&#8804; r &#8804; 23 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->PC 
+ &lt;- PC + 1</p>
+
+<p Tabbed-Body&quot;&quot;
+	style="font-family: 'Courier New', monospace;">&nbsp;</p>
+
+<p CLASS
+	Table-Hd-9pt-L&quot;&quot;>16-bit Opcode:</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Code&quot;&quot;>0000</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Code&quot;&quot;>0011</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Code&quot;&quot;>1ddd</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Code&quot;&quot;>1rrr</td></tr>
+</table>
+
+<p CLASS
+	Normal&quot;&quot;>&nbsp;</p>
+</div>
+
+<div>
+<h6 CLASS
+	Section-Sub-2&quot;&quot;>Status Register (SREG) and Boolean Formulae:</h6>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>I</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>T</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>H</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>S</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>V</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>N</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>Z</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>C</td></tr>
+
+<tr>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>-</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>-</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>-</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>-</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>-</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Table-9pt-C-Bottom&quot;&quot;>-</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Normal&quot;&quot;>&#8660;</td>
+<td ROWSPAN
+	1&quot;&quot;
+	COLSPAN>
+<p CLASS
+	Normal&quot;&quot;>&#8660;</td></tr>
+</table>
+
+<p CLASS
+	Normal&quot;&quot;>&nbsp;</p>
+
+<p CLASS
+	Tabbed-Body&quot;&quot;>C: R16</p>
+
+<p CLASS
+	Tabbed-Body&quot;&quot;>Set if bit 15 of the result before left shift 
+ is set; cleared otherwise.</p>
+
+<p CLASS
+	Tabbed-Body&quot;&quot;>&nbsp;</p>
+
+<p CLASS
+	Tabbed-Body&quot;&quot;>Z:<em CLASS
+									Overline&quot;&quot;> R15</em> <em 
+ CLASS
+	Symbol-10pt&quot;&quot;>•</em> <em CLASS
+										Overline&quot;&quot;>R14</em> <em 
+ CLASS
+	Symbol-10pt&quot;&quot;>•</em> <em CLASS
+										Overline&quot;&quot;>R13</em> <em 
+ CLASS
+	Symbol-10pt&quot;&quot;>•</em> <em CLASS
+										Overline&quot;&quot;>R12</em> <em 
+ CLASS
+	Symbol-10pt&quot;&quot;>•</em> <em CLASS
+										Overline&quot;&quot;>R11</em> <em 
+ CLASS
+	Symbol-10pt&quot;&quot;>•</em> <em CLASS
+										Overline&quot;&quot;>R10</em> <em 
+ CLASS
+	Symbol-10pt&quot;&quot;>•</em> <em CLASS
+										Overline&quot;&quot;>R9</em> <em 
+ CLASS
+	Symbol-10pt&quot;&quot;>•</em> <em CLASS
+										Overline&quot;&quot;>R8</em> <em 
+ CLASS
+	Symbol-10pt&quot;&quot;>•</em> <em CLASS
+										Overline&quot;&quot;>R7</em> <em 
+ CLASS
+	Symbol-10pt&quot;&quot;>•</em> <em CLASS
+										Overline&quot;&quot;>R6</em> <em 
+ CLASS
+	Symbol-10pt&quot;&quot;>•</em> <em CLASS
+										Overline&quot;&quot;>R5</em> <em 
+ CLASS
+	Symbol-10pt&quot;&quot;>•</em> <em CLASS
+										Overline&quot;&quot;>R4</em> <em 
+ CLASS
+	Symbol-10pt&quot;&quot;>•</em> <em CLASS
+										Overline&quot;&quot;>R3</em> <em 
+ CLASS
+	Symbol-10pt&quot;&quot;>•</em> <em CLASS
+										Overline&quot;&quot;>R2</em> <em 
+ CLASS
+	Symbol-10pt&quot;&quot;>•</em> <em CLASS
+										Overline&quot;&quot;>R1</em> <em 
+ CLASS
+	Symbol-10pt&quot;&quot;>•</em> <em CLASS
+										Overline&quot;&quot;>R0</em> </p>
+
+<p CLASS
+	Tabbed-Body&quot;&quot;>Set if the result is $0000; cleared otherwise.</p>
+
+<p CLASS
+	Tabbed-Body&quot;&quot;>&nbsp;</p>
+
+<p CLASS
+	Tabbed-Body&quot;&quot;>R (Result) equals R1,R0 after the operation.</p>
+
+<p CLASS
+	Normal&quot;&quot;>&nbsp;</p>
+
+<p CLASS
+	Table-Hd-9pt-L&quot;&quot;>Example:</p>
+
+<p CLASS
+	Code&quot;&quot;>;******************************************************************************</p>
+
+<p CLASS
+	Code&quot;&quot;>;* DESCRIPTION</p>
+
+<p CLASS
+	Code&quot;&quot;>;*Signed fractional multiply of two 16-bit numbers 
+ with 32-bit result.</p>
+
+<p CLASS
+	Code&quot;&quot;>;* USAGE</p>
+
+<p CLASS
+	Code&quot;&quot;>;*r19:r18:r17:r16 = ( r23:r22 * r21:r20 ) &lt;&lt; 
+ 1</p>
+
+<p CLASS
+	Code&quot;&quot;>;******************************************************************************</p>
+
+<p CLASS
+	Code&quot;&quot;>fmuls16x16_32:</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="margin-left: 40px;">clr r2</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="margin-left: 40px;">fmuls r23, r21 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->;((signed)ah 
+ * (signed)bh) &lt;&lt; 1</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="margin-left: 40px;">movw r19:r18, r1:r0</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="margin-left: 40px;">fmul r22, r20 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->;(al 
+ * bl) &lt;&lt; 1</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="margin-left: 40px;">adc r18, r2</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="margin-left: 40px;">movw r17:r16, r1:r0</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="margin-left: 40px;">fmulsu r23, r20 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->;((signed)ah 
+ * bl) &lt;&lt; 1</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="margin-left: 40px;">sbc r19, r2</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="margin-left: 40px;">add r17, r0</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="margin-left: 40px;">adc r18, r1</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="margin-left: 40px;">adc r19, r2</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="margin-left: 40px;">fmulsu r21, r22;((signed)bh * al) &lt;&lt; 
+ 1</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="margin-left: 40px;">sbc r19, r2</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="margin-left: 40px;">add r17, r0</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="margin-left: 40px;">adc r18, r1</p>
+
+<p CLASS
+	Code&quot;&quot;
+	style="margin-left: 40px;">adc r19, r2</p>
+
+<p CLASS
+	Normal&quot;&quot;>&nbsp;</p>
+
+<p CLASS
+	Table-Hd-9pt-L&quot;&quot;>Words: <em CLASS
+											Default-No-Bold&quot;&quot;>1 
+ (2 bytes)</em> </p>
+
+<p CLASS
+	Table-Hd-9pt-L&quot;&quot;>Cycles:<em CLASS
+											Default-No-Bold&quot;&quot;> 
+ 2</em> </p>
+</div>
+</div>
+
+<!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->
+
+</body>
+
+</html>

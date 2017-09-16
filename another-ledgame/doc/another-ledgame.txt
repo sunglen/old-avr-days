@@ -1,0 +1,105 @@
+Another Led Game
+================
+Sun Ge <sun_ge@yahoo.cn>
+
+image:another-ledgame-thumb.jpg["another led game", link="another-ledgame.jpg"]
+
+This is another LED Game based on Takuya Matsubara's funning
+http://nicotak.com/avr/ledgame.html[LED Game for AVR].
+There are some differences between this LED Game and Matsubara san's
+original LED Game: 
+
+- I use four 8x8 LED dot-matrix displays to assemble a 16x16 
+  dot-matrix display, because it's hard to buy a 16x16 unit
+  in our local market.
+- I add a dual-axis accelerometer `ADXL311` and a demo program
+  to show a `rolling ball` on the display.
+- Instead of the four direction keys, a navigation switch 
+  (joystick switch) has been used.
+- I made a little change in firmware library `led.c` to fit
+  my LED display.
+- I write a simple program to convert `Binary Constant` 
+  (i.e. ``0b1101'') to shift mode (i.e.``((1<<3)|(1<<2)|1)''), 
+  because Binary Constant seems not supported by my GCC.
+
+Hardware
+--------
+I use ATMEGA88 for this project, and the schematics is simillar 
+with http://nicotak.com/avr/develop/inside.html[Mr. Matsubara's]. 
+I built it on two bread boards: `the lower` and `the upper`. 
+
+.schematics of the lower board
+image::lower-sch-thumb.png["schematics of the lower board", link="lower-sch.png"]
+
+.schematics of the upper board
+image::upper-sch-thumb.png["schematics of the upper board", link="upper-sch.png"]
+
+.picture of the lower board
+image::lower-thumb.jpg["picture of the lower board", link="lower.jpg"]
+
+.picture of the upper board (backside)
+image::upper-thumb.jpg["picture of the upper board", link="upper.jpg"]
+
+[NOTE]
+LED dot-matrix which I bought is DX7088A/B, I create a 
+link:led-dot-matrix.lbr[Eagle library] for it.
+
+Firmware
+--------
+You can download http://www.callmeageek.com/filemgmt/visit.php?lid=1[another-ledgame.tar.gz], 
+there are some resources in it:
+
+*roll-ball*::
+  Demo program. It's simulating a rolling ball on a 16x16 grids plane.
+  To play it, first download `test.hex` to AVR. When ``ROLL BALL'' being
+  displayed, press switch B (S2) to start.
+*demo*::
+  Demo program from http://nicotak.com/avr/ledgame.html[LED Game for AVR],
+  with some changes to fit this environment.
+*aruke, block and space-flight*::
+  Games from http://nicotak.com/avr/ledgame.html[LED Game for AVR],
+  with some changes to fit this environment.
+*bin2shift.l*::
+  Lex code for converting Binary Constant 
+  (i.e. ``0b1101'') to shift mode (i.e.``((1<<3)|(1<<2)|1)''). 
+  To use this tool,
+
+ $lex -obin2shift.c bin2shift.l
+ $gcc -o bin2shift bin2shift.c -lfl
+ $mv test.c test.c.in
+ $cat test.c.in | ./bin2shift >test.c
+
+/////////////////////
+*doc*::
+  This document.
+////////////////////
+
+All above programs can be built under 
+http://www.nongnu.org/avr-libc/user-manual/install_tools.html[GNU Tool Chain].
+
+[NOTE]
+In order to have a nice display effect, AVR running
+in 8MHz is fine.
+
+[TIP]
+This `Another LED Game` can run most games listed in
+http://nicotak.com/avr/ledgame.html[LED Game for AVR].
+Just copy `roll-ball/led.c` and `roll-ball/led.h` in 
+http://www.callmeageek.com/filemgmt/visit.php?lid=1[my package]
+to overwrite the same name files of other games.
+
+Video Demo
+----------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<object width="425" height="350"><param name="movie"
+value="http://www.youtube.com/v/mZYBqNhK_CY"></param><embed
+src="http://www.youtube.com/v/mZYBqNhK_CY"
+type="application/x-shockwave-flash" width="425"
+height="350"></embed></object>
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Todo
+----
+- Further application with accelerometer.
+- SD card for game storage and the bootloader for ATMEGA88.
+- vibrate feature with a motor.

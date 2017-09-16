@@ -1,0 +1,339 @@
+<html>
+ <head>
+  <title>AVRASM.chm</title>
+  <LINK rel="Stylesheet" type="text/css" href="arch_css.css">
+</head>
+
+<body onload="setInterval('getLoc()', 500);">    
+<script>
+var lastDoc;
+var contents = 
+[
+ ["AVR Assembler","","1",
+   ["User's Guide","","1",
+     ["Welcome","html/index.html","1"],
+     ["What's New","html/what_s_new.htm","1"],
+     ["Source","html/source.html","1"],
+     ["General","html/general.html","1"],
+     ["Instructions","html/instructions.html","1"],
+     ["Directives","html/directives.html","1"],
+     ["Expressions","html/expressions.html","1"]],
+   ["Parts","","1",
+     ["AT90S1200 Instruction Set","html/at90s1200_instructions.html","1"],
+     ["AT90S2313 Instruction Set","html/at90s2313_instructions.html","1"],
+     ["AT90S2323 and AT90S2343 Instruction Set","html/at90s2323_at90s2343_instructions.html","1"],
+     ["AT90S2333 and AT90S4433 Instruction Set","html/at90s2333_at90s4433_instructions.html","1"],
+     ["AT90S4414 and AT90S8515 Instruction Set","html/at90s4414_8515_instructions.html","1"],
+     ["AT90S4434 and AT90S8535 Instruction Set","html/at90s4434_8535_instructions.html","1"],
+     ["AT90PWM2/3 Instruction Set","html/atmega8_instructions.html","1"],
+     ["AT90S8534 Instruction Set","html/at90s8534_instructions.html","1"],
+     ["ATmega8 / mega48 / mega8515 / mega8535 Instruction Set","html/atmega8_instructions.html","1"],
+     ["ATmega16 and ATmega32 Instruction Set","html/atmega32_atmega16_instructions.html","1"],
+     ["ATmega161 Instruction Set","html/atmega161_instructions.html","1"],
+     ["ATmega162 Instruction Set","html/atmega162_instruction_set.htm","1"],
+     ["ARmega163 Instruction Set","html/atmega163_instructions.html","1"],
+     ["ATmega169 Instruction Set","html/atmega169_instruction_set.htm","1"],
+     ["ATmega103 Instruction Set","html/atmega603_103_instructions.html","1"],
+     ["ATmega64/644/640, AT90CAN32/64 Instruction Set","html/atmega128_instructions.html","1"],
+     ["ATmega128/1280/1281 and  AT90CAN128 Instruction Set","html/atmega128x_instruction_set.htm","1"],
+     ["ATmega406 Instruction Set","html/atmega32_atmega16_instructions.html","1"],
+     ["ATmega2560/ATmega2561 Instruction Set","html/atmega256_instruction_set.htm","1"],
+     ["ATtiny10/11/12 Instruction Set","html/attiny12.html","1"],
+     ["ATtiny13/2313 Instruction Set","html/attiny13_instruction_set.htm","1"],
+     ["ATtiny15 Instruction Set","html/attiny15_instructions.html","1"],
+     ["ATtiny22 Instruction Set","html/attiny22_instructions.html","1"],
+     ["ATtiny26 Instruction Set","html/attiny26_instruction_set.htm","1"],
+     ["ATtiny28 Instruction Set","html/attiny28_instructions.html","1"],
+     ["ATtiny25/45/85 Instruction Set","html/attiny13_instruction_set.htm","1"],
+     ["ATtiny261/461/861 Instruction Set","html/attiny13_instruction_set.htm","1"]],
+   ["Instructions","","1",
+     ["Instruction Set Nomenclature:","html/nomenclature.html","1"],
+     ["I/O Registers","html/io_reg.html","1"],
+     ["ADC - Add with Carry","html/adc.html","1"],
+     ["ADD - Add without Carry","html/add.html","1"],
+     ["ADIW - Add Immediate to Word","html/adiw.html","1"],
+     ["AND - Logical AND","html/and.html","1"],
+     ["ANDI - Logical AND with Immediate","html/andi.html","1"],
+     ["ASR - Arithmetic Shift Right","html/asr.html","1"],
+     ["BCLR - Bit Clear in SREG","html/bclr.html","1"],
+     ["BLD - Bit Load from the T Flag in SREG to a Bit in Register.","html/bld.html","1"],
+     ["BRBC - Branch if Bit in SREG is Cleared","html/brbc.html","1"],
+     ["BRBS - Branch if Bit in SREG is Set","html/brbs.html","1"],
+     ["BRCC - Branch if Carry Cleared","html/brcc.html","1"],
+     ["BRCS - Branch if Carry Set","html/brcs.html","1"],
+     ["BREAK - Break","html/break.html","1"],
+     ["BREQ - Branch if Equal","html/breq.html","1"],
+     ["BRGE - Branch if Greater or Equal (Signed)","html/brge.html","1"],
+     ["BRHC - Branch if Half Carry Flag is Cleared","html/brhc.html","1"],
+     ["BRHS - Branch if Half Carry Flag is Set","html/brhs.html","1"],
+     ["BRID - Branch if Global Interrupt is Disabled","html/brid.html","1"],
+     ["BRIE - Branch if Global Interrupt is Enabled","html/brie.html","1"],
+     ["BRLO - Branch if Lower (Unsigned)","html/brlo.html","1"],
+     ["BRLT - Branch if Less Than (Signed)","html/brlt.html","1"],
+     ["BRMI - Branch if Minus","html/brmi.html","1"],
+     ["BRNE - Branch if Not Equal","html/brne.html","1"],
+     ["BRPL - Branch if Plus","html/brpl.html","1"],
+     ["BRSH - Branch if Same or Higher (Unsigned)","html/brsh.html","1"],
+     ["BRTC - Branch if the T Flag is Cleared","html/brtc.html","1"],
+     ["BRTS - Branch if the T Flag is Set","html/brts.html","1"],
+     ["BRVC - Branch if Overflow Cleared","html/brvc.html","1"],
+     ["BRVS - Branch if Overflow Set","html/brvs.html","1"],
+     ["BSET - Bit Set in SREG","html/bset.html","1"],
+     ["BST - Bit Store from Bit in Register to T Flag in SREG","html/bst.html","1"],
+     ["CALL - Long Call to a Subroutine","html/call.html","1"],
+     ["CBI - Clear Bit in I/O Register","html/cbi.html","1"],
+     ["CBR - Clear Bits in Register","html/cbr.html","1"],
+     ["CLC - Clear Carry Flag","html/clc.html","1"],
+     ["CLH - Clear Half Carry Flag","html/clh.html","1"],
+     ["CLI - Clear Global Interrupt Flag","html/cli.html","1"],
+     ["CLN - Clear Negative Flag","html/cln.html","1"],
+     ["CLR - Clear Register","html/clr.html","1"],
+     ["CLS - Clear Signed Flag","html/cls.html","1"],
+     ["CLT - Clear T Flag","html/clt.html","1"],
+     ["CLV - Clear Overflow Flag","html/clv.html","1"],
+     ["CLZ - Clear Zero Flag","html/clz.html","1"],
+     ["COM - One's Complement","html/com.html","1"],
+     ["CP - Compare","html/cp.html","1"],
+     ["CPC - Compare with Carry","html/cpc.html","1"],
+     ["CPI - Compare with Immediate","html/cpi.html","1"],
+     ["CPSE - Compare Skip if Equal","html/cpse.html","1"],
+     ["DEC - Decrement","html/dec.html","1"],
+     ["EICALL - Extended Indirect Call to Subroutine","html/eicall.html","1"],
+     ["EIJMP - Extended Indirect Jump","html/eijmp.html","1"],
+     ["ELPM - Extended Load Program Memory","html/elpm.html","1"],
+     ["EOR - Exclusive OR","html/eor.html","1"],
+     ["FMUL - Fractional Multiply Unsigned","html/fmul.html","1"],
+     ["FMULS - Fractional Multiply Signed","html/fmuls.html","1"],
+     ["FMULSU - Fractional Multiply Signed with Unsigned","html/fmulsu.html","1"],
+     ["ICALL - Indirect Call to Subroutine","html/icall.html","1"],
+     ["IJMP - Indirect Jump","html/ijmp.html","1"],
+     ["IN - Load an I/O Location to Register","html/in.html","1"],
+     ["INC - Increment","html/inc.html","1"],
+     ["JMP - Jump","html/jmp.html","1"],
+     ["LD - Load Indirect from data space to Register using Index X","html/ld.html","1"],
+     ["LD (LDD) - Load Indirect from data space to Register using Index Y","html/ldd.html","1"],
+     ["LD (LDD) - Load Indirect From data space to Register using Index Z","html/ldd_z.html","1"],
+     ["LDI - Load Immediate","html/ldi.html","1"],
+     ["LDS - Load Direct from data space","html/lds.html","1"],
+     ["LPM - Load Program Memory","html/lpm.html","1"],
+     ["LSL - Logical Shift Left","html/lsl.html","1"],
+     ["LSR - Logical Shift Right","html/lsr.html","1"],
+     ["MOV - Copy Register","html/mov.html","1"],
+     ["MOVW - Copy Register Word","html/movw.html","1"],
+     ["MUL - Multiply Unsigned","html/mul.html","1"],
+     ["MULS - Multiply Signed","html/muls.html","1"],
+     ["MULSU - Multiply Signed with Unsigned","html/mulsu.html","1"],
+     ["NEG - Two's Complement","html/neg.html","1"],
+     ["NOP - No Operation","html/nop.html","1"],
+     ["OR - Logical OR","html/or.html","1"],
+     ["ORI - Logical OR with Immediate","html/ori.html","1"],
+     ["OUT - Store Register to I/O Location","html/out.html","1"],
+     ["POP - Pop Register from Stack","html/pop.html","1"],
+     ["PUSH - Push Register on Stack","html/push.html","1"],
+     ["RCALL - Relative Call to Subroutine","html/rcall.html","1"],
+     ["RET - Return from Subroutine","html/ret.html","1"],
+     ["RETI - Return from Interrupt","html/reti.html","1"],
+     ["RJMP - Relative Jump","html/rjmp.html","1"],
+     ["ROL - Rotate Left trough Carry","html/rol.html","1"],
+     ["ROR - Rotate Right through Carry","html/ror.html","1"],
+     ["SBC - Subtract with Carry","html/sbc.html","1"],
+     ["SBR - Set Bits in Register","html/sbr.html","1"],
+     ["SBRC - Skip if Bit in Register is Cleared","html/sbrc.html","1"],
+     ["SBRS - Skip if Bit in Register is Set","html/sbrs.html","1"],
+     ["SEC - Set Carry Flag","html/sec.html","1"],
+     ["SEH - Set Half Carry Flag","html/seh.html","1"],
+     ["SBI - Set Bit in I/O Register","html/sbi.html","1"],
+     ["SBCI - Subtract Immediate with Carry","html/sbci.html","1"],
+     ["SBIC - Skip if Bit in I/O Register is Cleared","html/sbic.html","1"],
+     ["SBIS - Skip if Bit in I/O Register is Set","html/sbis.html","1"],
+     ["SBIW - Subtract Immediate from Word","html/sbiw.html","1"],
+     ["SEI - Set Global Interrupt Flag","html/sei.html","1"],
+     ["SEN - Set Negative Flag","html/sen.html","1"],
+     ["SER - Set all bits in Register","html/ser.html","1"],
+     ["SES - Set Signed Flag","html/ses.html","1"],
+     ["SET - Set T Flag","html/set.html","1"],
+     ["SEV - Set Overflow Flag","html/sev.html","1"],
+     ["SEZ - Set Zero Flag","html/sez.html","1"],
+     ["SLEEP","html/sleep.html","1"],
+     ["SPM - Store Program Memory","html/spm.html","1"],
+     ["ST - Store Indirect From Register to data space using Index X","html/st.html","1"],
+     ["ST (STD) - Store Indirect From Register to data space using Index Y","html/std.html","1"],
+     ["ST (STD) - Store Indirect From Register to data space using Index Z","html/std_z.html","1"],
+     ["STS - Store Direct to data space","html/sts.html","1"],
+     ["SUB - Subtract without Carry","html/sub.html","1"],
+     ["SUBI - Subtract Immediate","html/subi.html","1"],
+     ["SWAP - Swap Nibbles","html/swap.html","1"],
+     ["TST - Test for Zero or Minus","html/tst.html","1"],
+     ["WDR - Watchdog Reset","html/wdr.html","1"]],
+   ["Known Issues","","1",
+     ["Known Issues","html/known_issues.htm","1"]]],
+ ["AVR Assembler 2","","1",
+   ["Introduction","html/avr_assembler_2.htm","1"],
+   ["What's New","html/avr_assembler_2_-_what_s_new.htm","1"],
+   ["AVR Assembler 2 Syntax","html/avr_assembler_2_syntax.htm","1"],
+   ["Preprocessor","html/avr_assembler_2_preprocessor.htm","1"],
+   ["Command-line invocation syntax","html/avr_assembler_2_command_line_options.htm","1"],
+   ["Known Issues","html/avr_assembler_2_-_known_issues.htm","1"],
+   ["XML Converter","html/xml_converter.htm","1"]]
+];
+
+var w=window,d=document
+var icons={'0'  : 'icons/0.gif','1'  : 'icons/90.gif',
+        '2'  : 'icons/91.gif', '3'  : 'icons/92.gif', '4'  : 'icons/99.gif',
+        '18' : 'icons/93.gif', '19' : 'icons/94.gif', '20' : 'icons/97.gif',
+        '26' : 'icons/95.gif', '27' : 'icons/96.gif', '28' : 'icons/98.gif'}
+
+var dhtml=true
+try{if(d.body.innerHTML.length<=0)dhtml=false}
+catch(e){dhtml=false;}
+var tree=[];
+
+get_element=d.all ? 
+     function(id){return d.all[id]}
+     : 
+     function(id){return d.getElementById(id)}
+
+function get_img1(){
+    return icons[((this.childs.length ? 16 : 0)+(this.childs.length && this.opened ? 8 : 0)+(this.is_last()? 1 : 0)+(this.is_first()? 2 : 0)+2)]
+}
+function get_img2(){
+    n=this.cnt[2]
+    if(n<9){    
+	n=(this.opened ? ( n%2 ? parseInt(n)+1 : n ) : ( n%2 ? n : parseInt(n)-1 ))
+    }
+    return 'icons/'+n+'.gif'
+}
+function node(tree,n){
+    this.ind=tree.ind+1
+    this.cnt=tree.cnt[n+(this.ind ? 3 : 0)]
+    if(!this.cnt)return
+    this.tree=tree.tree
+    this.parent=tree
+    this.opened=!dhtml
+    this.nind=this.tree.nodes.length
+    this.tree.nodes[this.nind]=this
+    tree.childs[n]=this
+    this.childs=[]
+    for(var i=0;i < this.cnt.length - 2;i++)
+	new node(this,i)
+    this.get_img1=get_img1
+    this.get_img2=get_img2
+    this.open=open
+    this.select=select
+    this.init=init
+    this.is_last=function(){
+	return n==this.parent.childs.length - 1
+    }
+    this.is_first=function(){
+	return(this.ind==0)&&(n==0)&&(!this.is_last())
+    }
+}
+
+function open(){
+    var childs=[]
+    var el=get_element('divCont'+this.nind)
+    if(!el)return
+    if(!dhtml){
+	d.write(childs.join(''))
+	    for(var i=0;i < this.childs.length;i++){
+	    d.write(this.childs[i].init())
+	    this.childs[i].open()
+	}
+    }
+    else{
+	if(!el.innerHTML){
+	    for(var i=0;i < this.childs.length;i++)
+		childs[i]=this.childs[i].init()
+	    el.innerHTML=childs.join('')
+	}
+	el.style.display=(this.opened ? 'none' : 'block')
+	this.opened=!this.opened
+	var img1=d.images['img1_'+this.nind],img2=d.images['img2_'+this.nind]
+	if(img1)img1.src=this.get_img1()
+	if(img2)img2.src=this.get_img2()
+    }
+}
+
+
+function select(nind){
+    if(!nind){
+	var sel=this.tree.sel
+	this.tree.sel=this
+	if(sel)sel.select(true)
+    }
+    var img2=d.images['img2_'+this.nind]
+    if(img2)img2.src=this.get_img2()
+    get_element('el'+this.nind).style.fontWeight=nind ? 'normal' : 'bold'
+    return Boolean(this.cnt[1])
+}
+
+function init(){
+    var temp=[],par=this.parent
+    for(var i=this.ind;i>0;i--){
+	temp[i]='<img src="'+icons[par.is_last()? 0 : 1]+'" border="0" align="absbottom">'
+	par=par.parent
+    }
+    r='<table cellpadding="0" cellspacing="0" border="0">'
+    r+='<tr><td nowrap>'
+    r+=temp.join('')
+    r+=(this.childs.length ?(!dhtml ? '' : '<a href="javascript: tree.toggle('+this.nind+')" >')+'<img src="'+this.get_img1()+'" border="0" align="absbottom" name="img1_'+this.nind+'">'+(!dhtml ? '' : '</a>'): '<img src="'+this.get_img1()+'" border="0" align="absbottom">')
+    r+='<a href="'+this.cnt[1]+'" target="'+'content'+'"'+' title="'+this.cnt[0]+'" onclick="return tree.select('+this.nind+')" '+(!dhtml ? '' : ' ondblclick="tree.toggle('+this.nind+')"')+' class="small" id="el'+this.nind+'"><img src="'+this.get_img2()+'" border="0" align="absbottom" name="img2_'+this.nind+'">&nbsp;'+this.cnt[0]+'</a>'
+    r+='</td></tr></table>'
+    r+=(this.childs.length ? '<div id="divCont'+this.nind+'" style="display:none"></div>' : '')
+    return r
+}
+
+function draw_contents(cnt){
+    tree=this;
+    tree.cnt=cnt;
+    tree.tree=this;
+    tree.nodes=[];
+    tree.sel=null;
+    tree.ind=-1;
+    
+    tree.select=function(i){
+	return tree.nodes[i].select();
+    };
+    tree.toggle=function(i){
+	tree.nodes[i].open()
+    };
+    tree.childs=[]
+    for(var i=0;i<cnt.length;i++){
+	new node(tree,i)
+    }
+    tree.nind=0;
+    
+    for(var i=0;i < tree.childs.length;i++){
+	d.write(tree.childs[i].init());
+	if(!dhtml)tree.childs[i].open();
+    }
+}
+
+
+function getLoc(){
+var doc = ""+parent.frames[1].location;
+if(doc != lastDoc){
+        var keyVals = new Array();
+        keyVals = doc.split("\/");
+        var targetPage = ""+keyVals[(keyVals.length-1)];
+
+        if(targetPage.indexOf("\#") > 0){
+                targetPage = targetPage.substr(0,targetPage.indexOf("\#"));
+        }
+
+        nodeCount = 0;
+        while( (""+tree.nodes[nodeCount].cnt[1]).lastIndexOf(targetPage) < 0){
+                nodeCount++;
+        }
+        parentNode = tree.nodes[nodeCount].parent;
+                if(parentNode != tree && parentNode.opened == false){
+                        parentNode.open();
+                }
+        tree.nodes[nodeCount].select();
+        lastDoc = doc;
+        }
+}
+new draw_contents(contents);
+</script>
+ </body>
+</html>

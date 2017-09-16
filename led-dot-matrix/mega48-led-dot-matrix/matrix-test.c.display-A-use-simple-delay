@@ -1,0 +1,74 @@
+/*
+*/
+#include <avr/io.h>
+
+#define MYCLOCKSPEED	4000000
+
+#define LIGHT_KEEP_TIME MYCLOCKSPEED*0.003
+
+void light_keep_wait(uint16_t numLoops);
+
+void main (void)
+{
+  unsigned int n;
+  //	uint16_t waitLoops = (uint16_t)
+	
+	/**** I/O Init ****/
+	/* PORT A for row output, PORT C for column activate. */
+        DDRA = 0xFF;
+	DDRC = 0xFF;
+
+	PORTC = 0x00; /* all column unactivate */
+	
+	/* this can display character 'A' for ONLY 4 second!? */
+	for (n=40000;n>0;n--) {
+	  PORTA = ~0x1F;
+	  PORTC = 0x01;
+	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME);
+	  PORTC = 0x00;
+
+	  PORTA = ~0x30;
+	  PORTC = 0x02;
+	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME);
+	  PORTC = 0x00;
+
+	  PORTA = ~0x50;
+	  PORTC = 0x04;
+	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME);
+	  PORTC = 0x00;
+
+	  PORTA = ~0x90;
+	  PORTC = 0x08;
+	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME);
+	  PORTC = 0x00;
+
+	  PORTA = ~0x90;
+	  PORTC = 0x10;
+	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME);
+	  PORTC = 0x00;
+
+	  PORTA = ~0x50;
+	  PORTC = 0x20;
+	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME);
+	  PORTC = 0x00;
+
+	  PORTA = ~0x30;
+	  PORTC = 0x40;
+	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME);
+	  PORTC = 0x00;
+
+	  PORTA = ~0x1F;
+	  PORTC = 0x80;
+	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME);
+	  PORTC = 0x00;
+
+	}
+	
+}
+
+void light_keep_wait(uint16_t numLoops)
+{
+	while(numLoops-- > 0){
+	}
+	return;
+}

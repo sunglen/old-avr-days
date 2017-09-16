@@ -1,0 +1,73 @@
+Holiday Handicraft: A Single Letter Reader 
+==========================================
+Sun Ge <sun_ge@yahoo.cn>
+:Revision: 1.0
+
+.The mini reader is showing animation.
+image::reader.jpg["Mini reader with disney bear"]
+
+Project Origin
+--------------
+This saturday, May 3rd, 2008, I wanna give a wedding present to my two old 
+friends. Because May 1st is Nation's Day, I have sufficient time to DIY it.
+
+Lacking experiences for handiworks, I spent almost a whole day for designing, 
+soldering and programming. However I think this toy is a very easy one for 
+beginners.
+
+- Using Sixteen-Segment LED Display and ATmega48.
+- Time Cost: 10 hrs including programming.
+- Money Cost: less than 20 RMB Yuan totally.
+
+Hardware Details
+----------------
+The main parts of this toy were an Sixteen-Segment LED Display with type name
+`5101BH` and one AVR `ATmega48` microcontroller. I solder them on the bread
+board, then fixed the battery box on the board. The battery box has its own
+switch.
+
+The `5101BH` display is similar with the one described 
+http://www.evilmadscientist.com/article.php/mrb2ref[here], 
+except the `5101BH` display is common anode type.
+
+.please note that the LED display which I use is common anode.
+image::5101BH.jpg["5101BH LED DISPLAY"]
+
+Wiring between these two parts -- ATmega48 and 16-segment Display -- 
+was described in the source code: link:reader.c[see reader.c].
+
+I use a AAx2 battery box to power the toy, it can work even with a voltage
+as low as 2.3V. In order to save energy, you may like to use deserted batteries 
+to drive it.
+
+.A socket was soldered in the back bottom to be a brace.
+image::reader-back.jpg["backside of the reader"]
+
+Write Your Message To Friends
+-----------------------------
+In link:reader.c[reader.c], there are two functions to show message in display:
+
+[cpp]
+source~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/* setting time=100*N(ms) for displaying one character */
+#define DELAY_CHAR 5
+#define DELAY_DOT 3
+
+/*put one character to 16-segment display */
+void led_put_char(unsigned char)
+
+/* put a string to display */
+void led_put_str(const char *)
+source~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+you can write messages to display like the following usage:
+
+[cpp]
+source~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+led_put_char('5');
+
+led_put_str(PSTR("hello, world!"));
+source~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There's also a link:Makefile.txt[Makefile] for you. Have fun!
+

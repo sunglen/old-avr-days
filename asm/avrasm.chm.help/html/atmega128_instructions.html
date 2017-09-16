@@ -1,0 +1,2877 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>ATmega64/644/640, AT90CAN32/64 Instruction Set</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=windows-1252">
+<meta name=date content="07 3, 2001 2:22:40 PM">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=3562>
+<meta name=layout-width content=682>
+
+
+<!--(Links)=========================================================-->
+
+<link REL="StyleSheet" href="../main.css" TYPE="text/css" MEDIA="screen">
+
+
+
+<!--(Style Sheet)===================================================-->
+
+<style>
+<!--
+
+body {
+}
+
+-->
+</style>
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body nosave>
+
+<h2>ATmega64/644/640, AT90CAN32/64 Instruction Set</h2>
+
+The Assembler accepts mnemonic instructions from the instruction set. A 
+ summary of the instruction set mnemonics and their parameters is given 
+ here. For a detailed description of the Instruction set, refer to the 
+ AVR Data Book. 
+
+<h3><a NAME="Arithmetic and Logic Instructions"></a>Arithmetic and Logic 
+ Instructions</h3>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells
+		style="width: 100%;
+				x-border-left: 4px table-solid;
+				x-border-top: 4px table-solid;
+				x-border-right: 4px table-solid;
+				x-border-bottom: 4px table-solid;
+				border-collapse: separate;
+				x-border-left: 4px table-solid;
+				x-border-top: 4px table-solid;
+				x-border-right: 4px table-solid;
+				x-border-bottom: 4px table-solid;
+				border-collapse: separate;"
+		width=100%
+		border=4>
+
+<tr>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Mnemonic</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Operands</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Description</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Operation</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Flags</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Cycles</font></font></b></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="add.html">ADD</a>&nbsp;</font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr&nbsp;</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Add without Carry&nbsp;</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = Rd + Rr&nbsp;</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,H,S&nbsp;</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="adc.html">ADC</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Add with Carry</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = Rd + Rr + C</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,H,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td colspan=1
+	rowspan=1>
+<p style="font-size: x-small;"><a href="adiw.html">ADIW</a></td>
+<td colspan=1
+	rowspan=1>
+<p style="font-family: Arial, sans-serif; font-size: x-small;"><a href="#rd">Rd</a>, 
+ K</td>
+<td colspan=1
+	rowspan=1>
+<p style="font-size: x-small; font-family: Arial, sans-serif;">Add Immediate 
+ To Word</td>
+<td colspan=1
+	rowspan=1>
+<p style="font-family: courier, monospace;">Rd+1:Rd,K</td>
+<td colspan=1
+	rowspan=1>
+<p><font style="font-family: Arial, 'Times New Roman';"
+		face=Arial><font style="font-size: x-small;"
+						size=2>Z,C,N,V,S</font></font></td>
+<td colspan=1
+	rowspan=1>
+<p><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+		face=Arial
+		size=2>2</font></td></tr>
+
+<tr>
+<td>
+<p style="font-family: Arial, 'Times New Roman'; font-size: x-small;"><a href="sub.html">SUB</a></td>
+<td>
+<p><font style="font-family: Arial, 'Times New Roman';"
+		face=Arial><font style="font-size: x-small;"
+						size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td>
+<p><font style="font-family: Arial, 'Times New Roman';"
+		face=Arial><font style="font-size: x-small;"
+						size=2>Subtract without Carry</font></font></td>
+<td>
+<p><font style="font-family: Arial, 'Times New Roman';"
+		face=Arial><font style="font-size: x-small;"
+						size=2>Rd = Rd - Rr</font></font></td>
+<td>
+<p><font style="font-family: Arial, 'Times New Roman';"
+		face=Arial><font style="font-size: x-small;"
+						size=2>Z,C,N,V,H,S</font></font></td>
+<td>
+<p><font style="font-family: Arial, 'Times New Roman';"
+		face=Arial><font style="font-size: x-small;"
+						size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="subi.html">SUBI</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#k8">K8</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Subtract Immediate</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = Rd - K8</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,H,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="sbc.html">SBC</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Subtract with Carry</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = Rd - Rr - C</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,H,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="sbci.html">SBCI</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#k8">K8</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Subtract with Carry Immedtiate</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = Rd - K8 - C</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,H,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="and.html">AND</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Logical AND</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = Rd · Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,N,V,S&nbsp;</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="andi.html">ANDI</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#k8">K8</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Logical AND with Immediate</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = Rd · K8</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,N,V,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="or.html">OR</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Logical OR</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = Rd V Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,N,V,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ori.html">ORI</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#k8">K8</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Logical OR with Immediate</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = Rd V K8</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,N,V,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="eor.html">EOR</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Logical Exclusive OR</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = Rd EOR Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,N,V,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="com.html">COM</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>One's Complement</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = $FF - Rd</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="neg.html">NEG</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Two's Complement</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = $00 - Rd</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,H,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="cbr.html">SBR</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#k8">K8</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Set Bit(s) in Register</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = Rd V K8</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="cbr.html">CBR</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#k8">K8</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Clear Bit(s) in Register</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = Rd · ($FF - K8)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="inc.html">INC</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Increment Register</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = Rd + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,N,V,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="dec.html">DEC</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Decrement Register</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = Rd -1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,N,V,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="tst.html">TST</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Test for Zero or Negative</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = Rd · Rd</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="clr.html">CLR</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Clear Register</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = 0</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ser.html">SER</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Set Register</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = $FF</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="sbiw.html">SBIW</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rdl">Rdl</a>,<a href="#k6">K6</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Subtract Immediate from Word</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rdh:Rdl = Rdh:Rdl - K 6</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="mul.html">MUL</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Multiply Unsigned</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>R1:R0 = Rd * Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="muls.html">MULS</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Multiply Signed</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>R1:R0 = Rd * Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="mulsu.html">MULSU</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Multiply Signed with Unsigned</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>R1:R0 = Rd * Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="fmul.html">FMUL</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Fractional Multiply Unsigned</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>R1:R0 = (Rd * Rr) &lt;&lt; 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="fmuls.html">FMULS</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Fractional Multiply Signed</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>R1:R0 = (Rd *Rr) &lt;&lt; 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="fmulsu.html">FMULSU</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Fractional Multiply Signed with Unsigned</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>R1:R0 = (Rd * Rr) &lt;&lt; 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+</table>
+
+&nbsp; 
+
+<h3><a NAME="Branch Instructions"></a>Branch Instructions</h3>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells
+		style="width: 100%;
+				x-border-left: 4px table-solid;
+				x-border-top: 4px table-solid;
+				x-border-right: 4px table-solid;
+				x-border-bottom: 4px table-solid;
+				border-collapse: separate;
+				x-border-left: 4px table-solid;
+				x-border-top: 4px table-solid;
+				x-border-right: 4px table-solid;
+				x-border-bottom: 4px table-solid;
+				border-collapse: separate;"
+		width=100%
+		border=4>
+
+<tr>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Mnemonic</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Operands</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Description</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Operation</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Flags</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Cycles</font></font></b></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="rjmp.html">RJMP</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Relative Jump</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>PC = PC + k +1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ijmp.html">IJMP</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Indirect Jump to (<a href="#x,y,z">Z</a>)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>PC = Z</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="jmp.html">JMP</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Jump&nbsp;</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>PC = k</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>3</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="rcall.html">RCALL</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Relative Call Subroutine</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>STACK = PC+1, PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>3/4*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="icall.html">ICALL</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Indirect Call to (<a href="#x,y,z">Z</a>)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>STACK = PC+1, PC = Z&nbsp;</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>3/4*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="call.html">CALL</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Call Subroutine</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>STACK = PC+2, PC = k</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>4/5*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ret.html">RET</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Subroutine Return</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>PC = STACK</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>4/5*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="reti.html">RETI</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Interrupt Return</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>PC = STACK</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>I</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>4/5*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="cpse.html">CPSE</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Compare, Skip if equal&nbsp;</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if (Rd ==Rr) PC = PC 2 or 3</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2/3</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="cp.html">CP</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Compare</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd -Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,H,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="cpc.html">CPC</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Compare with Carry</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd - Rr - C</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,H,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="cpi.html">CPI</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#k8">K8</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Compare with Immediate</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd - K</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,H,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="sbrc.html">SBRC</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rr">Rr</a>,<a href="#b">b</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Skip if bit in register cleared</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(Rr(b)==0) PC = PC + 2 or 3</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2/3</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="sbrs.html">SBRS</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rr">Rr</a>,<a href="#b">b</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Skip if bit in register set</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(Rr(b)==1) PC = PC + 2 or 3</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2/3</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="sbic.html">SBIC</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#p">P</a>,<a href="#b">b</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Skip if bit in I/O register cleared</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(I/O(P,b)==0) PC = PC + 2 or 3</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2/3</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="sbis.html">SBIS</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#p">P</a>,<a href="#b">b</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Skip if bit in I/O register set</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(I/O(P,b)==1) PC = PC + 2 or 3</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2/3</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brbc.html">BRBC</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#s">s</a>,<a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if Status flag cleared</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(SREG(s)==0) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brbs.html">BRBS</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#s">s</a>,<a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if Status flag set</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(SREG(s)==1) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="breq.html">BREQ</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if equal</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(Z==1) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brne.html">BRNE</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if not equal</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(Z==0) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brcs.html">BRCS</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if carry set</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(C==1) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brcc.html">BRCC</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if carry cleared</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(C==0) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brsh.html">BRSH</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if same or higher</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(C==0) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brlo.html">BRLO</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if lower</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(C==1) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brmi.html">BRMI</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if minus</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(N==1) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brpl.html">BRPL</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if plus</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(N==0) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brge.html">BRGE</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if greater than or equal (signed)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(S==0) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brlt.html">BRLT</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if less than (signed)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(S==1) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brhs.html">BRHS</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if half carry flag set</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(H==1) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brhc.html">BRHC</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if half carry flag cleared</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(H==0) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brts.html">BRTS</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if T flag set</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(T==1) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brtc.html">BRTC</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if T flag cleared</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(T==0) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brvs.html">BRVS</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if overflow flag set</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(V==1) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brvc.html">BRVC</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if overflow flag cleared</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(V==0) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brie.html">BRIE</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if interrupt enabled</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(I==1) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="brid.html">BRID</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Branch if interrupt disabled</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>if(I==0) PC = PC + k + 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1/2</font></font></td></tr>
+</table>
+
+&nbsp; 
+
+<!--begin!kadov{{--><br><!--}}end!kadov--><!--kadov_tag{{<implicit_p>}}-->&nbsp; 
+ 
+
+<h3><a NAME="Data Transfer Instructions"></a>Data Transfer Instructions</h3>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells
+		style="width: 100%;
+				x-border-left: 4px table-solid;
+				x-border-top: 4px table-solid;
+				x-border-right: 4px table-solid;
+				x-border-bottom: 4px table-solid;
+				border-collapse: separate;
+				x-border-left: 4px table-solid;
+				x-border-top: 4px table-solid;
+				x-border-right: 4px table-solid;
+				x-border-bottom: 4px table-solid;
+				border-collapse: separate;"
+		width=100%
+		border=4>
+
+<tr>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Mnemonic</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Operands</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Description</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Operation</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Flags</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Cycles</font></font></b></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="mov.html">MOV</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Copy register</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="movw.html">MOVW</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Copy register pair</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd+1:Rd = Rr+1:Rr, r,d even</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ldi.html">LDI</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#k8">K8</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Load Immediate</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = K</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="lds.html">LDS</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#k">k</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Load Direct</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = (k)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ld.html">LD</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#x,y,z">X</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Load Indirect</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = (X)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ld.html">LD</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#x,y,z">X+</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Load Indirect and Post-Increment</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = (X), X=X+1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ld.html">LD</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#x,y,z">-X</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Load Indirect and Pre-Decrement</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>X=X-1, Rd = (X)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ld.html">LD</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#x,y,z">Y</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Load Indirect</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = (Y)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ld.html">LD</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#x,y,z">Y+</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Load Indirect and Post-Increment</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = (Y), Y=Y+1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ld.html">LD</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#x,y,z">-Y</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Load Indirect and Pre-Decrement</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Y=Y-1, Rd = (Y)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ldd.html">LDD</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#x,y,z">Y</a>+<a 
+ href="#q">q</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Load Indirect with displacement</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = (Y+q)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ld.html">LD</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#x,y,z">Z</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Load Indirect&nbsp;</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = (Z)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ld.html">LD</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#x,y,z">Z+</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Load Indirect and Post-Increment</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = (Z), Z=Z+1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ld.html">LD</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#x,y,z">-Z</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Load Indirect and Pre-Decrement</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z=Z-1, Rd = (Z)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ldd.html">LDD</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#x,y,z">Z</a>+<a 
+ href="#q">q</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Load Indirect with displacement</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = (Z+q)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="sts.html">STS</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>k,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Store Direct</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>(k) = Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="st.html">ST</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#x,y,z">X</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Store Indirect</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>(X) = Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="st.html">ST</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#x,y,z">X+</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Store Indirect and Post-Increment</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>(X) = Rr, X=X+1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="st.html">ST</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#x,y,z">-X</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Store Indirect and Pre-Decrement</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>X=X-1, (X)=Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="st.html">ST</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#x,y,z">Y</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Store Indirect</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>(Y) = Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2*</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="st.html">ST</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#x,y,z">Y+</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Store Indirect and Post-Increment</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>(Y) = Rr, Y=Y+1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="st.html">ST</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#x,y,z">-Y</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Store Indirect and Pre-Decrement</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Y=Y-1, (Y) = Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="st.html">ST</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#x,y,z">Y</a>+<a href="#q">q</a>,<a 
+ href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Store Indirect with displacement</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>(Y+q) = Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="st.html">ST</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#x,y,z">Z</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Store Indirect</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>(Z) = Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="st.html">ST</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#x,y,z">Z+</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Store Indirect and Post-Increment</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>(Z) = Rr, Z=Z+1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="st.html">ST</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#x,y,z">-Z</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Store Indirect and Pre-Decrement</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z=Z-1, (Z) = Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="st.html">ST</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#x,y,z">Z</a>+<a href="#q">q</a>,<a 
+ href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Store Indirect with displacement</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>(Z+q) = Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="lpm.html">LPM</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Load Program Memory</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>R0 = (<a href="#x,y,z">Z</a>)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>3</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="lpm.html">LPM</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#x,y,z">Z</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Load Program Memory</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = (<a href="#x,y,z">Z</a>)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>3</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="lpm.html">LPM</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#x,y,z">Z+</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Load Program Memory and Post-Increment</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = (<a href="#x,y,z">Z</a>), Z=Z+1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>3</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="spm.html">SPM</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Store Program Memory</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>(<a href="#x,y,z">Z</a>) = R1:R0</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>-</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="in.html">IN</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#p">P</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>In Port</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = P</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="out.html">OUT</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#p">P</a>,<a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Out Port</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>P = Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="push.html">PUSH</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rr">Rr</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Push register on Stack</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>STACK = Rr</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="pop.html">POP</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Pop register from Stack</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd = STACK</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+</table>
+
+&nbsp; 
+
+<h3><a NAME="Bit and Bit-test Instructions"></a>Bit and Bit-test Instructions</h3>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells
+		style="width: 100%;
+				x-border-left: 4px table-solid;
+				x-border-top: 4px table-solid;
+				x-border-right: 4px table-solid;
+				x-border-bottom: 4px table-solid;
+				border-collapse: separate;
+				x-border-left: 4px table-solid;
+				x-border-top: 4px table-solid;
+				x-border-right: 4px table-solid;
+				x-border-bottom: 4px table-solid;
+				border-collapse: separate;"
+		width=100%
+		border=4>
+
+<tr>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Mnemonic</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Operands</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Description</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Operation</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Flags</font></font></b></td>
+<td><b style="font-weight: bold;"><font style="font-family: Arial, 'Times New Roman';"
+										face=Arial><font style="font-size: x-small;"
+														size=2>Cycles</font></font></b></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="lsl.html">LSL</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Logical shift left</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd(n+1)=Rd(n), Rd(0)=0, C=Rd(7)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,H,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="lsr.html">LSR</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Logical shift right</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd(n)=Rd(n+1), Rd(7)=0, C=Rd(0)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="rol.html">ROL</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rotate left through carry</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd(0)=C, Rd(n+1)=Rd(n), C=Rd(7)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,H,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="ror.html">ROR</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rotate right through carry</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd(7)=C, Rd(n)=Rd(n+1), C=Rd(0)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="asr.html">ASR</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Arithmetic shift right</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd(n)=Rd(n+1), n=0,...,6</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z,C,N,V,S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="swap.html">SWAP</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Swap nibbles</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd(3..0) = Rd(7..4), Rd(7..4) = Rd(3..0)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="bset.html">BSET</a>&nbsp;</font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#s">s</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Set flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>SREG(s) = 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>SREG(s)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="bclr.html">BCLR</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#s">s</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Clear flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>SREG(s) = 0</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>SREG(s)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="sbi.html">SBI</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#p">P</a>,<a href="#b">b</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Set bit in I/O register</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>I/O(P,b) = 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="cbi.html">CBI</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#p">P</a>,<a href="#b">b</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Clear bit in I/O register</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>I/O(P,b) = 0</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>2</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="bst.html">BST</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rr">Rr</a>,<a href="#b">b</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Bit store from register to T</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>T = Rr(b)</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>T</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="bld.html">BLD</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2><a href="#rd">Rd</a>,<a href="#b">b</a></font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Bit load from register to T</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Rd(b) = T</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><span style="font-family: Arial, 'Times New Roman'; font-size: x-small;"><a href="sec.html">S</span>EC</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Set carry flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>C =1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>C</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="clc.html">CLC</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Clear carry flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>C = 0</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>C</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="sen.html">SEN</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Set negative flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>N = 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>N</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><span style="font-size: x-small; font-family: Arial, 'Times New Roman';"><a href="cln.html">CLN</a></span></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Clear negative flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>N = 0</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>N</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="sez.html">SEZ</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Set zero flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z = 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="clz.html">CLZ</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Clear zero flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z = 0</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Z</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="sei.html">SEI</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Set interrupt flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>I = 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>I</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="cli.html">CLI</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Clear interrupt flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>I = 0</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>I</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-size: x-small;"
+			size=2><a href="ses.html">SES</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Set signed flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>S = 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="cln.html">CLN</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Clear signed flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>S = 0</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>S</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="sev.html">SEV</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Set overflow flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>V = 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>V</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="clv.html">CLV</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Clear overflow flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>V = 0</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>V</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="set.html">SET</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Set T-flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>T = 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>T</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="clt.html">CLT</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Clear T-flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>T = 0</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>T</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="seh.html">SEH</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Set half carry flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>H = 1</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>H</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="clh.html">CLH</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Clear half carry flag</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>H = 0</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>H</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="nop.html">NOP</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>No operation</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="sleep.html">SLEEP</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Sleep</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>See instruction manual</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="wdr.html">WDR</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Watchdog Reset</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>See instruction manual</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+
+<tr>
+<td><font style="font-family: Arial, 'Times New Roman'; font-size: x-small;"
+			face=Arial
+			size=2><a href="break.html">BREAK</a></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>Execution Break</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>See instruction manual</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>None</font></font></td>
+<td><font style="font-family: Arial, 'Times New Roman';"
+			face=Arial><font style="font-size: x-small;"
+							size=2>1</font></font></td></tr>
+</table>
+
+<p>The Assembler is not case sensitive. </p>
+
+<p>The operands have the following forms: </p>
+
+<p><a NAME=Rd></a>Rd: Destination (and source) register in the register 
+ file<br>
+<a NAME=Rr></a>Rr: Source register in the register file<br>
+<a NAME=b></a>b: Constant (0-7), can be a constant expression<br>
+<a NAME=s></a>s: Constant (0-7), can be a constant expression<br>
+<a NAME=P></a>P: Constant (0-31/63), can be a constant expression<br>
+<a NAME=K6></a>K6; Constant (0-63), can be a constant expression<br>
+<a NAME=K8></a>K8: Constant (0-255), can be a constant expression<br>
+<a NAME=k></a>k: Constant, value range depending on instruction. Can be 
+ a constant expression<br>
+<a NAME=q></a>q: Constant (0-63), can be a constant expression<br>
+<a NAME=Rdl></a>Rdl:&nbsp; R24, R26, R28, R30. For ADIW and SBIW instructions<br>
+<a NAME="X,Y,Z"></a>X,Y,Z: Indirect address registers (X=R27:R26, Y=R29:R28, 
+ Z=R31:R30)</p>
+
+</body>
+
+</html>

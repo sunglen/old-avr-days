@@ -1,0 +1,75 @@
+/*
+*/
+#include <avr/io.h>
+
+#define MYCLOCKSPEED	4000000
+
+#define LIGHT_KEEP_TIME MYCLOCKSPEED*0.003
+
+void light_keep_wait(uint16_t numLoops);
+
+void main (void)
+{
+  //	volatile enum {UP, DOWN} direction = UP;	
+  //	unsigned char currentValue = 0x01;
+	
+  //	uint16_t waitLoops = (uint16_t)
+	
+	/**** I/O Init ****/
+	/* PORT A for row output, PORT C for column activate. */
+	DDRA = 0xFF;
+	DDRC = 0xFF;
+
+	PORTC = 0x00; /* all column unactivate */
+	
+	for (;;) {
+	  PORTA = ~0xFF;
+	  PORTC = 0x01;
+	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME);
+	  PORTC = 0x00;
+
+	  PORTA = ~0xFF;
+	  PORTC = 0x02;
+	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME);
+	  PORTC = 0x00;
+
+	  PORTA = ~0xFF;
+	  PORTC = 0x04;
+	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME);
+	  PORTC = 0x00;
+
+	  PORTA = ~0xFF;
+	  PORTC = 0x08;
+	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME);
+	  PORTC = 0x00;
+
+	  PORTA = ~0xFF;
+	  PORTC = 0x10;
+	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME);
+	  PORTC = 0x00;
+
+	  PORTA = ~0xFF;
+	  PORTC = 0x20;
+	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME);
+	  PORTC = 0x00;
+
+	  PORTA = ~0xFF;
+	  PORTC = 0x40;
+	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME);
+	  PORTC = 0x00;
+
+	  PORTA = ~0xFF;
+	  PORTC = 0x80;
+	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME);
+	  PORTC = 0x00;
+	  //	  light_keep_wait((uint16_t)LIGHT_KEEP_TIME*7);
+	}
+	
+}
+
+void light_keep_wait(uint16_t numLoops)
+{
+	while(numLoops-- > 0){
+	}
+	return;
+}

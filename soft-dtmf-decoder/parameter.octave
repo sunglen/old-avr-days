@@ -1,0 +1,14 @@
+# Created by Octave 2.1.57, Tue Jan 02 00:16:32 2007 CST <sunge@localhost.localdomain>
+# name: f
+# type: matrix
+# rows: 1
+# columns: 8
+ 697 770 852 941 1209 1336 1477 1633
+# name: k
+# type: matrix
+# rows: 1
+# columns: 8
+ 1.74650976255056 1.69210644042588 1.62527162966898 1.54614725244639 1.26995179912118 1.12141691926928 0.945276511406034 0.738812501513513
+# name: f_sample
+# type: scalar
+8604.67548076923

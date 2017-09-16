@@ -1,0 +1,689 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>FMUL - Fractional Multiply Unsigned</title>
+
+<!--(Meta)==========================================================-->
+
+<meta HTTP-EQUIV=Content-Type CONTENT="text/html; charset=windows-1252" text/html; charset="ISO-8859-1&quot;&quot;">
+<meta HTTP-EQUIV=Content-Style-Type CONTENT text/css&quot;&quot;>
+<meta name=date content="06 8, 2001 10:15:30 AM">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=2085>
+<meta name=layout-width content=579>
+
+
+<!--(Links)=========================================================-->
+
+<link rel="StyleSheet" href="../main.css">
+
+
+
+<!--(Style Sheet)===================================================-->
+
+<style><!--
+body { background-repeat:repeat; background-attachment:scroll; border-left-style:Solid; border-right-style:Solid; border-top-style:Solid; border-bottom-style:Solid; border-left-width:4px; border-right-width:4px; border-top-width:4px; border-bottom-width:4px;  }
+
+--></style>
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body><script language="javascript"> 
+        if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) ) 
+        document.write("<center><a href='../index.html?page=Html/FMUL.html'>show framing</a></center>")
+        </script>
+
+<div>
+<h3 CLASS=heading-3>FMUL - Fractional Multiply Unsigned</h3>
+
+<h3 CLASS=heading-3><img src="../images/eor-1.gif" style="border-style: none;
+								width: 469px;
+								height: 12px;" width="469" height="12" border="0"></h3>
+
+<div>
+<h6 CLASS=Section-Sub-2>Description: </h6>
+
+<p CLASS=Normal>This instruction performs 8-bit × 8-bit <span style="font-family: 'Times New Roman', serif;">&#8594;</span> 
+ 16-bit unsigned multiplication and shifts the result one bit left.</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells
+		style="x-cell-content-align: Center;
+				border-spacing: 1px;
+				border-left-style: Solid;
+				border-top-style: Solid;
+				border-right-style: Solid;
+				border-bottom-style: Solid;
+				border-left-width: 0px;
+				border-right-width: 0px;
+				border-top-width: 0px;
+				border-bottom-width: 0px;
+				border-spacing: 1px;"
+		cellspacing=1>
+
+<tr style="x-cell-content-align: center;"
+	valign=middle>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal
+	style="text-align: center;"
+	align=center>Rd</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal
+	style="text-align: center;"
+	align=center>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal
+	style="text-align: center;"
+	align=center>Rr</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal
+	style="text-align: center;"
+	align=center>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal
+	style="text-align: center;"
+	align=center>R1</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal
+	style="text-align: center;"
+	align=center>R0</td></tr>
+
+<tr style="x-cell-content-align: center;"
+	valign=middle>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal>Multiplicand</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal>×</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal>Multiplier</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal>-&gt;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal>Product High</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>Product Low</td></tr>
+
+<tr style="x-cell-content-align: center;"
+	valign=middle>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal
+	style="text-align: center;"
+	align=center>8</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal
+	style="text-align: center;"
+	align=center>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal
+	style="text-align: center;"
+	align=center>8</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal
+	style="text-align: center;"
+	align=center>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=2
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal
+	style="text-align: center;"
+	align=center>16</td>
+<td_null></tr>
+</table>
+
+<p CLASS=Body-Text>Let (N.Q) denote a fractional number with N binary digits 
+ left of the radix point, and Q binary digits right of the radix point. 
+ A multiplication between two numbers in the formats (N1.Q1) and (N2.Q2) 
+ results in the format ((N1+N2).(Q1+Q2)). For signal processing applications, 
+ the format (1.7) is widely used for the inputs, resulting in a (2.14) 
+ format for the product. A left shift is required for the high byte of 
+ the product to be in the same format as the inputs. The FMUL instruction 
+ incorporates the shift operation in the same number of cycles as MUL.</p>
+
+<p CLASS=Body-Text>The (1.7) format is most commonly used with signed numbers, 
+ while FMUL performs an unsigned multiplication. This instruction is therefore 
+ most useful for calculating one of the partial products when performing 
+ a signed multiplication with 16-bit inputs in the (1.15) format, yielding 
+ a result in the (1.31) format. Note: the result of the FMUL operation 
+ may suffer from a 2's complement overflow if interpreted as a number in 
+ the (1.15) format. The MSB of the multiplication before shifting must 
+ be taken into account, and is found in the carry bit. See the following 
+ example.</p>
+
+<p CLASS=Body-Text>The multiplicand Rd and the multiplier Rr are two registers 
+ containing unsigned fractional numbers where the implicit radix point 
+ lies between bit 6 and bit 7. The 16-bit unsigned fractional product with 
+ the implicit radix point between bit 14 and bit 15 is placed in R1 (high 
+ byte) and R0 (low byte). </p>
+
+<p CLASS=Body-Text>This instruction is not available in all devices. Refer 
+ to the device specific instruction set summary.</p>
+
+<p CLASS=Body-Text>&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L
+	style="font-family: 'Courier New', monospace;">Operation:</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">R1:R0 &#8592; Rd × Rr(unsigned 
+ (1.15) &#8592; unsigned (1.7) × unsigned (1.7))</p>
+
+<p CLASS=Body-Text
+	style="font-family: 'Courier New', monospace;">&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L
+	style="font-family: 'Courier New', monospace;">Syntax: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Operands: 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Program 
+ Counter:</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">FMUL Rd,Rr <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->16 
+ &#8804; d &#8804; 23, 16&#8804; r &#8804; 23 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->PC 
+ &#8592; PC + 1</p>
+
+<p CLASS=Table-Hd-9pt-L>16-bit Opcode:</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells
+		style="border-left-style: Solid;
+				border-left-width: 4px;
+				border-right-style: Solid;
+				border-right-width: 4px;
+				border-top-style: Solid;
+				border-top-width: 4px;
+				border-bottom-style: Solid;
+				border-bottom-width: 4px;">
+<col>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Code>0000</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Code>0011</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Code>0ddd</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Code>1rrr</td></tr>
+</table>
+
+<p CLASS=Normal>&nbsp;</p>
+</div>
+
+<div>
+<h6 CLASS=Section-Sub-2>Status Register (SREG) and Boolean Formula:</h6>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Table-9pt-C-Bottom>I</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Table-9pt-C-Bottom>T</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Table-9pt-C-Bottom>H</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Table-9pt-C-Bottom>S</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Table-9pt-C-Bottom>V</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Table-9pt-C-Bottom>N</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Table-9pt-C-Bottom>Z</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Table-9pt-C-Bottom>C</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Table-9pt-C-Bottom>-</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Table-9pt-C-Bottom>-</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Table-9pt-C-Bottom>-</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Table-9pt-C-Bottom>-</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Table-9pt-C-Bottom>-</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Table-9pt-C-Bottom>-</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal>&lt;&gt;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	style="border-left-width: 4px;
+			border-left-style: Solid;
+			border-top-width: 4px;
+			border-top-style: Solid;
+			border-right-width: 4px;
+			border-right-style: Solid;
+			border-bottom-width: 4px;
+			border-bottom-style: Solid;">
+<p CLASS=Normal>&lt;&gt;</td></tr>
+</table>
+
+<p CLASS=Normal>&nbsp;</p>
+
+<p CLASS=Tabbed-Body>C: R16</p>
+
+<p CLASS=Tabbed-Body>Set if bit 15 of the result before left shift is set; 
+ cleared otherwise.</p>
+
+<p CLASS=Tabbed-Body>Z:<em CLASS=Overline> R15</em> <em CLASS=Symbol-10pt>•</em> 
+ <em CLASS=Overline>R14</em> <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R13</em> 
+ <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R12</em> <em CLASS=Symbol-10pt>•</em> 
+ <em CLASS=Overline>R11</em> <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R10</em> 
+ <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R9</em> <em CLASS=Symbol-10pt>•</em> 
+ <em CLASS=Overline>R8</em> <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R7</em> 
+ <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R6</em> <em CLASS=Symbol-10pt>•</em> 
+ <em CLASS=Overline>R5</em> <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R4</em> 
+ <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R3</em> <em CLASS=Symbol-10pt>•</em> 
+ <em CLASS=Overline>R2</em> <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R1</em> 
+ <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R0</em> </p>
+
+<p CLASS=Tabbed-Body>Set if the result is $0000; cleared otherwise.</p>
+
+<p CLASS=Tabbed-Body>R (Result) equals R1,R0 after the operation.</p>
+
+<p CLASS=Normal>&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L>Example:</p>
+
+<p CLASS=Code>;******************************************************************************</p>
+
+<p CLASS=Code>;* DESCRIPTION</p>
+
+<p CLASS=Code>;*Signed fractional multiply of two 16-bit numbers with 32-bit 
+ result.</p>
+
+<p CLASS=Code>;* USAGE</p>
+
+<p CLASS=Code>;*r19:r18:r17:r16 = ( r23:r22 * r21:r20 ) &lt;&lt; 1</p>
+
+<p CLASS=Code>;******************************************************************************</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;"><span style="margin-left: 40px;">fmuls16x16_32:</span></p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">clr r2</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">fmuls r23, r21 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->;((signed)ah 
+ * (signed)bh) &lt;&lt; 1</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">movw r19:r18, r1:r0</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">fmul r22, r20 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->;(al 
+ * bl) &lt;&lt; 1</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">adc r18, r2</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">movw r17:r16, r1:r0</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">fmulsu r23, r20 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->;((signed)ah 
+ * bl) &lt;&lt; 1</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">sbc r19, r2</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">add r17, r0</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">adc r18, r1</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">adc r19, r2</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">fmulsu r21, r22 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->;((signed)bh 
+ * al) &lt;&lt; 1</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">sbc r19, r2</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">add r17, r0</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">adc r18, r1</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">adc r19, r2</p>
+
+<p CLASS=Table-Hd-9pt-L>Words: <em CLASS=Default-No-Bold>1 (2 bytes)</em> 
+ </p>
+
+<p CLASS=Table-Hd-9pt-L>Cycles:<em CLASS=Default-No-Bold> 2</em> </p>
+</div>
+</div>
+
+</body>
+
+</html>

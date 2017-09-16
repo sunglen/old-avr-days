@@ -1,0 +1,209 @@
+//---------------------------------------------------------------------
+//(16x16Dot)LED Game for AVR  by Takuya Matsubara / NICO Corp. 2006-2007
+// http://www.nico.to/avr/
+//
+//   NAZONO BLOCK
+//・ブロックくずし
+//・面クリアありません
+//・X移動量が変化しません
+//
+// 商用利用は禁止。再配布は自由にできます。
+// 改造して配布する場合にはわかりやすい形で明記してください。
+// この文は修正禁止(Please do not delete a document from here.)
+//---------------------------------------------------------------------
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <avr/signal.h>
+#include <avr/sleep.h>
+#include "led.h"
+#include "ledx.h"
+#include "rand.h"
+#include "sio.h"
+#include "sw.h"
+#include "beep.h"
+#include "sleeping.h"
+
+#define BLOCKMAX 5
+unsigned int *pVram;
+int shield[BLOCKMAX];
+
+
+void led_printd(int x);
+void led_print(char *p);
+
+
+
+//---------------------------------------------------------------------
+// 10進数4桁表示
+void led_printd(int x)
+{
+	unsigned char temp;
+	int ketaval=1000;
+
+	while (ketaval != 0) {
+		temp = x / ketaval;
+		led_putch('0'+temp);
+		x -= (ketaval*temp);
+		ketaval /= 10;
+	}
+}
+
+#define SHIELD_Y 2
+//---------------------------------------------------------------------
+// 文字列表示
+void led_print(char *p)
+{
+	while(*p != 0){
+		led_putch(*p++);
+	}
+}
+
+
+//--------------------------------
+// 表示
+unsigned int shield_put(void)
+{
+	unsigned int total=0;
+	int i;
+
+	for(i=0;i<BLOCKMAX;i++){
+		*(pVram+SHIELD_Y+i) = shield[i];
+		total |= shield[i];
+	}
+	return(total);
+}
+
+
+
+//---------------------------------------------------------------------
+// メイン処理
+int main(void)
+{
+	#define BALLSPEED 300   // ボール移動ループ回数
+	#define SWCHKCNT 200   // スイッチ検出ループ回数
+	#define BARWIDTH 3
+	#define SFT 2
+	int i;
+	int keycnt;
+	int ballcnt;
+	char tx,ty;
+	int score;	//Score
+	char x,y;	//My Racket X,Y
+	char bx,by;	//Ball X,y
+	char bx1,by1;	//Ball X1,y1
+
+	sw_init(SW_ALL);
+	rand_init();
+	sio_init();
+	beep_init();
+	led_init();				// LED初期化
+	pVram = led_getvram();	// VRAMアドレスを取得
+	sei();					//割り込み許可
+
+	while(1){
+		x = 1;	//プレーヤ座標
+		y = 14;
+		score = 0;
+
+		led_init();				// LED初期化
+		led_locate(0,0);
+		led_print("NAZO");
+		led_locate(0,8);
+		led_print("BLK.");
+		beep_set(500,10);
+
+		for(i=0;i<10000;i++)
+			led_disp();		// LED画面更新
+
+		led_init();				// LED初期化
+
+		bx = 1 << SFT;	//座標
+		by = (SHIELD_Y+BLOCKMAX)<<SFT;
+		bx1 = 1;
+		by1 = 2;
+		shield[0]=0b0011111111111100;
+		shield[1]=0b0000000000000000;
+		shield[2]=0b0011111111111100;
+		shield[3]=0b0000000000000000;
+		shield[4]=0b0011111111111100;
+		shield_put();
+
+		keycnt = 0;
+		while(1){
+			led_disp();		// LED画面更新
+
+			ballcnt++;
+			if(ballcnt >= BALLSPEED){ //ボール移動
+				ballcnt = 0;
+				led_pset(bx>>SFT,by>>SFT,0);	//ボール消去
+
+				tx = (bx+bx1)>>SFT;
+				ty = (by+by1)>>SFT;
+				if(ty <  0) by1 = -by1;
+				if(tx <  0) bx1 = -bx1;
+				if(tx > 15) bx1 = -bx1;
+
+				if((ty==y)&&(tx>=x)&&(tx<(x+BARWIDTH))){
+					beep_set(300,1);
+					by1 = -by1;
+				}
+				if(ty>=15)break;
+
+				tx=((bx+bx1)>>SFT);
+				ty=(by>>SFT);
+				i = ty - SHIELD_Y;
+				if((i>=0)&&(i<BLOCKMAX)){
+					if(shield[i] &(0x8000 >> tx)){
+						shield[i] &= ~(0x8000 >> tx);
+						bx1 = -bx1;
+						score++;
+						beep_set(600,1);
+						shield_put();
+					}
+				}
+				tx=(bx>>SFT);
+				ty=((by+by1)>>SFT);
+				i = ty - SHIELD_Y;
+				if((i>=0)&&(i<BLOCKMAX)){
+					if(shield[i] &(0x8000 >> tx)){
+						shield[i] &= ~(0x8000 >> tx);
+						by1 = -by1;
+						score++;
+						beep_set(600,1);
+						shield_put();
+					}
+				}
+				bx += bx1;
+				by += by1;
+
+				led_pset(bx>>SFT,by>>SFT,1);//ボール表示
+			}
+
+			keycnt++;
+			if(keycnt >= SWCHKCNT) {
+				keycnt = 0;
+
+				led_line(x,y,x+(BARWIDTH-1),y,0);
+
+				if((sw_get(SW_LEFT))&&(x>0)){				// 右ボタン
+					x--;
+				}
+				if((sw_get(SW_RIGHT))&&(x<=(LEDXMAX-BARWIDTH))) {	// 左ボタン
+					x++;
+				}
+				if(sw_get(SW_A)){	// Aスイッチ
+					sleeping();
+				}
+				led_line(x,y,x+(BARWIDTH-1),y,1);
+			}
+		}
+		beep_set(170,15);
+		led_locate(0,4);
+		led_printd(score);
+
+		for(i=0;i<20000;i++)
+			led_disp();		// LED画面更新
+
+		sleeping();
+	}
+}

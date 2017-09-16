@@ -1,0 +1,8 @@
+avr-gcc -I.  -gstabs -std=gnu99 -mmcu=atmega64 -O0 -fpack-struct -fshort-enums -funsigned-bitfields -funsigned-char -Wall -Wstrict-prototypes -Wa,-ahlms=simple.lst -c simple.c
+avr-gcc -Wl,-Map,simple.out.map,--cref -lm  -o simple.out simple.o    
+avr-objcopy -j .text                    \
+	-j .data                       \
+	-O ihex simple.out simple.hex
+avr-objcopy -j .eeprom                  \
+	--change-section-lma .eeprom=0 \
+	-O ihex simple.out simple.ee.hex

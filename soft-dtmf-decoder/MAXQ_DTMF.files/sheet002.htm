@@ -1,0 +1,711 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=GB2312">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 9">
+<link id=Main-File rel=Main-File href="../MAXQ_DTMF.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Edit-Time-Data href=editdata.mso>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+x\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+@page
+	{mso-header-data:"&C&\0022Times New Roman\,Regular\0022&12&A";
+	mso-footer-data:"&C&\0022Times New Roman\,Regular\0022&12Page &P";
+	margin:.79in .79in .79in .79in;
+	mso-header-margin:.1in;
+	mso-footer-margin:.1in;
+	mso-page-numbers-start:1;}
+ruby
+	{ruby-align:left;}
+rt
+	{color:windowtext;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-char-type:none;
+	display:none;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../MAXQ_DTMF.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]><!--[if gte mso 9]><xml>
+ <x:WorksheetOptions>
+  <x:StandardWidth>2998</x:StandardWidth>
+  <x:Print>
+   <x:FitHeight>0</x:FitHeight>
+   <x:ValidPrinterInfo/>
+   <x:HorizontalResolution>300</x:HorizontalResolution>
+   <x:VerticalResolution>300</x:VerticalResolution>
+  </x:Print>
+  <x:Zoom>50</x:Zoom>
+  <x:Panes>
+   <x:Pane>
+    <x:Number>3</x:Number>
+    <x:ActiveRow>4</x:ActiveRow>
+    <x:ActiveCol>4</x:ActiveCol>
+   </x:Pane>
+  </x:Panes>
+  <x:ProtectContents>False</x:ProtectContents>
+  <x:ProtectObjects>False</x:ProtectObjects>
+  <x:ProtectScenarios>False</x:ProtectScenarios>
+ </x:WorksheetOptions>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body link=blue vlink=purple class=xl25>
+
+<table x:str border=0 cellpadding=0 cellspacing=0 width=1394 style='border-collapse:
+ collapse;table-layout:fixed;width:1054pt'>
+ <col class=xl25 width=82 style='width:62pt'>
+ <col class=xl26 width=82 span=5 style='width:62pt'>
+ <col class=xl25 width=82 span=11 style='width:62pt'>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 width=82 style='height:12.75pt;width:62pt'></td>
+  <td class=xl26 width=82 style='width:62pt'>ToneFrequncy</td>
+  <td class=xl26 width=82 style='width:62pt'>SamplingRate</td>
+  <td class=xl26 width=82 style='width:62pt'>k</td>
+  <td class=xl26 width=82 style='width:62pt'>Amplitude</td>
+  <td class=xl26 colspan=2 width=164 style='mso-ignore:colspan;width:124pt'>Initial
+  impulse</td>
+  <td class=xl25 width=82 style='width:62pt'></td>
+  <td class=xl25 width=82 style='width:62pt'></td>
+  <td class=xl25 width=82 style='width:62pt'></td>
+  <td class=xl25 width=82 style='width:62pt'></td>
+  <td class=xl25 width=82 style='width:62pt'></td>
+  <td class=xl25 width=82 style='width:62pt'></td>
+  <td class=xl25 width=82 style='width:62pt'></td>
+  <td class=xl25 width=82 style='width:62pt'></td>
+  <td class=xl25 width=82 style='width:62pt'></td>
+  <td class=xl25 width=82 style='width:62pt'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 style='height:12.75pt'></td>
+  <td class=xl26 align=right x:num>770.00</td>
+  <td class=xl26 align=right x:num>8000.00</td>
+  <td class=xl26 align=right x:num="1.6452810360417196"
+  x:fmla="=2*COS(2*PI()*B2/C2)">1.65</td>
+  <td class=xl26 align=right x:num>1.00</td>
+  <td class=xl26 align=right x:num="-0.56856185073426391"
+  x:fmla="=-E2*SIN(2*PI()*B2/C2)">-0.57</td>
+  <td colspan=11 class=xl25 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 style='height:12.75pt'></td>
+  <td colspan=5 class=xl26 style='mso-ignore:colspan'></td>
+  <td colspan=11 class=xl25 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 style='height:12.75pt'>Sample #</td>
+  <td class=xl26>k</td>
+  <td class=xl26>X1</td>
+  <td class=xl26>X2</td>
+  <td class=xl26>X0</td>
+  <td class=xl26></td>
+  <td colspan=11 class=xl25 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>1</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=D2">1.65</td>
+  <td class=xl26 align=right x:num>0.00</td>
+  <td class=xl26 align=right x:num="-0.56856185073426391" x:fmla="=F2">-0.57</td>
+  <td class=xl26 align=right x:num="0.56856185073426391" x:fmla="=B5*C5-D5">0.57</td>
+  <td class=xl26></td>
+  <td colspan=11 rowspan=39 height=663 class=xl25 width=902 style='mso-ignore:
+  colspan-rowspan;height:497.25pt;width:682pt'><!--[if gte vml 1]><v:shapetype
+   id="_x0000_t201" coordsize="21600,21600" o:spt="201" path="m0,0l0,21600,21600,21600,21600,0xe">
+   <v:stroke joinstyle="miter"/>
+   <v:path shadowok="f" o:extrusionok="f" strokeok="f" fillok="f"
+    o:connecttype="rect"/>
+   <o:lock v:ext="edit" shapetype="t"/>
+  </v:shapetype><v:shape id="_x0000_s1025" type="#_x0000_t201" style='position:absolute;
+   margin-left:0;margin-top:1.5pt;width:669.75pt;height:487.5pt;z-index:1'
+   fillcolor="window [78]" strokecolor="windowText [77]" o:insetmode="auto">
+   <v:fill color2="windowText [77]"/>
+   <o:lock v:ext="edit" rotation="t" text="t"/>
+   <x:ClientData ObjectType="Chart">
+    <x:WebChart>
+     <x:Scaling>
+      <x:ScaleID>0</x:ScaleID>
+      <x:Orientation>MinMax</x:Orientation>
+     </x:Scaling>
+     <x:Scaling>
+      <x:ScaleID>1</x:ScaleID>
+      <x:Orientation>MinMax</x:Orientation>
+     </x:Scaling>
+     <x:Chart>
+      <x:Name>图表 1</x:Name>
+      <x:Title>
+       <x:Caption>
+        <x:DataSource>-1</x:DataSource>
+        <x:Data>&quot;Sine Wave Generation&quot;</x:Data>
+       </x:Caption>
+       <x:Font>
+        <x:FontName>Arial</x:FontName>
+        <x:Size>30.8</x:Size>
+       </x:Font>
+       <x:Border>
+        <x:ColorIndex>None</x:ColorIndex>
+       </x:Border>
+       <x:Interior>
+        <x:ColorIndex>None</x:ColorIndex>
+       </x:Interior>
+      </x:Title>
+      <x:Options>
+       <x:SizeWithWindow/>
+      </x:Options>
+      <x:PageSetup>
+       <x:ChartSize>FullPage</x:ChartSize>
+      </x:PageSetup>
+      <x:Border>
+       <x:ColorIndex>None</x:ColorIndex>
+      </x:Border>
+      <x:Interior>
+       <x:ColorIndex>1</x:ColorIndex>
+       <x:BGColorIndex>Foreground</x:BGColorIndex>
+      </x:Interior>
+      <x:Font>
+       <x:FontName>Arial</x:FontName>
+       <x:Size>10</x:Size>
+      </x:Font>
+      <x:Left>0</x:Left>
+      <x:Top>0</x:Top>
+      <x:Width>13410</x:Width>
+      <x:Height>9765</x:Height>
+      <x:ChartGrowth>
+       <x:HorzGrowth>1</x:HorzGrowth>
+       <x:VertGrowth>1</x:VertGrowth>
+      </x:ChartGrowth>
+      <x:PlotArea>
+       <x:Border>
+        <x:ColorIndex>None</x:ColorIndex>
+       </x:Border>
+       <x:Interior>
+        <x:ColorIndex>23</x:ColorIndex>
+        <x:BGColorIndex>Foreground</x:BGColorIndex>
+       </x:Interior>
+       <x:Font>
+        <x:FontName>Arial</x:FontName>
+        <x:Size>10</x:Size>
+       </x:Font>
+       <x:Graph>
+        <x:Type>Line</x:Type>
+        <x:SubType>Standard</x:SubType>
+        <x:SubType>Marker</x:SubType>
+        <x:ScaleID>0</x:ScaleID>
+        <x:ScaleID>1</x:ScaleID>
+        <x:Series>
+         <x:Index>0</x:Index>
+         <x:Name>系列 1</x:Name>
+         <x:Line>
+          <x:ColorIndex>16</x:ColorIndex>
+          <x:LineStyle>Solid</x:LineStyle>
+          <x:Weight>Hairline</x:Weight>
+         </x:Line>
+         <x:Marker>
+          <x:Symbol>Diamond</x:Symbol>
+          <x:Size>6</x:Size>
+          <x:Border>
+           <x:ColorIndex>Foreground</x:ColorIndex>
+          </x:Border>
+          <x:Interior>
+           <x:ColorIndex>16</x:ColorIndex>
+          </x:Interior>
+         </x:Marker>
+         <x:DataLabels>
+          <x:Delete/>
+         </x:DataLabels>
+         <x:Category>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>sine_gen_float!$A$5:$A$44</x:Data>
+         </x:Category>
+         <x:Value>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>sine_gen_float!$E$5:$E$44</x:Data>
+         </x:Value>
+        </x:Series>
+        <x:PlotVisible/>
+       </x:Graph>
+       <x:Axis>
+        <x:Placement>Bottom</x:Placement>
+        <x:AxisID>0</x:AxisID>
+        <x:ScaleID>0</x:ScaleID>
+        <x:Line>
+         <x:ColorIndex>0</x:ColorIndex>
+         <x:LineStyle>Solid</x:LineStyle>
+         <x:Weight>Hairline</x:Weight>
+        </x:Line>
+        <x:CrossingAxis>1</x:CrossingAxis>
+        <x:CrossesAt>0</x:CrossesAt>
+        <x:Alignment>
+         <x:Rotation>0</x:Rotation>
+        </x:Alignment>
+        <x:Font>
+         <x:FontName>Arial</x:FontName>
+         <x:Size>16.5</x:Size>
+         <x:Background>Transparent</x:Background>
+        </x:Font>
+        <x:Number>
+         <x:SourceLinked/>
+         <x:BuiltInFormat>0</x:BuiltInFormat>
+        </x:Number>
+        <x:TickLabelPosition>Low</x:TickLabelPosition>
+        <x:TickMarkSkip>1</x:TickMarkSkip>
+        <x:Type>Automatic</x:Type>
+       </x:Axis>
+       <x:Axis>
+        <x:Placement>Left</x:Placement>
+        <x:AxisID>1</x:AxisID>
+        <x:ScaleID>1</x:ScaleID>
+        <x:Line>
+         <x:ColorIndex>0</x:ColorIndex>
+         <x:LineStyle>Solid</x:LineStyle>
+         <x:Weight>Hairline</x:Weight>
+        </x:Line>
+        <x:MajorGridlines>
+         <x:Line>
+          <x:ColorIndex>0</x:ColorIndex>
+          <x:LineStyle>Solid</x:LineStyle>
+          <x:Weight>Hairline</x:Weight>
+         </x:Line>
+        </x:MajorGridlines>
+        <x:CrossingAxis>0</x:CrossingAxis>
+        <x:CrossesAt>Minimum</x:CrossesAt>
+        <x:CrossBetween>MidCategory</x:CrossBetween>
+        <x:Alignment>
+         <x:Rotation>0</x:Rotation>
+        </x:Alignment>
+        <x:Font>
+         <x:FontName>Arial</x:FontName>
+         <x:Size>16.5</x:Size>
+         <x:Background>Transparent</x:Background>
+        </x:Font>
+        <x:Number>
+         <x:BuiltInFormat>0</x:BuiltInFormat>
+        </x:Number>
+        <x:TickLabelPosition>Low</x:TickLabelPosition>
+        <x:Type>Value</x:Type>
+       </x:Axis>
+      </x:PlotArea>
+      <x:Legend>
+       <x:Placement>Right</x:Placement>
+       <x:Border>
+        <x:ColorIndex>0</x:ColorIndex>
+        <x:LineStyle>Solid</x:LineStyle>
+        <x:Weight>Hairline</x:Weight>
+       </x:Border>
+       <x:Interior>
+        <x:ColorIndex>23</x:ColorIndex>
+        <x:BGColorIndex>Foreground</x:BGColorIndex>
+       </x:Interior>
+       <x:Font>
+        <x:FontName>Arial</x:FontName>
+        <x:Size>14.1</x:Size>
+       </x:Font>
+      </x:Legend>
+     </x:Chart>
+    </x:WebChart>
+   </x:ClientData>
+  </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+  <table cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=0 height=2></td>
+   </tr>
+   <tr>
+    <td></td>
+    <td><![endif]><![if !excel]><img width=895 height=652 src=image001.gif
+    v:shapes="_x0000_s1025" class=shape v:dpi="96"><![endif]><![if !vml]></td>
+    <td width=7></td>
+   </tr>
+   <tr>
+    <td height=9></td>
+   </tr>
+  </table>
+  </span><![endif]><!--[if !mso & vml]><span style='width:676.5pt;height:497.25pt'></span><![endif]--></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>2</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B5">1.65</td>
+  <td class=xl26 align=right x:num="0.56856185073426391" x:fmla="=E5">0.57</td>
+  <td class=xl26 align=right x:num x:fmla="=C5">0.00</td>
+  <td class=xl26 align=right x:num="0.93544403082986727" x:fmla="=B6*C6-D6">0.94</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>3</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B6">1.65</td>
+  <td class=xl26 align=right x:num="0.93544403082986727" x:fmla="=E6">0.94</td>
+  <td class=xl26 align=right x:num="0.56856185073426391" x:fmla="=C6">0.57</td>
+  <td class=xl26 align=right x:num="0.97050647346854235" x:fmla="=B7*C7-D7">0.97</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>4</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B7">1.65</td>
+  <td class=xl26 align=right x:num="0.97050647346854235" x:fmla="=E7">0.97</td>
+  <td class=xl26 align=right x:num="0.93544403082986727" x:fmla="=C7">0.94</td>
+  <td class=xl26 align=right x:num="0.66131186532365183" x:fmla="=B8*C8-D8">0.66</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>5</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B8">1.65</td>
+  <td class=xl26 align=right x:num="0.66131186532365183" x:fmla="=E8">0.66</td>
+  <td class=xl26 align=right x:num="0.97050647346854235" x:fmla="=C8">0.97</td>
+  <td class=xl26 align=right x:num="0.11753739745783764" x:fmla="=B9*C9-D9">0.12</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>6</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B9">1.65</td>
+  <td class=xl26 align=right x:num="0.11753739745783764" x:fmla="=E9">0.12</td>
+  <td class=xl26 align=right x:num="0.66131186532365183" x:fmla="=C9">0.66</td>
+  <td class=xl26 align=right x:num="-0.46792981426057334" x:fmla="=B10*C10-D10">-0.47</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>7</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B10">1.65</td>
+  <td class=xl26 align=right x:num="-0.46792981426057334" x:fmla="=E10">-0.47</td>
+  <td class=xl26 align=right x:num="0.11753739745783764" x:fmla="=C10">0.12</td>
+  <td class=xl26 align=right x:num="-0.88741344705928316" x:fmla="=B11*C11-D11">-0.89</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>8</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B11">1.65</td>
+  <td class=xl26 align=right x:num="-0.88741344705928316" x:fmla="=E11">-0.89</td>
+  <td class=xl26 align=right x:num="-0.46792981426057334" x:fmla="=C11">-0.47</td>
+  <td class=xl26 align=right x:num="-0.99211470131447765" x:fmla="=B12*C12-D12">-0.99</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>9</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B12">1.65</td>
+  <td class=xl26 align=right x:num="-0.99211470131447765" x:fmla="=E12">-0.99</td>
+  <td class=xl26 align=right x:num="-0.88741344705928316" x:fmla="=C12">-0.89</td>
+  <td class=xl26 align=right x:num="-0.74489405659162178" x:fmla="=B13*C13-D13">-0.74</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>10</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B13">1.65</td>
+  <td class=xl26 align=right x:num="-0.74489405659162178" x:fmla="=E13">-0.74</td>
+  <td class=xl26 align=right x:num="-0.99211470131447765" x:fmla="=C13">-0.99</td>
+  <td class=xl26 align=right x:num="-0.2334453638559052" x:fmla="=B14*C14-D14">-0.23</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>11</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B14">1.65</td>
+  <td class=xl26 align=right x:num="-0.2334453638559052" x:fmla="=E14">-0.23</td>
+  <td class=xl26 align=right x:num="-0.74489405659162178" x:fmla="=C14">-0.74</td>
+  <td class=xl26 align=right x:num="0.3608108264876419" x:fmla="=B15*C15-D15">0.36</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>12</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B15">1.65</td>
+  <td class=xl26 align=right x:num="0.3608108264876419" x:fmla="=E15">0.36</td>
+  <td class=xl26 align=right x:num="-0.2334453638559052" x:fmla="=C15">-0.23</td>
+  <td class=xl26 align=right x:num="0.82708057427456183" x:fmla="=B16*C16-D16">0.83</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>13</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B16">1.65</td>
+  <td class=xl26 align=right x:num="0.82708057427456183" x:fmla="=E16">0.83</td>
+  <td class=xl26 align=right x:num="0.3608108264876419" x:fmla="=C16">0.36</td>
+  <td class=xl26 align=right x:num="0.99996915764478955" x:fmla="=B17*C17-D17">1.00</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>14</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B17">1.65</td>
+  <td class=xl26 align=right x:num="0.99996915764478955" x:fmla="=E17">1.00</td>
+  <td class=xl26 align=right x:num="0.82708057427456183" x:fmla="=C17">0.83</td>
+  <td class=xl26 align=right x:num="0.81814971742502307" x:fmla="=B18*C18-D18">0.82</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>15</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B18">1.65</td>
+  <td class=xl26 align=right x:num="0.81814971742502307" x:fmla="=E18">0.82</td>
+  <td class=xl26 align=right x:num="0.99996915764478955" x:fmla="=C18">1.00</td>
+  <td class=xl26 align=right x:num="0.34611705707749252" x:fmla="=B19*C19-D19">0.35</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>16</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B19">1.65</td>
+  <td class=xl26 align=right x:num="0.34611705707749252" x:fmla="=E19">0.35</td>
+  <td class=xl26 align=right x:num="0.81814971742502307" x:fmla="=C19">0.82</td>
+  <td class=xl26 align=right x:num="-0.24868988716485518" x:fmla="=B20*C20-D20">-0.25</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>17</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B20">1.65</td>
+  <td class=xl26 align=right x:num="-0.24868988716485518" x:fmla="=E20">-0.25</td>
+  <td class=xl26 align=right x:num="0.34611705707749252" x:fmla="=C20">0.35</td>
+  <td class=xl26 align=right x:num="-0.75528181228518387" x:fmla="=B21*C21-D21">-0.76</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>18</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B21">1.65</td>
+  <td class=xl26 align=right x:num="-0.75528181228518387" x:fmla="=E21">-0.76</td>
+  <td class=xl26 align=right x:num="-0.24868988716485518" x:fmla="=C21">-0.25</td>
+  <td class=xl26 align=right x:num="-0.99396095545517971" x:fmla="=B22*C22-D22">-0.99</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>19</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B22">1.65</td>
+  <td class=xl26 align=right x:num="-0.99396095545517971" x:fmla="=E22">-0.99</td>
+  <td class=xl26 align=right x:num="-0.75528181228518387" x:fmla="=C22">-0.76</td>
+  <td class=xl26 align=right x:num="-0.88006329829113161" x:fmla="=B23*C23-D23">-0.88</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>20</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B23">1.65</td>
+  <td class=xl26 align=right x:num="-0.88006329829113161" x:fmla="=E23">-0.88</td>
+  <td class=xl26 align=right x:num="-0.99396095545517971" x:fmla="=C23">-0.99</td>
+  <td class=xl26 align=right x:num="-0.45399049973954619" x:fmla="=B24*C24-D24">-0.45</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>21</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B24">1.65</td>
+  <td class=xl26 align=right x:num="-0.45399049973954619" x:fmla="=E24">-0.45</td>
+  <td class=xl26 align=right x:num="-0.88006329829113161" x:fmla="=C24">-0.88</td>
+  <td class=xl26 align=right x:num="0.13312133852655306" x:fmla="=B25*C25-D25">0.13</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>22</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B25">1.65</td>
+  <td class=xl26 align=right x:num="0.13312133852655306" x:fmla="=E25">0.13</td>
+  <td class=xl26 align=right x:num="-0.45399049973954619" x:fmla="=C25">-0.45</td>
+  <td class=xl26 align=right x:num="0.67301251350977387" x:fmla="=B26*C26-D26">0.67</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>23</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B26">1.65</td>
+  <td class=xl26 align=right x:num="0.67301251350977387" x:fmla="=E26">0.67</td>
+  <td class=xl26 align=right x:num="0.13312133852655306" x:fmla="=C26">0.13</td>
+  <td class=xl26 align=right x:num="0.97417338696984945" x:fmla="=B27*C27-D27">0.97</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>24</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B27">1.65</td>
+  <td class=xl26 align=right x:num="0.97417338696984945" x:fmla="=E27">0.97</td>
+  <td class=xl26 align=right x:num="0.67301251350977387" x:fmla="=C27">0.67</td>
+  <td class=xl26 align=right x:num="0.92977648588825101" x:fmla="=B28*C28-D28">0.93</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>25</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B28">1.65</td>
+  <td class=xl26 align=right x:num="0.92977648588825101" x:fmla="=E28">0.93</td>
+  <td class=xl26 align=right x:num="0.97417338696984945" x:fmla="=C28">0.97</td>
+  <td class=xl26 align=right x:num="0.55557023301960151" x:fmla="=B29*C29-D29">0.56</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>26</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B29">1.65</td>
+  <td class=xl26 align=right x:num="0.55557023301960151" x:fmla="=E29">0.56</td>
+  <td class=xl26 align=right x:num="0.92977648588825101" x:fmla="=C29">0.93</td>
+  <td class=xl26 align=right x:num="-1.5707317311821511E-2"
+  x:fmla="=B30*C30-D30">-0.02</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>27</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B30">1.65</td>
+  <td class=xl26 align=right x:num="-1.5707317311821511E-2" x:fmla="=E30">-0.02</td>
+  <td class=xl26 align=right x:num="0.55557023301960151" x:fmla="=C30">0.56</td>
+  <td class=xl26 align=right x:num="-0.58141318431983124" x:fmla="=B31*C31-D31">-0.58</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>28</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B31">1.65</td>
+  <td class=xl26 align=right x:num="-0.58141318431983124" x:fmla="=E31">-0.58</td>
+  <td class=xl26 align=right x:num="-1.5707317311821511E-2" x:fmla="=C31">-0.02</td>
+  <td class=xl26 align=right x:num="-0.94088076895422568" x:fmla="=B32*C32-D32">-0.94</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>29</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B32">1.65</td>
+  <td class=xl26 align=right x:num="-0.94088076895422568" x:fmla="=E32">-0.94</td>
+  <td class=xl26 align=right x:num="-0.58141318431983124" x:fmla="=C32">-0.58</td>
+  <td class=xl26 align=right x:num="-0.96660010201690694" x:fmla="=B33*C33-D33">-0.97</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>30</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B33">1.65</td>
+  <td class=xl26 align=right x:num="-0.96660010201690694" x:fmla="=E33">-0.97</td>
+  <td class=xl26 align=right x:num="-0.94088076895422568" x:fmla="=C33">-0.94</td>
+  <td class=xl26 align=right x:num="-0.64944804833018288" x:fmla="=B34*C34-D34">-0.65</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>31</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B34">1.65</td>
+  <td class=xl26 align=right x:num="-0.64944804833018288" x:fmla="=E34">-0.65</td>
+  <td class=xl26 align=right x:num="-0.96660010201690694" x:fmla="=C34">-0.97</td>
+  <td class=xl26 align=right x:num="-0.10192445579504905" x:fmla="=B35*C35-D35">-0.10</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>32</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B35">1.65</td>
+  <td class=xl26 align=right x:num="-0.10192445579504905" x:fmla="=E35">-0.10</td>
+  <td class=xl26 align=right x:num="-0.64944804833018288" x:fmla="=C35">-0.65</td>
+  <td class=xl26 align=right x:num="0.4817536741017161" x:fmla="=B36*C36-D36">0.48</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>33</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B36">1.65</td>
+  <td class=xl26 align=right x:num="0.4817536741017161" x:fmla="=E36">0.48</td>
+  <td class=xl26 align=right x:num="-0.10192445579504905" x:fmla="=C36">-0.10</td>
+  <td class=xl26 align=right x:num="0.89454463983802546" x:fmla="=B37*C37-D37">0.89</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>34</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B37">1.65</td>
+  <td class=xl26 align=right x:num="0.89454463983802546" x:fmla="=E37">0.89</td>
+  <td class=xl26 align=right x:num="0.4817536741017161" x:fmla="=C37">0.48</td>
+  <td class=xl26 align=right x:num="0.99002365771655731" x:fmla="=B38*C38-D38">0.99</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>35</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B38">1.65</td>
+  <td class=xl26 align=right x:num="0.99002365771655731" x:fmla="=E38">0.99</td>
+  <td class=xl26 align=right x:num="0.89454463983802546" x:fmla="=C38">0.89</td>
+  <td class=xl26 align=right x:num="0.73432250943568467" x:fmla="=B39*C39-D39">0.73</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>36</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B39">1.65</td>
+  <td class=xl26 align=right x:num="0.73432250943568467" x:fmla="=E39">0.73</td>
+  <td class=xl26 align=right x:num="0.99002365771655731" x:fmla="=C39">0.99</td>
+  <td class=xl26 align=right x:num="0.2181432413965414" x:fmla="=B40*C40-D40">0.22</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>37</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B40">1.65</td>
+  <td class=xl26 align=right x:num="0.2181432413965414" x:fmla="=E40">0.22</td>
+  <td class=xl26 align=right x:num="0.73432250943568467" x:fmla="=C40">0.73</td>
+  <td class=xl26 align=right x:num="-0.37541557122528407" x:fmla="=B41*C41-D41">-0.38</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>38</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B41">1.65</td>
+  <td class=xl26 align=right x:num="-0.37541557122528407" x:fmla="=E41">-0.38</td>
+  <td class=xl26 align=right x:num="0.2181432413965414" x:fmla="=C41">0.22</td>
+  <td class=xl26 align=right x:num="-0.83580736136827072" x:fmla="=B42*C42-D42">-0.84</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>39</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B42">1.65</td>
+  <td class=xl26 align=right x:num="-0.83580736136827072" x:fmla="=E42">-0.84</td>
+  <td class=xl26 align=right x:num="-0.37541557122528407" x:fmla="=C42">-0.38</td>
+  <td class=xl26 align=right x:num="-0.99972243021800034" x:fmla="=B43*C43-D43">-1.00</td>
+  <td class=xl26></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>40</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B43">1.65</td>
+  <td class=xl26 align=right x:num="-0.99972243021800034" x:fmla="=E43">-1.00</td>
+  <td class=xl26 align=right x:num="-0.83580736136827072" x:fmla="=C43">-0.84</td>
+  <td class=xl26 align=right x:num="-0.80901699437494667" x:fmla="=B44*C44-D44">-0.81</td>
+  <td class=xl26></td>
+  <td colspan=11 class=xl25 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl25 align=right style='height:12.75pt' x:num>41</td>
+  <td class=xl26 align=right x:num="1.6452810360417196" x:fmla="=B44">1.65</td>
+  <td class=xl26 align=right x:num="-0.80901699437494667" x:fmla="=E44">-0.81</td>
+  <td class=xl26 align=right x:num="-0.99972243021800034" x:fmla="=C44">-1.00</td>
+  <td class=xl26 align=right x:num="-0.33133788846256995" x:fmla="=B45*C45-D45">-0.33</td>
+  <td class=xl26></td>
+  <td colspan=11 class=xl25 style='mso-ignore:colspan'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=82 style='width:62pt'></td>
+  <td width=82 style='width:62pt'></td>
+  <td width=82 style='width:62pt'></td>
+  <td width=82 style='width:62pt'></td>
+  <td width=82 style='width:62pt'></td>
+  <td width=82 style='width:62pt'></td>
+  <td width=82 style='width:62pt'></td>
+  <td width=82 style='width:62pt'></td>
+  <td width=82 style='width:62pt'></td>
+  <td width=82 style='width:62pt'></td>
+  <td width=82 style='width:62pt'></td>
+  <td width=82 style='width:62pt'></td>
+  <td width=82 style='width:62pt'></td>
+  <td width=82 style='width:62pt'></td>
+  <td width=82 style='width:62pt'></td>
+  <td width=82 style='width:62pt'></td>
+  <td width=82 style='width:62pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,383 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>AVR Assembler 2 Command Line Options</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=windows-1252">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=3472>
+<meta name=layout-width content=682>
+
+
+<!--(Links)=========================================================-->
+
+<link rel="StyleSheet" href="../main.css">
+
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body><script language="javascript"> 
+        if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) ) 
+        document.write("<center><a href='../index.html?page=Html/AVR_Assembler_2_Command_Line_Options.htm'>show framing</a></center>")
+        </script>
+
+<h2><a name="Command-Line Options">AVR Assembler 2 Command Line Options</a></h2>
+
+<p>Like AVRASM, AVRASM2 may be used as a stand-alone program from the command 
+ line. The AVRASM2 command-line invocation syntax is shown below. Many 
+ options are the same as in AVRASM, new/changed AVRASM2 options are shown 
+ in <span style="font-weight: bold;">bold</span> and described below.</p>
+
+<p style="font-family: 'Courier New', monospace;">usage: avrasm2.exe [options] 
+ file.asm</p>
+
+<p style="font-family: 'Courier New', monospace;
+			margin-left: 0px;
+			text-indent: 96px;">Options:<br>
+-f [O|M|I|G|-] output file format:<br>
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->-fO 
+ Debug info for simulation in AVR Studio (default)<br>
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span 
+ style="font-weight: bold;"><!--kadov_tag{{</spaces>}}-->-fO1 | -fO2 - 
+ force format version 1 or 2 (default: auto)</span><br>
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->-fM 
+ Motorola hex<br>
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->-fI 
+ Intel hex<br>
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->-fG 
+ Generic hex format<span style="font-weight: bold;"><br>
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->-f- 
+ No output file</span><br>
+-o ofile <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Put 
+ output in 'ofile'.<br>
+-d dfile <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Generate 
+ debug info for simulation in AVR Studio in 'dfile'.<br>
+Can only be used with the -f [M|I|G] option.<br>
+-l lfile <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Generate 
+ listing in 'lfile'<br>
+-m mfile <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Generate 
+ map in 'mfile'<br>
+-e efile <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Place 
+ EEPROM contents in 'efile'<br>
+-w <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Relative 
+ jumps are allowed to wrap for program ROM<br>
+up to 4k words in size <span style="font-weight: bold;">[ignored]<br>
+-C ver <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Specify 
+ AVR core version<br>
+-c <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Case 
+ sensitive<br>
+-1/-2 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Turn 
+ on/off AVR Assembler version 1 compatibility.<br>
+-p1|0 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Set/unset 
+ AVRASM1 implicit .device include (also set by -1)<br>
+-I dir <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Preprocessor: 
+ Add 'dir' to include search path<br>
+-i file <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Preprocessor: 
+ Explicitly pre-include file<br>
+-D name[=value] Preprocessor: Define symbol. If =value is<br>
+omitted, it is set to 1.<br>
+-U name <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Preprocessor: 
+ Undefine symbol.<br>
+-v verbosity [0-9][s]:<br>
+-vs Include target resource usage statistics<br>
+-vl Output low-level assembly code to stdout<br>
+-v0 Silent, only error messages printed<br>
+-v1 Error and warning messages printed<br>
+-v2 Error, warning, and <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->info 
+ messages printed (default)<br>
+-v3-v9 Unspecified, increasing amounts of assembler internal dumps.<br>
+-O i|w|e <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Overlap 
+ report: ignore|warning|error [error]<br>
+-W-b|+bo|+bi Byte operand out of range warning disable|overflow|integer<br>
+-W+ie|+iw <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->Unsupported 
+ instruction error | warning<br>
+-FD|Tfmt <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->__DATE__ 
+ | __TIME__ format, using strftime(3) format string&nbsp;</span></p>
+
+<h4><a name=Command_line_-f></a>-f <span style="font-style: italic;">output-file-format</span></h4>
+
+<p>Supported formats are generic/Intel/Motorola hex, and AVR Object files. 
+ There are two subvariants of the AVR Object file format:</p>
+
+<ul style="list-style: disc;"
+	type=disc>
+	
+	<li class=kadov-p><p>Standard (V1) format, with 16-bit line number 
+ fields, supporting source files with up to 65534 lines.</p></li>
+	
+	<li class=kadov-p><p>Extended (V2) format, with 24-bit line number 
+ fields, supporting source files with up to ~16M lines.</p></li>
+</ul>
+
+<p>By default, when output format is unspecified or specified with -fO, 
+ the assembler will select the appropriate format automatically, V1 if 
+ the file has less than 65533 lines, V2 if it has more. The -fO1 and -fO2 
+ options may be used to force V1 or V2 output file format regardless of 
+ number of lines.</p>
+
+<p>If V1 file format is used with source files with more than 65534 lines, 
+ the assembler will issue a warning, and the lines above 65534 cannot be 
+ debugged with AVR Studio. On the other hand, the V2 format is not recognized 
+ at all by AVR Studio versions prior to 4.12.</p>
+
+<p>For all normal assembler projects, the default option should be safe. 
+ The extended format is primarily intended for machine-generated assembly 
+ files.</p>
+
+<h4>-w</h4>
+
+<p>Wrap relative jumps. This option is obsoleted, because AVRASM2 automatically 
+ determines when to wrap relative jumps, based on program memory size. 
+ The option is recognized but ignored.</p>
+
+<h4>-C <span style="font-style: italic;">core-version</span></h4>
+
+<p>Specify AVR Core version. The core version is normally specified in 
+ part definition files (<span style="font-style: italic;">part</span>def.inc), 
+ this option is intended for testing of the assembler, and generally not 
+ useful for end-users.</p>
+
+<h4><a name=Command_line__c_option></a>-c</h4>
+
+<p>Causes the assembler to become entirely case sensitive. Preprocessor 
+ directives and macros are always case sensitive. Warning: Setting this 
+ option will break many existing projects.</p>
+
+<h4>-1<br>
+-2</h4>
+
+<p>Enable and disable AVRASM1 compatibility mode. This mode is disabled 
+ (-2) by default. The compatibility mode will permit certain constructs 
+ otherwise considered errors, reducing the risk of breaking existing projects. 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->It also 
+ affects the built-in include path, causing the assembler to look for device 
+ definition include files (<span style="font-style: italic;">device</span>def.inc) 
+ for Assembler 1 in C:\Atmel\AVR Tools\AvrAssembler\Appnotes instead of 
+ the new Assembler 2 files in C:\Atmel\AVR Tools\AvrAssembler<span style="font-weight: bold;">2</span>\Appnotes 
+ (see also <a href="xml_converter.htm">XML Converter</a>). Note that recent 
+ devices may not be supported for Assembler 1.</p>
+
+<h4><a name=Command_line__I_option></a>-I <span style="font-style: italic;">directory</span></h4>
+
+<p>Add <span style="font-style: italic;">directory</span> to the include 
+ file search path. This affects both the preprocessor <a href="avr_assembler_2_preprocessor.htm#include">#include</a> 
+ directive and the assembler <a href="directives.html#include - Include another file">.include</a> 
+ directive.</p>
+
+<p>Multiple -I directives may be given. directories are searched in the 
+ order specified.</p>
+
+<h4>-i <span style="font-style: italic;">file</span></h4>
+
+<p>Include a file. #include “file” directive is processed before the first 
+ source code line is processed. Multiple –i directives may be used and 
+ will be processed in order.</p>
+
+<h4><a name=Command_line__D_option></a>-D <span style="font-style: italic;">name[=value]</span><br>
+-U <span style="font-style: italic;">name</span></h4>
+
+<p>Define and undefine a preprocessor macro, respectively. Note that function-type 
+ preprocessor macros may not be defined from the command line. If -D is 
+ given no <span style="font-style: italic;">value</span><span>, it is set 
+ to 1.</span></p>
+
+<h4><a name="Command line -vs option"></a>-vs</h4>
+
+<p>Print use statistics for register, instruction and memory on standard 
+ output. By default, only the memory statistic is printed. Note: The full 
+ statistics will always be printed to the list file, if one is specified.</p>
+
+<h4>-vl</h4>
+
+<p>This will print the raw instructions emitted to standard output, after 
+ all symbolic info is replaced. Mainly for assembler debugging purposes.</p>
+
+<h4>-v0</h4>
+
+<p>Print error messages only, warning and info messages are suppressed.</p>
+
+<h4>-v1</h4>
+
+<p>Print error and warning messages only, info messages are suppressed.</p>
+
+<h4>-v2</h4>
+
+<p>Print error, warning, and info messages. This is the default behaviour.</p>
+
+<h4>-v3 ... -v9</h4>
+
+<p>Print increasing amounts of assembler internal status dump. Mostly used 
+ for assembler debugging.</p>
+
+<h4><a name="Command Line Option O"></a>-O i|w|e</h4>
+
+<p>If different sections of code are mapped to overlapping memory locations 
+ using the <a href="directives.html#org - Set program origin">.org</a> 
+ directive, an error message is normally issued.</p>
+
+<p>This option allows setting this condition to cause an error (-Oe, default), 
+ a warning (-Ow) or be completely ignored (-Oi). Not recommended for normal 
+ programs.</p>
+
+<p>This may also be set by #pragma overlap directive.</p>
+
+<h4>-<a name="Command Line Option W"></a>W-b |-W+bo | -W+bi</h4>
+
+<p>-b, +bo, and +bi correspond to no no warning, warning when overflow, 
+ and warning when integer value out of range, respectively. This may also 
+ be set by #pragma warning range.</p>
+
+<h4><a name="W+ie|+iw"></a>-W+ie|+iw</h4>
+
+<p>+ie and +iw selects if use of unsupported instructions gives error or 
+ warning, respectively. The default is to give an error. Corresponds to 
+ #pragma error instruction / pragma warning instruction, respectively.</p>
+
+<h4><a name=FDformat></a>-FD<span style="font-style: italic;">format</span><br>
+-FT<span style="font-style: italic;">format</span></h4>
+
+<p style="font-style: normal;">Specify the format of the __DATE__ and __TIME__ 
+ <a href="avr_assembler_2_preprocessor.htm#pre-defined macros">predefined 
+ macros</a>, respectively. The <span style="font-style: italic;">format</span> 
+ string is passed directly to the <span style="font-style: italic;">strftime(3)</span> 
+ C library function. The __DATE__ and __TIME__ preprocessor macros will 
+ always be string tokens, i.e., their values will appear in double quotes.</p>
+
+<p style="font-style: normal;">The default formats are &quot;%b %d %Y&quot; 
+ and &quot;%H:%M:%S&quot;, respectively.</p>
+
+<p style="font-style: normal;">Example: To specify ISO format for __DATE__, 
+ specify <!--kadov_tag{{<spaces>}}-->&nbsp;<span style="font-family: 'Courier New', monospace;"><!--kadov_tag{{</spaces>}}-->-FD&quot;%Y-%m-%d&quot; 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;</span><span style="font-style: italic;
+														font-weight: bold;
+														font-family: Verdana, sans-serif;
+														color: #ff0000;"><!--kadov_tag{{</spaces>}}-->See 
+ <a href="avr_assembler_2_command_line_options.htm#important">note</a> 
+ below</span></p>
+
+<p style="font-style: normal; font-family: Verdana, sans-serif;">These 
+ formats may only be specified at the command line, there are no corresponding 
+ #pragma directives.</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells
+		style="x-cell-content-align: top;
+				width: 100%;
+				border-spacing: 0px;
+				border-spacing: 0px;"
+		cellspacing=0
+		width=100%>
+<col style="width: 100%;">
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td style="width: 100%;
+			border-left-width: 1px;
+			border-left-color: #000000;
+			border-left-style: Solid;
+			border-top-style: Solid;
+			border-top-color: #000000;
+			border-top-width: 1px;
+			border-right-width: 1px;
+			border-right-color: #000000;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #000000;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;"
+	width=100%>
+<p><span style="font-weight: bold; color: #ff0000;"><a name=Important>Important 
+ note</a>:</span><span style="font-family: Verdana, sans-serif;"> The Windows 
+ command interpreter (cmd.exe or command.com) may interpret a character 
+ sequence starting and ending with a '%' character as an environment variable 
+ to be expanded even when it is quoted. This may cause the date/time format 
+ strings to be changed by the command interpreter and not work as expected. 
+ A workaround that will work in many cases is to use double '%' characters 
+ to specify the format directives, e.g., </span><span style="font-family: 'Courier New', monospace; font-weight: bold;">-FD&quot;%%Y-%%m-%%d&quot;</span><span 
+ style="font-family: Verdana, sans-serif;"> for the example above. The 
+ exact behaviour of the command interpreter seems to be inconsistent and 
+ vary depending on a number of circumstances, for one, it is different 
+ in batch and interactive mode. The effect of the format directives should 
+ be tested. It is recommended to put the following line in the source file 
+ for testing this:</span><span style="font-family: 'Courier New', monospace;"><br>
+<br>
+#message &quot;__DATE__ =&quot; __DATE__ &quot;__TIME__ =&quot; __TIME__</span><span 
+ style="font-family: Verdana, sans-serif;"><br>
+<br>
+This will print the value of the date and time macros when the program 
+ is assembled, making verification easy (see <a href="avr_assembler_2_preprocessor.htm#message">#message</a> 
+ directive documentation).<br>
+<br>
+An alternative syntax for the format specification may be considered in 
+ future AVRASM2 versions to avoid this problem.</span></td></tr>
+</table>
+
+<p style="font-style: normal; font-family: Verdana, sans-serif;">Some relevant 
+ strftime() format specifiers (see strftime(3) manual page for full details):</p>
+
+<ul style="list-style: disc;"
+	type=disc>
+	
+	<li class=kadov-p><p style="font-style: normal; font-family: Verdana, sans-serif;">%Y 
+ - Year, 4 digits</p></li>
+	
+	<li class=kadov-p><p style="font-style: normal; font-family: Verdana, sans-serif;">%y 
+ - Year, 2 digits</p></li>
+	
+	<li class=kadov-p><p style="font-style: normal; font-family: Verdana, sans-serif;">%m 
+ - Month number (01-12)</p></li>
+	
+	<li class=kadov-p><p style="font-style: normal; font-family: Verdana, sans-serif;">%b 
+ - Abbreviated month name</p></li>
+	
+	<li class=kadov-p><p style="font-style: normal; font-family: Verdana, sans-serif;">%B 
+ - Full month name</p></li>
+	
+	<li class=kadov-p><p style="font-style: normal; font-family: Verdana, sans-serif;">%d 
+ - Day number in month (01-31)</p></li>
+	
+	<li class=kadov-p><p style="font-style: normal; font-family: Verdana, sans-serif;">%a 
+ - Abbreviated weekday name</p></li>
+	
+	<li class=kadov-p><p style="font-style: normal; font-family: Verdana, sans-serif;">%A 
+ - Full weekday name</p></li>
+	
+	<li class=kadov-p><p style="font-style: normal; font-family: Verdana, sans-serif;">%H 
+ - Hour, 24-hour clock (00-23)</p></li>
+	
+	<li class=kadov-p><p style="font-style: normal; font-family: Verdana, sans-serif;">%I 
+ - Hour, 12-hour clock (01-12)</p></li>
+	
+	<li class=kadov-p><p style="font-style: normal; font-family: Verdana, sans-serif;">%p 
+ - &quot;AM&quot; or &quot;PM&quot; for 12-hour clock</p></li>
+	
+	<li class=kadov-p><p style="font-style: normal; font-family: Verdana, sans-serif;">%M 
+ - Minute (00-59)</p></li>
+	
+	<li class=kadov-p><p style="font-style: normal; font-family: Verdana, sans-serif;"><span 
+ style="font-style: normal; font-family: Verdana, sans-serif;">%S - Second 
+ (00-59)</span></p></li>
+</ul>
+
+</body>
+
+</html>

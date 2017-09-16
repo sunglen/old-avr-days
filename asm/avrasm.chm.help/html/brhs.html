@@ -1,0 +1,212 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>BRHS - Branch if Half Carry Flag is Set</title>
+
+<!--(Meta)==========================================================-->
+
+<meta HTTP-EQUIV=Content-Type CONTENT="text/html; charset=windows-1252">
+<meta HTTP-EQUIV=Content-Style-Type CONTENT="text/css">
+<meta name=date content="06 8, 2001 9:33:35 AM">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=907>
+<meta name=layout-width content=579>
+
+
+<!--(Links)=========================================================-->
+
+<link REL="StyleSheet" href="../main.css" TYPE="text/css" MEDIA="screen">
+
+
+
+<!--(Style Sheet)===================================================-->
+
+<style>
+<!--
+
+body {
+}
+
+-->
+</style>
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body><script language="javascript"> 
+        if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) ) 
+        document.write("<center><a href='../index.html?page=Html/BRHS.html'>show framing</a></center>")
+        </script>
+
+<div>
+<h2 CLASS=heading-3>BRHS - Branch if Half Carry Flag is Set</h2>
+
+<div>
+<h2 CLASS=heading-3><img src="../images/brhs-1.gif" style="border-style: none;
+								width: 469px;
+								height: 12px;" width="469" height="12" border="0"> </h2>
+</div>
+
+<div>
+<h5 CLASS=Section-Sub-2>Description: </h5>
+
+<p CLASS=Body-Text>Conditional relative branch. Tests the Half Carry flag 
+ (H) and branches relatively to PC if H is set. This instruction branches 
+ relatively to PC in either direction (PC - 63 &#8804; destination &#8804; 
+ PC + 64). The parameter k is the offset from PC and is represented in 
+ two's complement form. (Equivalent to instruction <a href="brbs.html">BRBS</a> 
+ 5,k).&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L
+	style="font-family: 'Courier New', monospace;">Operation:</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">If H = 1 then PC &lt;- 
+ PC + k + 1, else PC &lt;- PC + 1&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L
+	style="font-family: 'Courier New', monospace;">Syntax: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Operands: 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Program 
+ Counter:</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">BRHS k <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->-64 
+ &#8804; k &#8804; +63 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->PC 
+ &lt;- PC + k + 1</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;"><!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->PC 
+ &lt;- PC + 1, if condition is false</p>
+
+<p CLASS=Table-Hd-9pt-L>16-bit Opcode:</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>1111</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>00kk</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>kkkk</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>k101</td></tr>
+</table>
+
+<p CLASS=Normal>&nbsp;</p>
+</div>
+
+<div>
+<h5 CLASS=Section-Sub-2>Status Register (SREG) and Boolean Formula:</h5>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>I</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>T</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>H</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>S</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>V</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>N</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>Z</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>C</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td></tr>
+</table>
+
+<p CLASS=Normal>&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L>Example:</p>
+
+<p CLASS=Code
+	style="font-family: 'Courier New', monospace; margin-left: 80px;">brhs 
+ hset <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Branch if half carry flag set</p>
+
+<p CLASS=Code
+	style="font-family: 'Courier New', monospace; margin-left: 80px;">...</p>
+
+<p CLASS=Code
+	style="font-family: 'Courier New', monospace; margin-left: 0px;">hset: 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->nop 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Branch destination (do nothing)</p>
+
+<p CLASS=Normal>&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L>Words: <em CLASS=Default-No-Bold>1 (2 bytes)</em> 
+ </p>
+
+<p CLASS=Table-Hd-9pt-L>Cycles:<em CLASS=Default-No-Bold> 1 if condition 
+ is false</em> </p>
+
+<p CLASS=Table-Hd-9pt-L><em CLASS=Default-No-Bold
+							style="font-style: italic;"><!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->2 
+ if condition is true</em> &nbsp;</p>
+</div>
+</div>
+
+</body>
+
+</html>

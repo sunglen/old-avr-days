@@ -1,0 +1,212 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>BRLT - Branch if Less Than (Signed)</title>
+
+<!--(Meta)==========================================================-->
+
+<meta HTTP-EQUIV=Content-Type CONTENT="text/html; charset=windows-1252">
+<meta HTTP-EQUIV=Content-Style-Type CONTENT="text/css">
+<meta name=date content="06 8, 2001 9:37:03 AM">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=930>
+<meta name=layout-width content=579>
+
+
+<!--(Links)=========================================================-->
+
+<link REL="StyleSheet" href="../main.css" TYPE="text/css" MEDIA="screen">
+
+
+
+<!--(Style Sheet)===================================================-->
+
+<style>
+<!--
+
+body {
+}
+
+-->
+</style>
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body><script language="javascript"> 
+        if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) ) 
+        document.write("<center><a href='../index.html?page=Html/BRLT.html'>show framing</a></center>")
+        </script>
+
+<div>
+<h2 CLASS=heading-3>BRLT - Branch if Less Than (Signed)</h2>
+
+<div>
+<h2 CLASS=heading-3><img src="../images/brlt-1.gif" style="border-style: none;
+								width: 469px;
+								height: 12px;" width="469" height="12" border="0"> </h2>
+</div>
+
+<div>
+<h5 CLASS=Section-Sub-2>Description: </h5>
+
+<p CLASS=Body-Text>Conditional relative branch. Tests the Signed flag (S) 
+ and branches relatively to PC if S is set. If the instruction is executed 
+ immediately after any of the instructions <a href="cp.html">CP</a>, <a href="cpi.html">CPI</a>, <a href="sub.html">SUB</a> or <a href="subi.html">SUBI</a>, 
+ the branch will occur if and only if the signed binary number represented 
+ in Rd was less than the signed binary number represented in Rr. This instruction 
+ branches relatively to PC in either direction (PC - 63 &#8804; destination 
+ &#8804; PC + 64). The parameter k is the offset from PC and is represented 
+ in two's complement form. (Equivalent to instruction <a href="brbs.html">BRBS</a> 
+ 4,k).</p>
+
+<p CLASS=Normal>&nbsp;<span style="font-family: 'Courier New', monospace;">Operation:</span></p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">If Rd &lt; Rr (N [+] 
+ V = 1) then PC &lt;- PC + k + 1, else PC &lt;- PC + 1&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L
+	style="font-family: 'Courier New', monospace;">Syntax: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Operands: 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Program 
+ Counter:</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">BRLT k <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->-64 
+ &#8804; k &#8804; +63 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->PC 
+ &lt;- PC + k + <span style="margin-left: 360px;">1</span></p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;"><span style="margin-left: 360px; font-family: 'Courier New', monospace;"><!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->PC 
+ &lt;- PC + 1, if condition is false</span><span style="margin-left: 360px;">&nbsp;</span></p>
+
+<p CLASS=Table-Hd-9pt-L>16-bit Opcode:</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>1111</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>00kk</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>kkkk</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>k100</td></tr>
+</table>
+
+<p CLASS=Normal>&nbsp;</p>
+</div>
+
+<div>
+<h5 CLASS=Section-Sub-2>Status Register (SREG) and Boolean Formulae:</h5>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>I</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>T</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>H</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>S</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>V</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>N</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>Z</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>C</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>-</td></tr>
+</table>
+
+<p CLASS=Table-Hd-9pt-L>Example:</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">cp r16,r1 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Compare r16 to r1</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">brlt less <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Branch if r16 &lt; r1 (signed)</p>
+
+<p CLASS=Code>...</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">less:nop <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Branch destination (do nothing)</p>
+
+<p CLASS=Normal>&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L>Words: <em CLASS=Default-No-Bold>1 (2 bytes)</em> 
+ </p>
+
+<p CLASS=Table-Hd-9pt-L>Cycles:<em CLASS=Default-No-Bold> 1 if condition 
+ is false</em> </p>
+
+<p CLASS=Table-Hd-9pt-L><em CLASS=Default-No-Bold
+							style="font-style: italic;"><!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->2 
+ if condition is true</em> &nbsp;</p>
+</div>
+</div>
+
+</body>
+
+</html>

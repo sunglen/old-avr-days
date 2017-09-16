@@ -1,0 +1,64 @@
+octave:1> fck=4000000
+fck = 4000000
+octave:2> f1=fck/256
+f1 = 15625
+octave:3> Nc=128
+Nc = 128
+octave:4> f_sine_base=f1/Nc
+f_sine_base = 122.07
+octave:5> fb=[697;770;825;941]
+fb =
+
+  697
+  770
+  825
+  941
+
+octave:6> fa=[1209,1336,1477,1633]
+fa =
+
+  1209  1336  1477  1633
+
+octave:7> Xsw_ext_fb=8*(fb/f_sine_base)
+Xsw_ext_fb =
+
+  45.679
+  50.463
+  54.067
+  61.669
+
+octave:8> Xsw_ext_fb=round(8*(fb/f_sine_base))
+Xsw_ext_fb =
+
+  46
+  50
+  54
+  62
+
+octave:9> 46/8
+ans = 5.7500
+octave:10> 50/8
+ans = 6.2500
+octave:11> 54/8
+ans = 6.7500
+octave:12> Xsw_ext_fa=round(8*(fa/f_sine_base))
+Xsw_ext_fa =
+
+   79   88   97  107
+
+octave:13> Xsw_ext_f
+Xsw_ext_fa  Xsw_ext_fb
+octave:13> Xsw_ext_fa
+Xsw_ext_fa =
+
+   79   88   97  107
+
+octave:14> Xsw_ext_fb
+Xsw_ext_fb =
+
+  46
+  50
+  54
+  62
+
+octave:15> save parameter.data

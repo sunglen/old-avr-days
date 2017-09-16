@@ -1,0 +1,314 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 6.5.2.0 for Windows">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>SPIイーサネット(ENC28J60) モジュール基板</title></head>
+
+<body bgcolor="#80ffff">
+<p>＜SPIイーサネットモジュール　ENC28J60＞</p>
+<blockquote>MICROCHIP社からENC28J60という、SPI接続のイーサネットコントローラ(MAC+PHY)が発売されました。10BASET-Tですので、速度は早くありませんが、SPIインターフェイスでマイコンと接続できるのが特徴です。<br>
+<br>
+SPIインターフェイスは、SO、SI、SCK、CSの４本で構成され、速度もENC28J60の場合は8MHz-10MHzでマイコンと接続することが
+出来ます。SPIはAVR、PIC、ARM、H8などのマイコンに標準的なインターフェイスですので、手軽にマイコンと接続出来ます。10BASET-T
+のイーサネットコントローラとしてはRTL8019ASなどが有名ですが、こちらはデータバス接続となりますので、２０本近くの配線が必要になりますの
+で、ピン数の少ないマイコンには荷が重過ぎます。<br>
+<br>
+ENC28J60には10BASET-TのPHYが内蔵されていて、クリスタル、パルストランス、R/Cなどを外付けするだけで動作します。小規模なマイ
+コンボードで、安価(\2300)で簡単にイーサネットが使用できるように、SPIイーサーネットモジュール基板を開発しました。<br>
+</blockquote>
+<div align="left">
+<blockquote><img src="spi_ether_files/DSCN06332.jpg" border="0" height="360" width="480"><br>
+トランス、LED*2を内蔵したRJ45コネクタを使用</blockquote>
+<blockquote>＜スペック＞<br>
+<table border="1" width="324">
+  <tbody>
+    <tr>
+      <td width="106">動作電源</td>
+      <td width="202">+3.3V</td>
+    </tr>
+    <tr>
+      <td width="106">動作電流</td>
+      <td width="202">250mA+</td>
+    </tr>
+    <tr>
+      <td width="106">サイズ<br>
+      （誤差含む）</td>
+      <td width="202">基板：31.5mmx20.5mm<br>
+      （36.2mmx20.5mm RJ45コネクタ込み）<br>
+      高さ 28mm</td>
+    </tr>
+    <tr>
+      <td width="106">インターフェイス</td>
+      <td width="202">SPI(SO,SI,SCK,CS)+WOL+INT<br>
+      SPIクロック 8MHz-10MHz</td>
+    </tr>
+    <tr>
+      <td width="106">PHY</td>
+      <td width="202">10BASET-T(IEEE 802.3)</td>
+    </tr>
+  </tbody>
+</table>
+</blockquote>
+<blockquote><a href="http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&amp;nodeId=1335&amp;dDocName=en022889" target="_blank">ENC28J60詳細情報(MICROCHIP HP)</a></blockquote>
+<blockquote><a href="http://optimize.ath.cx/spi_ether/spi_eth.pdf">回路図(PDF)ダウンロード</a></blockquote>
+<blockquote><a href="http://optimize.ath.cx/shopv2_2/chuumon.html#interface" target="_blank">キットの入手はこちら</a></blockquote>
+</div>
+<hr>
+<p>＜製作＞</p>
+<blockquote>キットが届きましたら部品を確認してください。</blockquote>
+<blockquote><img src="spi_ether_files/DSCN06282.jpg" border="0" height="360" width="480"></blockquote>
+<blockquote>
+<table border="1" width="733">
+  <tbody>
+    <tr>
+      <td align="center" width="199">部品</td>
+      <td align="center" width="25">数</td>
+      <td align="center" width="490">備考</td>
+    </tr>
+    <tr>
+      <td width="199">専用プリント基板</td>
+      <td align="center" width="25">1</td>
+      <td width="490">ENC28J60/SS 実装済み</td>
+    </tr>
+    <tr>
+      <td width="199">トランス,LED内蔵RJ45コネクタ</td>
+      <td align="center" width="25">1</td>
+      <td width="490">10/100BASET対応(J00-0065)</td>
+    </tr>
+    <tr>
+      <td width="199">クリスタル</td>
+      <td align="center" width="25">1</td>
+      <td width="490">25MHz</td>
+    </tr>
+    <tr>
+      <td width="199">タンタルコンデンサ 10uF/10V</td>
+      <td align="center" width="25">2</td>
+      <td width="490">極性あり</td>
+    </tr>
+    <tr>
+      <td width="199">チップコンデンサ 0.01uF</td>
+      <td align="center" width="25">1</td>
+      <td width="490">　</td>
+    </tr>
+    <tr>
+      <td width="199">チップコンデンサ 22pF</td>
+      <td align="center" width="25">2</td>
+      <td width="490">　</td>
+    </tr>
+    <tr>
+      <td width="199">チップコンデンサ 0.1uF</td>
+      <td align="center" width="25">6</td>
+      <td width="490">　</td>
+    </tr>
+    <tr>
+      <td width="199">チップ抵抗 2.7KΩ</td>
+      <td align="center" width="25">1</td>
+      <td width="490">272(2701)</td>
+    </tr>
+    <tr>
+      <td width="199">チップ抵抗 49.9Ω</td>
+      <td align="center" width="25">4</td>
+      <td width="490">49R9</td>
+    </tr>
+    <tr>
+      <td width="199">チップ抵抗 100KΩ</td>
+      <td align="center" width="25">1</td>
+      <td width="490">104</td>
+    </tr>
+    <tr>
+      <td width="199">チップ抵抗 180Ω</td>
+      <td align="center" width="25">2</td>
+      <td width="490">181</td>
+    </tr>
+    <tr>
+      <td width="199">チップビーズ</td>
+      <td align="center" width="25">1</td>
+      <td width="490">黒っぽい色をしていて、チップコンデンサより厚みがある</td>
+    </tr>
+    <tr>
+      <td width="199">1x5ピンヘッダ</td>
+      <td align="center" width="25">2</td>
+      <td width="490">　</td>
+    </tr>
+    <tr>
+      <td>極細半田</td>
+      <td align="center">1</td>
+      <td>　</td>
+    </tr>
+  </tbody>
+</table>
+</blockquote>
+<blockquote>
+<hr>
+</blockquote>
+<blockquote>20-30W程度の先端の細い半田ごて、ピンセット、ルーペ（虫眼鏡）、はんだを用意してください。<br>チップ部品のはんだ付けは、片側のランドにはんだを盛っておき、半田ごてではんだを溶かしながら、ピンセットでチップ部品を固定します。<br>ピンセットでチップ部品を飛ばしたりしないように注意してください。</blockquote>
+<blockquote>
+<hr>
+</blockquote>
+<blockquote>写真の様に半田付けします。</blockquote>
+<blockquote><img src="spi_ether_files/DSCN06121.jpg" border="0" height="360" width="480"><br>
+画面中央下の灰色の部品はチップビーズ(FB)です。<br>
+特に値指定の無い部品は全て0.1uFチップコンデンサです。</blockquote>
+<blockquote><img src="spi_ether_files/DSCN06151.jpg" border="0" height="360" width="480"><br>
+タンタルコンデンサ10uF(黄色）は極性がありますので、取り付ける向きに注意してください。<br>
+クリスタルは裏面からの取り付けになります。</blockquote>
+<blockquote><img src="spi_ether_files/DSCN06341.jpg" border="0" height="360" width="480"><br>
+最後にRJ45コネクタと1x5ピンヘッダを取り付けて閑静です。</blockquote>
+<hr>
+<p><a name="mini ARM7"></a></p>
+<p>＜mini EZ-ARM7 + uIP-0.9＞</p>
+<p>実際にmini EZ-ARM7とSPIイーサネットを使用してWEBサーバーを動かしてみました。<br>
+mini EZ-ARM7はフラッシュROMが512Kbyte、SRAMが32Kbyteありますので、RTOSのTOPPERS+TINTなどの選択肢もあるのですが、今回はとても小さくてコンパクトなオープンソースTCP/IPスタックであるuIPを使用しました。<br>
+<br>
+<a href="http://www.sics.se/%7Eadam/uip/" target="_blank">uIPはスエーデンのAdam Dunkel氏</a>が開発した組み込み向けのオープンソースTCP/IPスタックです。TCP/IPスタックの多くはBSDのソケットとして実装されますが、uIPはワークRAMを減らすためにポーリングベースのイベントドリブン型として実装されています。<br>
+従来のソケットインターフェイス型のプログラムになれている方にはちょっととっつきにくいかもしれませんが、uIP上に実装したhttpサーバー、smtpメールクライアント、telnetクライアント/サーバなどがサンプルとして提供されていますので参考になります。<br>
+<br>
+uIPを実装するためには、ENC28J60でイーサネットのパケットを受信/送信する関数が必要になります。インターネット上を探したところ、<a href="http://hubbard.engr.scu.edu/embedded/avr/avrlib/docs/html/" target="_blank">Pascal Stang氏の開発されているAVR用のライブラリ「Procon AVRlib」</a>にCで記述されたパケット送受信プログラムが公開されていますので、一部修正して使用しました。</p>
+<p><img src="spi_ether_files/DSCN06311.jpg" border="0" height="360" width="480"></p>
+<p>mini
+EZ-ARM7とSPIイーサネットモジュールの接続ですが、LPC2138にはSPIコントローラとSSPコントローラの２つが実装されています。どち
+らを使用しても接続することが出来るのですが、今回はSSPを使用することにしました。現在のENC28J60(Rev.B4
+Silicon)にはSPIのクロックを8MHz-10MHzに設定して使用しなくてはならないエラッタ（バグ）があります。SPIコントローラを使用す
+る場合58.9MHz/8=7.37MHzとなり、若干推奨のクロックより低くなってしまいます。SSPを使用すれば58.9MHz/6=9.81MHz
+を使用できます。SSPはSPIに８フレームの送受信用のFIFOバッファを付加して高機能になっています。</p>
+<p>配線表</p>
+<table border="1" width="305">
+  <tbody>
+    <tr>
+      <td align="center" width="143">SPIイーサネット側</td>
+      <td align="center" width="146">mini EZ-ARM7側</td>
+    </tr>
+    <tr>
+      <td align="center" width="143">+3.3</td>
+      <td align="center" width="146">+3V3(CN1-15/16)</td>
+    </tr>
+    <tr>
+      <td align="center" width="143">GND</td>
+      <td align="center" width="146">GND(CN1-19/20)</td>
+    </tr>
+    <tr>
+      <td align="center" width="143">SI</td>
+      <td align="center" width="146">MOSI1(CN1-4)</td>
+    </tr>
+    <tr>
+      <td align="center" width="143">SO</td>
+      <td align="center" width="146">MISO1(CN1-3)</td>
+    </tr>
+    <tr>
+      <td align="center" width="143">SCK</td>
+      <td align="center" width="146">SCK1(CN2-19)</td>
+    </tr>
+    <tr>
+      <td align="center" width="143">CS</td>
+      <td align="center" width="146">SSEL1(CN1-5)</td>
+    </tr>
+  </tbody>
+</table>
+<p><img src="spi_ether_files/DSCN06372.jpg" border="0" height="360" width="480"></p>
+<p>実際にWEBサーバーとして動作している状態のスクリーンショットです。<img src="spi_ether_files/uip_web.jpg" border="0" height="608" width="849"></p>
+<p><a href="http://optimize.ath.cx/spi_ether/uip-0.9.zip">uIP-0.9 ソースコード＆hexファイルダウンロード</a><br>
+<br>
+lpc_2138ディレクトリの下にあるuip.hexファイルをmini EZ-ARM7に書き込みます。<br>
+デフォルト設定ではIPアドレスが192.168.1.12になっていますので、ネットワーク環境によってはソースコードを適宜書き換えて再コンパイルする必要があります。</p>
+<hr>
+<p><a name="ARM7"></a></p>
+<p>＜EZ-ARM7　+ uIP-0.9＞</p>
+<p>mini
+EZ-ARM7のLPC2138と異なり、LPC2214にはSSPがありません。ですのでSPI1を使用してECN28J60と接続します。この場合
+SPIクロックが7.37MHzとなり8MHz以下になるため、エラッタの基準を満たしませんが、実際に使用して特に不都合は発生しませんでした。</p>
+<p>配線表</p>
+<table border="1" width="277">
+  <tbody>
+    <tr>
+      <td align="center" width="110">SPIイーサネット側</td>
+      <td align="center" width="141">EZ-ARM7側</td>
+    </tr>
+    <tr>
+      <td align="center" width="110">+3.3</td>
+      <td align="center" width="141">+3V3(CN3-2)</td>
+    </tr>
+    <tr>
+      <td align="center" width="110">GND</td>
+      <td align="center" width="141">GND(CN3-1)</td>
+    </tr>
+    <tr>
+      <td align="center" width="110">SI</td>
+      <td align="center" width="141">MOSI0(CN3-24)</td>
+    </tr>
+    <tr>
+      <td align="center" width="110">SO</td>
+      <td align="center" width="141">MISO0(CN3-18)</td>
+    </tr>
+    <tr>
+      <td align="center" width="110">SCK</td>
+      <td align="center" width="141">SCK0(CN3-16)</td>
+    </tr>
+    <tr>
+      <td align="center" width="110">CS</td>
+      <td align="center" width="141">P3.15(CN3-15)</td>
+    </tr>
+  </tbody>
+</table>
+<p>注意：SSEL0(CN3-25)は+3V3に接続する。<br>
+（LPC2214の仕様でSPIマスタ動作時にはSSELはプルアップする必要あり）</p>
+<p>ソースコードは上記のmini EZ-ARM7用と共通です。lpcディレクトリの下にあるuip.hexをEZ-ARM7に書き込みます。<br>デフォルト設定ではIPアドレスが192.168.1.12になっていますので、ネットワーク環境によってはソースコードを適宜書き換えて再コンパイルする必要があります。</p>
+<hr>
+<p><a name="MEGA168"></a></p>
+<p>＜AVR（MEGA168) + uIP-0.6＞</p>
+<p>MEGA168はフラッシュ16Kbyte、SRAM 1KbyteのAVRマイコンです。<br>
+さすがにARM7と比べるとROMもRAMも少ないため上記と同じサンプルプログラムを動かすのは無理があります。<br>
+ですので、メモリーの使用量が少ない古いバージョンのuIP-0.6を使用することにしました。<br>
+<a href="http://www.laskater.com/projects/uipAVR.htm">AVR用にuIPをポーティングしているサイト</a>があります。そこにAVRにポーティングされた古いバージョンのuIP-0.6がありますので、これを使用します。<br>
+<br>
+MEGA168はSPIコントローラを内蔵していますので、ENC28J60との接続にはこれを使用します。このSPIコントローラはCPUクロック÷２
+の速度で使用できます。SPIの動作クロックを8MHz以上にするためには、MEGA168を16MHz以上で動作させる必要があります。MEGA168
+の内蔵R/Cクロックは8MHzですので、20MHzのセラロックを外付けします。MEGA168は3.3V動作では10MHzまでですので、5Vで動作
+させます。ENC28J60は3.3V電源が必要ですので、別途レギュレータで5V-&gt;3.3Vを作ります。</p>
+<p><img src="spi_ether_files/DSCN06321.jpg" border="0" height="360" width="480"><br>
+基板の裏面に3.3Vレギュレータが実装されている。<br>
+デバッグ用のメッセージプリントのために<a href="http://optimize.ath.cx/etc/rs232c_cnv.htm">RS232Cレベルコンバータ</a>を介してPCと接続。</p>
+<p>配線表</p>
+<table border="1">
+  <tbody>
+    <tr>
+      <td align="center" width="133">SPIイーサネット側</td>
+      <td align="center" width="137">MEGA１６８側</td>
+    </tr>
+    <tr>
+      <td align="center" width="133">+3.3</td>
+      <td align="center" width="137">VCC(PIN7)</td>
+    </tr>
+    <tr>
+      <td align="center" width="133">GND</td>
+      <td align="center" width="137">GND(PIN8)</td>
+    </tr>
+    <tr>
+      <td align="center" width="133">SI</td>
+      <td align="center" width="137">PB3/MOSI(PIN17)</td>
+    </tr>
+    <tr>
+      <td align="center" width="133">SO</td>
+      <td align="center" width="137">PB4/MISO(PIN18)</td>
+    </tr>
+    <tr>
+      <td align="center" width="133">SCK</td>
+      <td align="center" width="137">PB5/SCK(PIN19)</td>
+    </tr>
+    <tr>
+      <td align="center" width="133">CS</td>
+      <td align="center" width="137">PB0(PIN14)</td>
+    </tr>
+  </tbody>
+</table>
+<p>注意：20MHzセラロックと+3.3V用レギュレータが必要です</p>
+<p><a href="http://optimize.ath.cx/spi_ether/uip06.zip">uIP-0.6 ソースコード＆hexファイルダウンロード</a><br>
+<br>
+uip.hexファイルをMEGA168に書き込みます。MEGA168を外部セラロックで動作させるためにフューズビットの書き込み(Low:11010110)を行います。（avrezusb
+-fl11010110)<br>
+デフォルト設定ではIPアドレスが192.168.1.12になっていますので、ネットワーク環境によってはソースコードを適宜書き換えて再コンパイルする必要があります。<br>
+<br>
+容量の関係でサンプルプログラムはWEBではありません。ポート80番でコネクトして、何らかのデータを送ると"ok"が返ってくるという単純なもので
+す。動作確認にはtelnetで80ポートに接続してデータを送信(Enter)します。"ok"が返ってくれば正常です。<br>
+<img src="spi_ether_files/uip_telnet.jpg" border="0" height="362" width="508"></p>
+</body></html>

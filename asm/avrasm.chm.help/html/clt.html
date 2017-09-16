@@ -1,0 +1,195 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>CLT - Clear T Flag</title>
+
+<!--(Meta)==========================================================-->
+
+<meta HTTP-EQUIV=Content-Type CONTENT="text/html; charset=windows-1252">
+<meta HTTP-EQUIV=Content-Style-Type CONTENT="text/css">
+<meta name=date content="06 8, 2001 10:04:39 AM">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=810>
+<meta name=layout-width content=579>
+
+
+<!--(Links)=========================================================-->
+
+<link REL="StyleSheet" href="../main.css" TYPE="text/css" MEDIA="screen">
+
+
+
+<!--(Style Sheet)===================================================-->
+
+<style>
+<!--
+
+body {
+}
+
+-->
+</style>
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body><script language="javascript"> 
+        if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) ) 
+        document.write("<center><a href='../index.html?page=Html/CLT.html'>show framing</a></center>")
+        </script>
+
+<div>
+<h3 CLASS=heading-3>CLT - Clear T Flag </h3>
+
+<div>
+<h3 CLASS=heading-3><img src="../images/clt-1.gif" style="border-style: none;
+								width: 469px;
+								height: 12px;" width="469" height="12" border="0"> </h3>
+</div>
+
+<div>
+<h6 CLASS=Section-Sub-2>Description: </h6>
+
+<p CLASS=Body-Text>Clears the T flag in SREG (status register).</p>
+
+<p CLASS=Body-Text>&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L
+	style="font-family: 'Courier New', monospace;">Operation:</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">T &lt;- 0</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L
+	style="font-family: 'Courier New', monospace;">Syntax: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Operands: 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Program 
+ Counter:</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">CLT <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->None 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->PC 
+ &lt;- PC + 1</p>
+
+<p CLASS=Table-Hd-9pt-L>&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L>16-bit Opcode:</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>1001</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>0100</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>1110</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>1000</td></tr>
+</table>
+
+<p CLASS=Normal>&nbsp;</p>
+</div>
+
+<div>
+<h6 CLASS=Section-Sub-2>Status Register (SREG) and Boolean Formula:</h6>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>I</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>T</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>H</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>S</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>V</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>N</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>Z</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>C</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>0</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>-</td></tr>
+</table>
+
+<p CLASS=Normal>&nbsp;</p>
+
+<p CLASS=Tabbed-Body>T: 0 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->T 
+ flag cleared</p>
+
+<p CLASS=Table-Hd-9pt-L>Example:</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">clt <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Clear T flag </p>
+
+<p CLASS=Table-Hd-9pt-L>Words: <em CLASS=Default-No-Bold>1 (2 bytes)</em> 
+ </p>
+
+<p CLASS=Table-Hd-9pt-L>Cycles:<em CLASS=Default-No-Bold> 1</em> &nbsp;</p>
+</div>
+</div>
+
+</body>
+
+</html>

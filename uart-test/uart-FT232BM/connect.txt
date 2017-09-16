@@ -1,0 +1,9 @@
+AT90s8515 	FTDI232BM
+PD0(RxD) <--->	TXD(PIN25)	 
+PD1(TxD) <--->	RXD(PIN24)
+GND 	<-->	GND	<-->	USB(GND)
+VTG	<-->	VTG	<-->	USB(VBUS +5v)
+
+FTDI232BM与USB-A(Female)连接:
+见纸上图例.
+

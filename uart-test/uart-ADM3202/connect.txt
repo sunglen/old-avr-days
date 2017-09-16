@@ -1,0 +1,13 @@
+AT90s8515 	ADM3202AN 	RS232
+PD0(RxD) |<- R1out(or R2out) <- R1in(or R2in)| <- 2# 
+PD1(TxD) |-> T1in(T2in) -> T1out(T2out)| -> 3#
+GND<->GND<->GND <-GND(stk500)
+VTG<->VTG <-5Vvtg(stk500)
+注意!!
+如果ADM3202的GND忘记接的话(即置空的话),那么8515将不能通过R1out(R2out)接收
+数据,但是能正常发送数据给minicom,从而造成十分奇怪的灵异现象!
+不容易找到的简单的错误啊!!!!这个错误很不容易定位.
+
+另外,adm3202 5v下工作正常.
+并且,T1和T2,R1和R2功能相同,可以从1和2中选择一路进行转换.
+

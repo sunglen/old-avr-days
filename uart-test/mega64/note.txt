@@ -1,0 +1,16 @@
+ATmega64 <--> FTDI232BM
+PE0(RxD) <--->	TXD(PIN25)	 
+PE1(TxD) <--->	RXD(PIN24)
+ft232bm use 5v usb bus,
+atmega64 use 5v stk500 supply.
+NOT common gound.
+
+FTDI232BM与USB-A(Female)连接:
+见纸上图例.
+
+attention:
+change efuse from 0xfd to 0xff,
+in order to clear the mega103 compatible mode.
+(in mega103 mode, uart0 seems not useable.)
+
+

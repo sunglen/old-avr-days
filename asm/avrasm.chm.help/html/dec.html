@@ -1,0 +1,244 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>DEC - Decrement</title>
+
+<!--(Meta)==========================================================-->
+
+<meta HTTP-EQUIV=Content-Type CONTENT="text/html; charset=windows-1252">
+<meta HTTP-EQUIV=Content-Style-Type CONTENT="text/css">
+<meta name=date content="06 8, 2001 10:11:12 AM">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1243>
+<meta name=layout-width content=579>
+
+
+<!--(Links)=========================================================-->
+
+<link REL="StyleSheet" href="../main.css" TYPE="text/css" MEDIA="screen">
+
+
+
+<!--(Style Sheet)===================================================-->
+
+<style>
+<!--
+
+body {
+}
+
+-->
+</style>
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body><script language="javascript"> 
+        if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) ) 
+        document.write("<center><a href='../index.html?page=Html/DEC.html'>show framing</a></center>")
+        </script>
+
+<div>
+<h3 CLASS=heading-3>DEC - Decrement</h3>
+
+<div>
+<h3 CLASS=heading-3><img src="../images/dec-1.gif" style="border-style: none;
+								width: 469px;
+								height: 12px;" width="469" height="12" border="0"> </h3>
+</div>
+
+<div>
+<h6 CLASS=Section-Sub-2>Description: </h6>
+
+<p CLASS=Body-Text>Subtracts one -1- from the contents of register Rd and 
+ places the result in the destination register Rd. </p>
+
+<p CLASS=Body-Text>The C flag in SREG is not affected by the operation, 
+ thus allowing the DEC instruction to be used on a loop counter in multiple-precision 
+ computations.</p>
+
+<p CLASS=Body-Text>When operating on unsigned values, only <a href="breq.html">BREQ</a> 
+ and <a href="brne.html">BRNE</a> branches can be expected to perform consistently. 
+ When operating on two's complement values, all signed branches are available.</p>
+
+<p CLASS=Normal>&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L
+	style="font-family: 'Courier New', monospace;">Operation:</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">Rd &lt;- Rd - 1</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L
+	style="font-family: 'Courier New', monospace;">Syntax: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Operands: 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Program 
+ Counter:</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">DEC Rd <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->0 
+ &#8804; d &#8804; 31 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->PC 
+ &lt;- PC + 1</p>
+
+<p CLASS=Tabbed-Body
+	style="font-family: 'Courier New', monospace;">&nbsp;</p>
+
+<p CLASS=Table-Hd-9pt-L>16-bit Opcode:</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>1001</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>010d</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>dddd</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Code>1010</td></tr>
+</table>
+</div>
+
+<div>
+<h6 CLASS=Section-Sub-2>Status Register and Boolean Formula:</h6>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>I</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>T</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>H</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>S</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>V</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>N</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>Z</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>C</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>-</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>&lt;&gt;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>&lt;&gt;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>&lt;&gt;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Normal>&lt;&gt;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=Table-9pt-C-Bottom>-</td></tr>
+</table>
+
+<p CLASS=Tabbed-Body>S:N [+] V</p>
+
+<p CLASS=Tabbed-Body>For signed tests.</p>
+
+<p CLASS=Tabbed-Body>V:<em CLASS=Overline> R7</em> <em CLASS=Symbol-10pt>•</em> 
+ R6 <em CLASS=Symbol-10pt>•</em> R5 <em CLASS=Symbol-10pt>•</em> R4<em 
+ CLASS=Symbol-10pt> •</em> R3<em CLASS=Symbol-10pt> •</em> R2 <em CLASS=Symbol-10pt>•</em> 
+ R1<em CLASS=Symbol-10pt> •</em> R0</p>
+
+<p CLASS=Tabbed-Body>Set if two's complement overflow resulted from the 
+ operation; cleared otherwise. Two's complement overflow occurs if and 
+ only if Rd was $80 before the operation. </p>
+
+<p CLASS=Tabbed-Body>N:R7 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}--></p>
+
+<p CLASS=Tabbed-Body>Set if MSB of the result is set; cleared otherwise.</p>
+
+<p CLASS=Tabbed-Body><em CLASS=Overline
+						style="font-style: italic;">Z: R7</em> <em CLASS=Symbol-10pt>•</em> 
+ <em CLASS=Overline>R6</em> <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R5</em> 
+ <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R4</em> <em CLASS=Symbol-10pt>•</em> 
+ <em CLASS=Overline>R3</em> <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R2</em> 
+ <em CLASS=Symbol-10pt>•</em> <em CLASS=Overline>R1</em> <em CLASS=Symbol-10pt>•</em> 
+ <em CLASS=Overline>R0</em> </p>
+
+<p CLASS=Tabbed-Body>Set if the result is $00; Cleared otherwise.</p>
+
+<p CLASS=Tabbed-Body>R (Result) equals Rd after the operation.</p>
+
+<p CLASS=Table-Hd-9pt-L>Example:</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">ldi r17, $10 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Load constant in r17</p>
+
+<p CLASS=Code
+	style="margin-left: 0px;"><span style="margin-left: 40px;">loop: <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->add 
+ r1, r2 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Add r2 to r1</span></p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">dec r17 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Decrement r17</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">brne <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->loop 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Branch if r17&lt;&gt;0</p>
+
+<p CLASS=Code
+	style="margin-left: 40px;">nop; Continue (do nothing)</p>
+
+<p CLASS=Table-Hd-9pt-L>Words: <em CLASS=Default-No-Bold>1 (2 bytes)</em> 
+ </p>
+
+<p CLASS=Table-Hd-9pt-L>Cycles:<em CLASS=Default-No-Bold> 1</em> &nbsp;</p>
+</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.2.4" />
+<style type="text/css">
+/* Debug borders */
+p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
+/*
+  border: 1px solid red;
+*/
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+tt {
+  color: navy;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  font-family: sans-serif;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+
+div.sectionbody {
+  font-family: serif;
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+span#author {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+span#email {
+}
+span#revision {
+  font-family: sans-serif;
+}
+
+div#footer {
+  font-family: sans-serif;
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+div#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+div#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+div#preamble,
+div.tableblock, div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-right: 10%;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid silver;
+  padding: 0.5em;
+}
+
+div.listingblock {
+  margin-right: 0%;
+}
+div.listingblock > div.content {
+  border: 1px solid silver;
+  background: #f4f4f4;
+  padding: 0.5em;
+}
+
+div.quoteblock > div.content {
+  padding-left: 2.0em;
+}
+
+div.attribution {
+  text-align: right;
+}
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 2px solid silver;
+}
+
+div.exampleblock > div.content {
+  border-left: 2px solid silver;
+  padding: 0.5em;
+}
+
+div.verseblock div.content {
+  white-space: pre;
+}
+
+div.imageblock div.content { padding-left: 0; }
+div.imageblock img { border: 1px solid silver; }
+span.image img { border-style: none; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: italic;
+}
+dd > *:first-child {
+  margin-top: 0;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+div.olist2 ol {
+  list-style-type: lower-alpha;
+}
+
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+tfoot {
+  font-weight: bold;
+}
+
+div.hlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hlist td {
+  padding-bottom: 5px;
+}
+td.hlist1 {
+  vertical-align: top;
+  font-style: italic;
+  padding-right: 0.8em;
+}
+td.hlist2 {
+  vertical-align: top;
+}
+
+@media print {
+  div#footer-badges { display: none; }
+}
+
+div#toctitle {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+/* Workarounds for IE6's broken and incomplete CSS2. */
+
+div.sidebar-content {
+  background: #ffffee;
+  border: 1px solid silver;
+  padding: 0.5em;
+}
+div.sidebar-title, div.image-title {
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+}
+
+div.listingblock div.content {
+  border: 1px solid silver;
+  background: #f4f4f4;
+  padding: 0.5em;
+}
+
+div.quoteblock-content {
+  padding-left: 2.0em;
+}
+
+div.exampleblock-content {
+  border-left: 2px solid silver;
+  padding-left: 0.5em;
+}
+
+/* IE6 sets dynamically generated links as visited. */
+div#toc a:visited { color: blue; }
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+window.onload = function(){generateToc(2)}
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, October 2006. License: GPL */
+
+function getText(el) {
+  var text = "";
+  for (var i = el.firstChild; i != null; i = i.nextSibling) {
+    if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+      text += i.data;
+    else if (i.firstChild != null)
+      text += getText(i);
+  }
+  return text;
+}
+
+function TocEntry(el, text, toclevel) {
+  this.element = el;
+  this.text = text;
+  this.toclevel = toclevel;
+}
+
+function tocEntries(el, toclevels) {
+  var result = new Array;
+  var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+  // Function that scans the DOM tree for header elements (the DOM2
+  // nodeIterator API would be a better technique but not supported by all
+  // browsers).
+  var iterate = function (el) {
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+        var mo = re.exec(i.tagName)
+        if (mo)
+          result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+        iterate(i);
+      }
+    }
+  }
+  iterate(el);
+  return result;
+}
+
+// This function does the work. toclevels = 1..4.
+function generateToc(toclevels) {
+  var toc = document.getElementById("toc");
+  var entries = tocEntries(document.getElementsByTagName("body")[0], toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "toc" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+}
+/*]]>*/
+</script>
+<title>Another Led Game</title>
+</head>
+<body>
+<div id="header">
+<h1>Another Led Game</h1>
+<span id="author">Sun Ge</span><br />
+<span id="email"><tt>&lt;<a href="mailto:sun_ge@yahoo.cn">sun_ge@yahoo.cn</a>&gt;</tt></span><br />
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="para"><p><span class="image">
+<a class="image" href="another-ledgame.jpg">
+<img src="another-ledgame-thumb.jpg" alt="another led game" title="another led game" />
+</a>
+</span></p></div>
+<div class="para"><p>This is another LED Game based on Takuya Matsubara's funning
+<a href="http://nicotak.com/avr/ledgame.html">LED Game for AVR</a>.
+There are some differences between this LED Game and Matsubara san's
+original LED Game:</p></div>
+<div class="ilist"><ul>
+<li>
+<p>
+I use four 8x8 LED dot-matrix displays to assemble a 16x16
+  dot-matrix display, because it's hard to buy a 16x16 unit
+  in our local market.
+</p>
+</li>
+<li>
+<p>
+I add a dual-axis accelerometer <tt>ADXL311</tt> and a demo program
+  to show a <tt>rolling ball</tt> on the display.
+</p>
+</li>
+<li>
+<p>
+Instead of the four direction keys, a navigation switch
+  (joystick switch) has been used.
+</p>
+</li>
+<li>
+<p>
+I made a little change in firmware library <tt>led.c</tt> to fit
+  my LED display.
+</p>
+</li>
+<li>
+<p>
+I write a simple program to convert <tt>Binary Constant</tt>
+  (i.e. &#8220;0b1101&#8221;) to shift mode (i.e.&#8220;((1&lt;&lt;3)|(1&lt;&lt;2)|1)&#8221;),
+  because Binary Constant seems not supported by my GCC.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<h2 id="_hardware">Hardware</h2>
+<div class="sectionbody">
+<div class="para"><p>I use ATMEGA88 for this project, and the schematics is simillar
+with <a href="http://nicotak.com/avr/develop/inside.html">Mr. Matsubara's</a>.
+I built it on two bread boards: <tt>the lower</tt> and <tt>the upper</tt>.</p></div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="lower-sch.png">
+<img src="lower-sch-thumb.png" alt="schematics of the lower board" title="schematics of the lower board"/>
+</a>
+</div>
+<div class="image-title">Figure: schematics of the lower board</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="upper-sch.png">
+<img src="upper-sch-thumb.png" alt="schematics of the upper board" title="schematics of the upper board"/>
+</a>
+</div>
+<div class="image-title">Figure: schematics of the upper board</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="lower.jpg">
+<img src="lower-thumb.jpg" alt="picture of the lower board" title="picture of the lower board"/>
+</a>
+</div>
+<div class="image-title">Figure: picture of the lower board</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="upper.jpg">
+<img src="upper-thumb.jpg" alt="picture of the upper board" title="picture of the upper board"/>
+</a>
+</div>
+<div class="image-title">Figure: picture of the upper board (backside)</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">LED dot-matrix which I bought is DX7088A/B, I create a
+<a href="led-dot-matrix.lbr">Eagle library</a> for it.</td>
+</tr></table>
+</div>
+</div>
+<h2 id="_firmware">Firmware</h2>
+<div class="sectionbody">
+<div class="para"><p>You can download <a href="http://www.callmeageek.com/filemgmt/visit.php?lid=1">another-ledgame.tar.gz</a>,
+there are some resources in it:</p></div>
+<div class="vlist"><dl>
+<dt>
+<strong>roll-ball</strong>
+</dt>
+<dd>
+<p>
+  Demo program. It's simulating a rolling ball on a 16x16 grids plane.
+  To play it, first download <tt>test.hex</tt> to AVR. When &#8220;ROLL BALL&#8221; being
+  displayed, press switch B (S2) to start.
+</p>
+</dd>
+<dt>
+<strong>demo</strong>
+</dt>
+<dd>
+<p>
+  Demo program from <a href="http://nicotak.com/avr/ledgame.html">LED Game for AVR</a>,
+  with some changes to fit this environment.
+</p>
+</dd>
+<dt>
+<strong>aruke, block and space-flight</strong>
+</dt>
+<dd>
+<p>
+  Games from <a href="http://nicotak.com/avr/ledgame.html">LED Game for AVR</a>,
+  with some changes to fit this environment.
+</p>
+</dd>
+<dt>
+<strong>bin2shift.l</strong>
+</dt>
+<dd>
+<p>
+  Lex code for converting Binary Constant
+  (i.e. &#8220;0b1101&#8221;) to shift mode (i.e.&#8220;((1&lt;&lt;3)|(1&lt;&lt;2)|1)&#8221;).
+  To use this tool,
+</p>
+<div class="literalblock">
+<div class="content">
+<pre><tt>$lex -obin2shift.c bin2shift.l
+$gcc -o bin2shift bin2shift.c -lfl
+$mv test.c test.c.in
+$cat test.c.in | ./bin2shift &gt;test.c</tt></pre>
+</div></div>
+</dd>
+</dl></div>
+<div class="para"><p>All above programs can be built under
+<a href="http://www.nongnu.org/avr-libc/user-manual/install_tools.html">GNU Tool Chain</a>.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">In order to have a nice display effect, AVR running
+in 8MHz is fine.</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">This <tt>Another LED Game</tt> can run most games listed in
+<a href="http://nicotak.com/avr/ledgame.html">LED Game for AVR</a>.
+Just copy <tt>roll-ball/led.c</tt> and <tt>roll-ball/led.h</tt> in
+<a href="http://www.callmeageek.com/filemgmt/visit.php?lid=1">my package</a>
+to overwrite the same name files of other games.</td>
+</tr></table>
+</div>
+</div>
+<h2 id="_video_demo">Video Demo</h2>
+<div class="sectionbody">
+<object width="425" height="350"><param name="movie"
+value="http://www.youtube.com/v/mZYBqNhK_CY"></param><embed
+src="http://www.youtube.com/v/mZYBqNhK_CY"
+type="application/x-shockwave-flash" width="425"
+height="350"></embed></object>
+</div>
+<h2 id="_todo">Todo</h2>
+<div class="sectionbody">
+<div class="ilist"><ul>
+<li>
+<p>
+Further application with accelerometer.
+</p>
+</li>
+<li>
+<p>
+SD card for game storage and the bootloader for ATMEGA88.
+</p>
+</li>
+<li>
+<p>
+vibrate feature with a motor.
+</p>
+</li>
+</ul></div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2008-05-11 16:15:49 CST
+</div>
+</div>
+</body>
+</html>

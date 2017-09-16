@@ -1,0 +1,310 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>SBRS - Skip if Bit in Register is Set</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=windows-1252">
+<meta HTTP-EQUIV &quot;&quot;Content-Type&quot;&quot;&quot;&quot; CONTENT &quot;&quot;text/html; charset="ISO-8859-1&quot;&quot;&quot;&quot;">
+<meta HTTP-EQUIV &quot;&quot;Content-Style-Type&quot;&quot;&quot;&quot; CONTENT &quot;&quot;text/css&quot;&quot;&quot;&quot;>
+<meta NAME &quot;&quot;GENERATOR&quot;&quot;&quot;&quot; CONTENT &quot;&quot;Adobe FrameMaker 5.5/HTML Export Filter&quot;&quot;&quot;&quot;>
+<meta name=date content="06 8, 2001 11:51:43 AM">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1112>
+<meta name=layout-width content=579>
+
+
+<!--(Links)=========================================================-->
+
+<link REL="StyleSheet" href="../main.css" TYPE="text/css" MEDIA="screen">
+
+
+
+<!--(Style Sheet)===================================================-->
+
+<style>
+<!--
+
+body {
+}
+
+-->
+</style>
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body &quot;&quot;#ffffff&quot;&quot;&quot;&quot;>
+
+<div>
+<h3 CLASS
+	&quot;&quot;heading-3&quot;&quot;&quot;&quot;>SBRS - Skip if Bit in 
+ Register is Set</h3>
+
+<div>
+<h3 CLASS
+	&quot;&quot;heading-3&quot;&quot;&quot;&quot;><img src="../images/eijmp-1.gif" style="border-style: none;
+	width: 469px;
+	height: 12px;" width="469" height="12" border="0"> </h3>
+</div>
+
+<div>
+<h6 CLASS
+	&quot;&quot;Section-Sub-2&quot;&quot;&quot;&quot;>Description: </h6>
+
+<p CLASS
+	&quot;&quot;Body-Text&quot;&quot;&quot;&quot;>This instruction tests 
+ a single bit in a register and skips the next instruction if the bit is 
+ set. </p>
+
+<p CLASS
+	&quot;&quot;Normal&quot;&quot;&quot;&quot;>&nbsp;</p>
+
+<p CLASS
+	&quot;&quot;Table-Hd-9pt-L&quot;&quot;&quot;&quot;
+	style="font-family: 'Courier New', monospace;">Operation:</p>
+
+<p CLASS
+	&quot;&quot;Tabbed-Body&quot;&quot;&quot;&quot;
+	style="font-family: 'Courier New', monospace;">(i)If Rr(b) = 1 then 
+ PC &#8592; PC + 2 (or 3) else PC &#8592; PC + 1 </p>
+
+<p CLASS
+	&quot;&quot;Normal&quot;&quot;&quot;&quot;
+	style="font-family: 'Courier New', monospace;">&nbsp;</p>
+
+<p CLASS
+	&quot;&quot;Table-Hd-9pt-L&quot;&quot;&quot;&quot;
+	style="font-family: 'Courier New', monospace;">Syntax: <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Operands: 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->Program 
+ Counter:</p>
+
+<p CLASS
+	&quot;&quot;Tabbed-Body&quot;&quot;&quot;&quot;
+	style="font-family: 'Courier New', monospace;">(i)SBRS Rr,b <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->0 
+ &#8804; r &#8804; 31, 0 &#8804; b &#8804; 7 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->PC 
+ &#8592; PC + 1, Condition false - no skip</p>
+
+<p CLASS
+	&quot;&quot;Tabbed-Body&quot;&quot;&quot;&quot;
+	style="font-family: 'Courier New', monospace;"><!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->PC 
+ &#8592; PC + 2, Skip a one word instruction</p>
+
+<p CLASS
+	&quot;&quot;Tabbed-Body&quot;&quot;&quot;&quot;
+	style="font-family: 'Courier New', monospace;"><!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->PC 
+ &#8592; PC + 3, Skip a two word instruction</p>
+
+<p CLASS
+	&quot;&quot;Tabbed-Body&quot;&quot;&quot;&quot;
+	style="font-family: 'Courier New', monospace;">&nbsp;</p>
+
+<p CLASS
+	&quot;&quot;Table-Hd-9pt-L&quot;&quot;&quot;&quot;>16-bit Opcode:</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Code&quot;&quot;&quot;&quot;>1111</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Code&quot;&quot;&quot;&quot;>111r</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Code&quot;&quot;&quot;&quot;>rrrr</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Code&quot;&quot;&quot;&quot;>0bbb</td></tr>
+</table>
+
+<p CLASS
+	&quot;&quot;Normal&quot;&quot;&quot;&quot;>&nbsp;</p>
+</div>
+
+<div>
+<h6 CLASS
+	&quot;&quot;Section-Sub-2&quot;&quot;&quot;&quot;>Status Register (SREG) 
+ and Boolean Formula:</h6>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Table-9pt-C-Bottom&quot;&quot;&quot;&quot;>I</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Table-9pt-C-Bottom&quot;&quot;&quot;&quot;>T</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Table-9pt-C-Bottom&quot;&quot;&quot;&quot;>H</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Table-9pt-C-Bottom&quot;&quot;&quot;&quot;>S</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Table-9pt-C-Bottom&quot;&quot;&quot;&quot;>V</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Table-9pt-C-Bottom&quot;&quot;&quot;&quot;>N</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Table-9pt-C-Bottom&quot;&quot;&quot;&quot;>Z</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Table-9pt-C-Bottom&quot;&quot;&quot;&quot;>C</td></tr>
+
+<tr>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Table-9pt-C-Bottom&quot;&quot;&quot;&quot;>-</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Table-9pt-C-Bottom&quot;&quot;&quot;&quot;>-</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Table-9pt-C-Bottom&quot;&quot;&quot;&quot;>-</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Table-9pt-C-Bottom&quot;&quot;&quot;&quot;>-</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Table-9pt-C-Bottom&quot;&quot;&quot;&quot;>-</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Table-9pt-C-Bottom&quot;&quot;&quot;&quot;>-</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Table-9pt-C-Bottom&quot;&quot;&quot;&quot;>-</td>
+<td ROWSPAN
+	&quot;&quot;1&quot;&quot;&quot;&quot;
+	COLSPAN>
+<p CLASS
+	&quot;&quot;Table-9pt-C-Bottom&quot;&quot;&quot;&quot;>-</td></tr>
+</table>
+
+<p CLASS
+	&quot;&quot;Normal&quot;&quot;&quot;&quot;>&nbsp;</p>
+
+<p CLASS
+	&quot;&quot;Table-Hd-9pt-L&quot;&quot;&quot;&quot;>Example:</p>
+
+<p CLASS
+	&quot;&quot;Code&quot;&quot;&quot;&quot;
+	style="font-family: 'Courier New', monospace; margin-left: 40px;">sub 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->r0,r1 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Subtract r1 from r0</p>
+
+<p CLASS
+	&quot;&quot;Code&quot;&quot;&quot;&quot;
+	style="font-family: 'Courier New', monospace; margin-left: 40px;">sbrs 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->r0,7 <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Skip if bit 7 in r0 set</p>
+
+<p CLASS
+	&quot;&quot;Code&quot;&quot;&quot;&quot;
+	style="font-family: 'Courier New', monospace; margin-left: 40px;">neg 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->r0 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Only executed if bit 7 in r0 not set</p>
+
+<p CLASS
+	&quot;&quot;Code&quot;&quot;&quot;&quot;
+	style="margin-left: 40px;"><span style="font-family: 'Courier New', monospace;">nop 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->; 
+ Continue (do nothing)</span> </p>
+
+<p CLASS
+	&quot;&quot;Normal&quot;&quot;&quot;&quot;>&nbsp;</p>
+
+<p CLASS
+	&quot;&quot;Table-Hd-9pt-L&quot;&quot;&quot;&quot;>Words: <em CLASS
+	&quot;&quot;Default-No-Bold&quot;&quot;&quot;&quot;>1 (2 bytes)</em> 
+ </p>
+
+<p CLASS
+	&quot;&quot;Table-Hd-9pt-L&quot;&quot;&quot;&quot;>Cycles:<em CLASS
+	&quot;&quot;Default-No-Bold&quot;&quot;&quot;&quot;> 1 if condition 
+ is false (no skip)</em> </p>
+
+<p CLASS
+	&quot;&quot;Table-Hd-9pt-L&quot;&quot;&quot;&quot;><em CLASS
+															&quot;&quot;Default-No-Bold&quot;&quot;&quot;&quot;
+															style="font-style: italic;">2 
+ if condition is true (skip is executed) and the instruction skipped is 
+ 1 word</em> </p>
+
+<p CLASS
+	&quot;&quot;Table-Hd-9pt-L&quot;&quot;&quot;&quot;><em CLASS
+															&quot;&quot;Default-No-Bold&quot;&quot;&quot;&quot;
+															style="font-style: italic;">3 
+ if condition is true (skip is executed) and the instruction skipped is 
+ 2 words </em></p>
+
+<p CLASS
+	&quot;&quot;Body&quot;&quot;&quot;&quot;>&nbsp;</p>
+</div>
+</div>
+
+</body>
+
+</html>

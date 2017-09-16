@@ -1,0 +1,55 @@
+--from sed1520 datasheet--
+2.2 System Bus Interface Signals
+• D7 – D0
+8-bit, tri-state, bi-directional I/O bus. Normally,
+connected to the data bus of an 8-/16-bit standard
+microcomputer.
+• A0
+Input pin. Normally, the LSB of the MPU address
+bus is connected to this input pin to
+provide data/command selection.
+0 : Display control data on D0 — D7
+1 : Display data on D0 — D7
+• RES
+Input pin. The SED1520 can be reset or initialized
+by setting RES to low level (if it is interfaced
+with a 68-family MPU) or high level (if
+with an 80-family MPU). This reset operation
+occurs when an edge of the RES signal is
+sensed. The level input selects the type of
+interface with the 68- or 80-family MPU:
+High level : Interface with 68-family MPU
+Low level : Interface with 80-family MPU
+
+S
+Chip Select input signal which is normally
+obtained by decoding an address bus signal.
+Effective with “L” active and a chip operating
+with external clocks. For a chip containing an
+oscillator, CS works as an oscillation amplifier
+input pin to which an oscillation resistor (Rf) is
+connected. In this case, RD, WR and E must be
+a signal ANDed with CS.
+• E (RD)
+• Chip interfaced with 68-family MPU:
+Enable Clock signal input for the 68-
+family MPU.
+• Chip interfaced with 80-family MPU:
+“L” active input pin to which the 80-family
+MPU RD signal is connected. With this
+signal held at “L”, the SED1520 data bus
+works as output.
+• R/W (WR)
+• Chip interface with 68-family MPU:
+Read/write control signal input pin.
+R/W = “H” : Read
+R/W = “L” : Write
+• Chip interfaced with 80-family MPU:
+“L” active input pin to which the 80-family
+WR is connected. The signal on the data
+bus is fetched by the leading edge of WR.
+--end of datasheet--
+
+It seems 68 series is better.
+
+

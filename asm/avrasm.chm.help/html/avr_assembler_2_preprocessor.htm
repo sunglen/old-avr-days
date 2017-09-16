@@ -1,0 +1,1748 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>AVR Assembler 2 Preprocessor</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=windows-1252">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=7403>
+<meta name=layout-width content=806>
+
+
+<!--(Links)=========================================================-->
+
+<link rel="StyleSheet" href="../main.css">
+
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body><script language="javascript"> 
+        if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) ) 
+        document.write("<center><a href='../index.html?page=Html/AVR_Assembler_2_Preprocessor.htm'>show framing</a></center>")
+        </script>
+
+<h2>AVR Assembler 2 Preprocessor</h2>
+
+<p><a href="avr_assembler_2_preprocessor.htm#introduction">Introduction</a><a href="avr_assembler_2_preprocessor.htm#preprocessor_directives"><br>
+Preprocessor directives</a><a href="avr_assembler_2_preprocessor.htm#operators"><br>
+Operators</a><a href="avr_assembler_2_preprocessor.htm#pre-defined macros"><br>
+Pre-defined macros</a></p>
+
+<h3><a name=Introduction></a>Introduction</h3>
+
+<p>The AVRASM2 preprocessor is modeled after the C preprocessor, with some 
+ exceptions:</p>
+
+<ul style="list-style: disc;"
+	type=disc>
+	
+	<li class=kadov-p><p>It recognizes all integer formats used by AVRASM2, 
+ i.e., $abcd and 0b011001 are recognized as valid integers by the preprocessor 
+ and can be used in expressions in #if directives.</p></li>
+	
+	<li class=kadov-p><p>'.' and '@' are allowed in identifiers. '.' is 
+ required to allow preprocessor directives like '.dw' to be used in preprocessor 
+ macros, '@' is required to handle assembler macro arguments correctly.</p></li>
+	
+	<li class=kadov-p><p>It recognizes assembler-style comment delimiters 
+ (';') as well as C-style comments. Using ';' as a comment delimiter is 
+ in conflict with the C use of ';', and it is therefore not recommended 
+ to use assembler-style comments in conjunction with preprocessor directives.</p></li>
+	
+	<li class=kadov-p><p>The #line directive is not implemented</p></li>
+	
+	<li class=kadov-p><p>Variadic macros (i.e., macros with variable number 
+ of arguments) are not implemented.</p></li>
+	
+	<li class=kadov-p><p>The #warning and #message directives are not specified 
+ in the ANSI C standard.</p></li>
+</ul>
+
+<h3><a name=Preprocessor_directives></a>Preprocessor directives</h3>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells
+		style="x-cell-content-align: top;
+				width: 100%;
+				border-spacing: 0px;
+				border-spacing: 0px;"
+		cellspacing=0
+		width=100%>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: none;
+			border-left-style: none;
+			border-top-style: none;
+			border-bottom-style: none;
+			background-color: #ffffff;"
+	bgcolor=#FFFFFF
+	width=25%>
+<p style="font-size: x-small;"><a href="avr_assembler_2_preprocessor.htm#define">#define</a><a href="avr_assembler_2_preprocessor.htm#elif"><br>
+#elif</a><a href="avr_assembler_2_preprocessor.htm#else"><br>
+#else</a><a href="avr_assembler_2_preprocessor.htm#endif"><br>
+#endif</a><a href="avr_assembler_2_preprocessor.htm#error"><br>
+#error</a></td>
+<td style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			background-color: #ffffff;
+			border-top-style: none;
+			border-right-style: none;
+			border-bottom-style: none;"
+	bgcolor=#FFFFFF
+	width=25%>
+<p style="font-size: x-small;"><a href="avr_assembler_2_preprocessor.htm#if">#if</a><a href="avr_assembler_2_preprocessor.htm#ifdef"><br>
+#ifdef</a><a href="avr_assembler_2_preprocessor.htm#ifndef"><br>
+#ifndef</a><a href="avr_assembler_2_preprocessor.htm#include"><br>
+#include</a><a href="avr_assembler_2_preprocessor.htm#message"><br>
+#message</a></td>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-top-style: none;
+			border-bottom-style: none;
+			border-right-style: none;
+			background-color: #ffffff;"
+	bgcolor=#FFFFFF
+	width=25%>
+<p style="font-size: x-small;"><a href="avr_assembler_2_preprocessor.htm#pragma1">#pragma</a><a href="avr_assembler_2_preprocessor.htm#undef"><br>
+#undef</a><a href="avr_assembler_2_preprocessor.htm#warning"><br>
+#warning</a><a href="avr_assembler_2_preprocessor.htm#empty"><br>
+# (empty directive)</a></td>
+<td style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-top-style: none;
+			border-bottom-style: none;
+			border-right-style: none;
+			background-color: #ffffff;"
+	bgcolor=#FFFFFF
+	width=25%>
+<p style="font-size: x-small;"><a href="avr_assembler_2_preprocessor.htm#operators">Operators</a>:</p>
+<p style="font-size: x-small;"><a href="avr_assembler_2_preprocessor.htm#stringification"># 
+ (stringification</a><a href="avr_assembler_2_preprocessor.htm#concatenation"><br>
+## (concatenation)</a></td></tr>
+</table>
+
+<h4>&nbsp;</h4>
+
+<h4><a name=define></a>#define</h4>
+
+<h5>Syntax</h5>
+
+<ol style="list-style: decimal;"
+	type=1>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code>#define <span style="font-style: italic;">name</span> [<span style="font-style: italic;">value</span>]</p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code>#define <span style="font-style: italic;">name</span>(<span style="font-style: italic;">arg, ...</span>) [<span style="font-style: italic;">value</span>]</p></li>
+</ol>
+
+<h5>Description</h5>
+
+<p>Define a preprocessor macro. There are two forms of macros, (1) object-like 
+ macros that basically define a constant, and (2) function-like macros 
+ that do parameter substitution. </p>
+
+<p><span style="font-style: italic;">value</span> may be any string, it 
+ is not evaluated until the macro is expanded (used). If <span style="font-style: italic;">value</span> 
+ is not specified, it is set to 1.</p>
+
+<p>Form (1) macros may be defined from the command line, using the <a href="avr_assembler_2_command_line_options.htm#command_line__d_option">-D 
+ option</a>.</p>
+
+<p>When form (2) is used, the macro must be called with the same number 
+ of arguments it is defined with. Any occurrences of <span style="font-style: italic;">arg</span> 
+ in <span style="font-style: italic;">value</span> will be replaced with 
+ the corresponding <span style="font-style: italic;">arg</span> when the 
+ macro is called. Note that the left parenthesis must appear immediately 
+ after <span style="font-style: italic;">name</span> (no spaces between), 
+ otherwise it will be interpreted as part of the <span style="font-style: italic;">value</span> 
+ of a form (1) macro.</p>
+
+<h5>Examples</h5>
+
+<p style="font-weight: normal;">Note that the placement of the first '(' 
+ is <span style="font-weight: bold;">very</span> significant in the examples 
+ below.</p>
+
+<ol style="list-style: decimal;"
+	type=1>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code>#define EIGHT (1 &lt;&lt; 3)</p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code><span style="font-weight: normal;">#define SQR(X) ((X)*(X))</span></p></li>
+</ol>
+
+<h4><a name=undef></a>#undef</h4>
+
+<h5>Syntax</h5>
+
+<p class=Preformatted-code>#undef <span style="font-style: italic;">name</span></p>
+
+<h5>Description</h5>
+
+<p style="font-weight: normal;">Undefine macro <span style="font-style: italic;">name</span> 
+ previously defined with a #define directive. If <span style="font-style: italic;">name</span> 
+ is not previously defined, the .undef directive is silently ignored, this 
+ behaviour is in accordance with the ANSI C standard. Macros may also be 
+ undefined from the command line using the <a href="avr_assembler_2_command_line_options.htm#command_line__d_option">-U 
+ option</a>.</p>
+
+<h4><a name=ifdef></a>#ifdef</h4>
+
+<h5><span style="font-weight: bold;">Syntax</span></h5>
+
+<p class=Preformatted-code>#ifdef <span style="font-style: italic;">name</span></p>
+
+<h5><span style="font-weight: bold;">Description</span></h5>
+
+<p>All following lines until the corresponding #endif, #else, or #elif 
+ are conditionally assembled if <span style="font-style: italic;">name</span> 
+ is previously <span style="font-family: 'Courier New', monospace;">#define</span>d. 
+ Shorthand for <span style="font-family: 'Courier New', monospace;">#if 
+ defined(</span><span style="font-style: italic; font-family: 'Courier New', monospace;">name</span><span 
+ style="font-family: 'Courier New', monospace;">)</span></p>
+
+<h5><span style="font-family: 'Courier New', monospace;">E</span><span 
+ style="font-weight: bold;">xample</span></h5>
+
+<p class=Preformatted-code>#ifdef FOO<span style="font-weight: normal;"><br>
+// do something<br>
+#endif</span></p>
+
+<h4><a name=ifndef></a>#ifndef</h4>
+
+<h5><span style="font-weight: bold;">Syntax</span></h5>
+
+<p class=Preformatted-code>#ifndef <span style="font-style: italic;">name</span></p>
+
+<h5><span style="font-weight: bold;">Description</span></h5>
+
+<p>The opposite of #ifdef: All following lines until the corresponding 
+ #endif, #else, or #elif are conditionally assembled if <span style="font-style: italic;">name</span> 
+ is not <span style="font-family: 'Courier New', monospace;">#defined</span>. 
+ Shorthand for <span style="font-family: 'Courier New', monospace;">#if 
+ !defined(</span><span style="font-style: italic; font-family: 'Courier New', monospace;">name</span><span 
+ style="font-family: 'Courier New', monospace;">)</span></p>
+
+<h4><a name=if></a>#if<br>
+<a name=elif></a>#elif</h4>
+
+<h5>Syntax</h5>
+
+<p class=Preformatted-code>#if <span style="font-style: italic;">condition</span></p>
+
+<p class=Preformatted-code
+	style="font-style: normal;">#elif <span style="font-style: italic;">condition</span></p>
+
+<h5><span style="font-weight: bold;">Description</span></h5>
+
+<p>All following lines until the corresponding #endif, #else, or #elif 
+ are conditionally assembled if <span style="font-style: italic;">condition</span> 
+ is true (not equal to 0). <span style="font-style: italic;">condition</span> 
+ may be any integer expression, including preprocessor macros which are 
+ expanded. The preprocessor recognizes the special operator <span style="font-family: 'Courier New', monospace;">defined(</span><span 
+ style="font-family: 'Courier New', monospace; font-style: italic;">name</span><span 
+ style="font-family: 'Courier New', monospace;">)</span><span style="font-family: Verdana, sans-serif;"> 
+ that returns 1 if </span><span style="font-family: Verdana, sans-serif; font-style: italic;">name</span><span 
+ style="font-family: Verdana, sans-serif;"> is #defined and 0 otherwise. 
+ Any un#defined symbols used in </span><span style="font-family: Verdana, sans-serif; font-style: italic;">condition</span><span 
+ style="font-family: Verdana, sans-serif;"> are silently evaluated to 0.</span></p>
+
+<p><span style="font-family: Verdana, sans-serif;">Conditionals may be 
+ nested to arbitrary depth. </span></p>
+
+<p><span style="font-family: Verdana, sans-serif;">#elif evaluates </span><span 
+ style="font-style: italic;">condition</span> in the same manner as #if, 
+ except that it is only evaluated if no previous branch of a compound #if 
+ .. #elif sequence has been evaluated to true.</p>
+
+<h5>Examples</h5>
+
+<p class=Preformatted-code>#if 0<br>
+// code here is never included<br>
+#endif</p>
+
+<p class=Preformatted-code>#if defined(__ATmega48__) || defined(__ATmega88__)<br>
+// code specific for these devices<br>
+#elif defined (__ATmega169__)<br>
+// code specific for ATmega169<br>
+#endif // device specific code</p>
+
+<h4><a name=else></a>#else</h4>
+
+<h5><span style="font-weight: bold;">Syntax</span></h5>
+
+<p class=Preformatted-code>#else</p>
+
+<h5>Description</h5>
+
+<p style="font-weight: normal;">All following lines until the corresponding 
+ #endif are conditionally assembled if no previous branch in a compound 
+ #if ... #elif ... sequence has been evaluated to true.</p>
+
+<h5>Example</h5>
+
+<p class=Preformatted-code>#if defined(__ATmega48__) || defined(__ATmega88__)<br>
+// code specific for these parts<br>
+#elif defined (__ATmega169__)<br>
+// code specific for ATmega169<br>
+#else<br>
+#error &quot;Unsupported part:&quot; __PART_NAME__<span style="font-weight: normal;"><br>
+#endif // part specific code</span></p>
+
+<h4><a name=endif></a>#endif</h4>
+
+<h5><span style="font-weight: bold;">Syntax</span></h5>
+
+<p class=Preformatted-code
+	style="font-style: normal;"><span style="font-style: normal;">#endif</span></p>
+
+<h5><span style="font-weight: bold;">Description</span></h5>
+
+<p style="font-style: normal;
+			font-weight: normal;
+			font-family: Verdana, sans-serif;">Terminates a conditional 
+ block initiated with an #if, #ifdef, or #ifndef directive.</p>
+
+<h4><a name=error></a>#error<br>
+<a name=warning></a>#warning<br>
+<a name=message></a>#message</h4>
+
+<h5>Syntax</h5>
+
+<p class=Preformatted-code
+	style="font-weight: bold;">#error <span style="font-style: italic;">tokens</span></p>
+
+<p class=Preformatted-code
+	style="font-style: normal; font-weight: bold;">#warning <span style="font-style: italic;">tokens</span></p>
+
+<p class=Preformatted-code
+	style="font-weight: bold; font-style: normal;">#message <span style="font-style: italic;">tokens</span></p>
+
+<h5>Description</h5>
+
+<p style="font-weight: normal;">#error emits <span style="font-style: italic;">tokens</span> 
+ to standard error, and increments the assembler error counter, hereby 
+ preventing the program from being successfully assembled. #error is specified 
+ in the ANSI C standard.</p>
+
+<p style="font-weight: normal;">#warning emits <span style="font-style: italic;">tokens</span> 
+ to standard error, and increments the assembler warning counter. #warning 
+ is not specified in the ANSI C standard, but is commonly implemented in 
+ preprocessors such as the GNU C preprocessor.</p>
+
+<p>#message emits <span style="font-style: italic;">tokens</span> to standard 
+ output, and does not affect assembler error or warning counters. #message 
+ is not specified in the ANSI C standard.</p>
+
+<p>For all directives, the output will include file name and line number, 
+ like normal error and warning messages.</p>
+
+<p><span style="font-style: italic;">tokens </span>is a sequence of preprocessor 
+ tokens. Preprocessor macros are expanded except if appearing inside quoted 
+ strings (&quot;).</p>
+
+<h5>Example</h5>
+
+<p class=Preformatted-code><span style="font-weight: bold;">#</span>error &quot;Unsupported part:&quot; __PART_NAME__</p>
+
+<h4><a name=include></a>#include</h4>
+
+<h5>Syntax</h5>
+
+<ol style="list-style: decimal;"
+	type=1>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code
+											style="font-weight: bold;">#include &quot;<span style="font-style: italic;">file</span>&quot;</p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code
+											style="font-weight: bold;">#include &lt;<span style="font-style: italic;">file</span>&gt;</p></li>
+</ol>
+
+<h5>Description</h5>
+
+<p style="font-weight: normal;">Include a file. The two forms differ in 
+ that (1) searches the current working directory first, and is functionally 
+ equivalent with the assembler <a href="directives.html#include - Include another file">.include</a> 
+ directive. (2) does not search the current working directory. Both forms 
+ will search a built-in known place for include files supplied with the 
+ assembler.</p>
+
+<p style="font-weight: normal;">It is <span style="x-text-underline: normal; /*begin!kadov{{*/ text-decoration: underline; /*}}end!kadov*/ ">strongly 
+ discouraged</span> to use absolute <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->pathnames 
+ in #include directives, as this makes it difficult to move projects between 
+ different directories/computers. Use the <a href="avr_assembler_2_command_line_options.htm#command_line__i_option">-I 
+ command-line option</a> to specify the include path, or set ut up in AVR 
+ Studio - Project - <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->Assembler 
+ Options.</p>
+
+<h5>Examples</h5>
+
+<p class=Preformatted-code
+	style="font-weight: bold;">#include &lt;m48def.inc&gt;</p>
+
+<p class=Preformatted-code><span style="font-weight: bold;">#include &quot;mydefs.inc&quot;</span></p>
+
+<h4><a name=pragma1></a>#pragma, general-purpose</h4>
+
+<h5>Syntax</h5>
+
+<ol style="list-style: decimal;"
+	type=1>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code>#pragma warning range byte <span style="font-style: italic;">option</span></p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code>#pragma overlap <span style="font-style: italic;">option</span></p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code>#pragma error instruction</p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code><span>#pragma warning instruction</span></p></li>
+</ol>
+
+<h5>Description</h5>
+
+<ol style="list-style: decimal;"
+	type=1>
+	
+	<li class=kadov-p><p>The assembler evaluates constant integer expressions 
+ as 64-bit signed integers internally. When such expressions are used as 
+ immediate operands, they must be truncated to the number of bits <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->required 
+ by the instructions. For most operands, an out-of -range value will cause 
+ an &quot;operand out of range&quot; error message. <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->However, 
+ the immediate byte operands for the <!--kadov_tag{{<spaces>}}-->&nbsp;<a href="ldi.html"><!--kadov_tag{{</spaces>}}-->ldi</a>, <a href="cpi.html">cpi</a>, 
+ <a href="ori.html">ori</a>, <a href="andi.html">andi</a>, <a href="subi.html">subi</a>, 
+ <a href="sbci.html">sbci</a> instructions have several possible interpretations 
+ that are affected by this option.<span style="font-style: italic; font-weight: bold;"><br>
+	option </span><span style="font-weight: bold;">= integer</span> <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->The 
+ immediate operand is evaluated as an integer, and if its value is outside 
+ the range [-128 ... 255] a warning is given. The assembler doesn't know 
+ if the users intends an integer operand to be signed or unsigned, hence 
+ it allows any signed <span style="font-weight: bold;">or</span> unsigned 
+ value that fits into a byte.<span style="font-style: italic; font-weight: bold;"><br>
+	option </span><span style="font-weight: bold;">= overflow</span> (default): 
+ The immediate operand is basically evaluated as an unsigned byte, and 
+ any sign extension bits are ignored. This option is particularly suitable 
+ when dealing with bit masks, when the integer interpretation would cause 
+ lots of warnings, like l<span style="font-family: 'Courier New', monospace;">di 
+ r16, ~((1 &lt;&lt; 7) | (1 &lt;&lt; 3))</span><span style="font-family: 'Courier New', monospace;
+															font-style: italic;
+															font-weight: bold;"><br>
+	option </span><span style="font-family: 'Courier New', monospace; font-weight: bold;">= 
+ </span><span style="font-weight: bold;">none</span> Disables all out-of-range 
+ warnings for byte operands. Not recommended.</p></li>
+	
+	<li class=kadov-p><p>If different sections of code are mapped to overlapping 
+ memory locations using the <a href="directives.html#org - Set program origin">.org</a> 
+ directive, an error message is normally issued. This options modifies 
+ that behaviour as follows:<span style="font-style: italic;
+										font-weight: bold;
+										font-family: Verdana, sans-serif;"><br>
+	option </span><span style="font-weight: bold; font-family: Verdana, sans-serif;">= 
+ ignore </span><span style="font-family: Verdana, sans-serif;">Ignores 
+ overlap conditions altogether; no errors, no warnings. Not recommended.</span><span 
+ style="font-style: italic;
+		font-weight: bold;
+		font-family: Verdana, sans-serif;"><br>
+	option </span><span style="font-weight: bold; font-family: Verdana, sans-serif;">= 
+ warning</span><span style="font-family: Verdana, sans-serif;"> Produce 
+ warnings when overlaps are detected.</span><span style="font-style: italic;
+															font-weight: bold;
+															font-family: Verdana, sans-serif;"><br>
+	option </span><span style="font-weight: bold; font-family: Verdana, sans-serif;">= 
+ error</span><span style="font-family: Verdana, sans-serif;"> Consider 
+ overlaps as error condition; this is the default and recommended setting.</span><span 
+ style="font-style: italic;
+		font-weight: bold;
+		font-family: Verdana, sans-serif;"><br>
+	option </span><span style="font-weight: bold; font-family: Verdana, sans-serif;">= 
+ default</span><span style="font-family: Verdana, sans-serif;"> Revert 
+ to default handling - </span><span style="font-family: Verdana, sans-serif; font-weight: bold;">error 
+ </span><span style="font-family: Verdana, sans-serif;">or whatever is 
+ specified with the <a href="avr_assembler_2_command_line_options.htm#command Line Option O">-O 
+ command line option</a>.<br>
+	<br>
+	The assembler maintains two settings for overlap handling: The </span><span 
+ style="font-family: Verdana, sans-serif; font-weight: bold;">default</span><span 
+ style="font-family: Verdana, sans-serif;"> setting that is set up by the 
+ -O command-line option, and the </span><span style="font-family: Verdana, sans-serif; font-weight: bold;">effective</span><span 
+ style="font-family: Verdana, sans-serif;"> setting, that only can be modified 
+ with this #pragma. The two settings are equal upon assembler invocation, 
+ <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->this #pragma 
+ changes the effective setting from the line it <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->is 
+ invoked and until the line it is changed by another invocation of this 
+ pragma. Hence, this pragma covers source line ranges and not address ranges.<br>
+	<br>
+	See also: <a href="directives.html#overlap/nooverlap">.overlap directive</a>.</span></p></li>
+	
+	<li class=kadov-p><p style="font-family: Verdana, sans-serif;">Causes 
+ use of instructions that are unsupported on the specified device to cause 
+ an assembler error (default behaviour)</p></li>
+	
+	<li class=kadov-p><p style="font-family: Verdana, sans-serif;">Causes 
+ use of instructions that are unsupported on the specified device to cause 
+ an assembler warning.<br>&nbsp;</p></li>
+</ol>
+
+<h5>See also</h5>
+
+<ol style="list-style: decimal;"
+	type=1>
+	
+	<li class=kadov-p><p><a href="avr_assembler_2_command_line_options.htm#command Line Option W">Command-line 
+ option -W</a>.</p></li>
+	
+	<li class=kadov-p><p><a href="avr_assembler_2_command_line_options.htm#command Line Option O">Command-line 
+ option -O</a>.</p></li>
+</ol>
+
+<h4><a name=pragma></a>#pragma, AVR part related</h4>
+
+<h5>Syntax</h5>
+
+<ol style="list-style: decimal;"
+	type=1>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code
+											style="font-size: small;"><span style="font-weight: bold;">#</span>pragma AVRPART ADMIN PART_NAME <span style="font-style: italic;">string</span></p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code
+											style="font-size: small;">#pragma AVRPART CORE CORE_VERSION <span style="font-style: italic;">version-string</span></p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code
+											style="font-size: small;">#pragma AVRPART CORE INSTRUCTIONS_NOT_SUPPORTED <span style="font-style: italic;">mnemonic</span>[ <span style="font-style: italic;">operand</span>[,<span style="font-style: italic;">operand</span>] ][:...]</p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code
+											style="font-size: small;">#pragma AVRPART CORE NEW_INSTRUCTIONS <span style="font-style: italic;">mnemonic</span>[ <span style="font-style: italic;">operand</span>[,<span style="font-style: italic;">operand</span>]][:...]</p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code
+											style="font-size: small;">#pragma AVRPART MEMORY PROG_FLASH <span style="font-style: italic;">size</span></p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code
+											style="font-size: small;">#pragma AVRPART MEMORY EEPROM <span style="font-style: italic;">size</span></p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code
+											style="font-size: small;">#pragma AVRPART MEMORY INT_SRAM SIZE <span style="font-style: italic;">size</span></p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code><span style="font-size: small;">#pragma AVRPART MEMORY INT_SRAM START_ADDR </span><span style="font-size: small; font-style: italic;">addres</span><span style="font-style: italic;">s</span></p></li>
+</ol>
+
+<h5>Description</h5>
+
+<p style="font-weight: normal;">These directives are used to specify various 
+ part-specific properties, and are normally used in the part definition 
+ include files (<span style="font-style: italic;">part</span><span>def.inc)</span>. 
+ Normally, there is no reason to use these pragmas directly in user programs.</p>
+
+<p style="font-weight: normal;">Preprocessor macros are not allowed in 
+ pragmas. Expressions are not allowed for the numeric arguments, must be 
+ pure numbers in decimal, hex, octal, or binary format. String arguments 
+ must not be quoted. The pragmas specify the following part-specific properties:</p>
+
+<ol style="list-style: decimal;"
+	type=1>
+	
+	<li class=kadov-p><p style="font-weight: normal;">The part name, e.g., 
+ ATmega8</p></li>
+	
+	<li class=kadov-p><p style="font-weight: normal;">The AVR Core version. 
+ This defines the basic instruction set supported. Allowed core versions 
+ are currently V0, V0E, V1, V2, and V2E.</p></li>
+	
+	<li class=kadov-p><p style="font-weight: normal;">Colon-separated list 
+ of instructions not supported by this part, relative to the core version.</p></li>
+	
+	<li class=kadov-p><p style="font-weight: normal;">Colon-separated list 
+ of additional instructions supported by this part, relative to the core 
+ version.</p></li>
+	
+	<li class=kadov-p><p style="font-weight: normal;">FLASH program memory 
+ size, in bytes.</p></li>
+	
+	<li class=kadov-p><p style="font-weight: normal;">EEPROM memory size, 
+ in bytes.</p></li>
+	
+	<li class=kadov-p><p style="font-weight: normal;">SRAM memory size, 
+ in bytes.</p></li>
+	
+	<li class=kadov-p><p style="font-weight: normal;">SRAM memory start 
+ address. 0x60 for basic AVR parts, 0x100 or more for parts with extended 
+ I/O.</p></li>
+</ol>
+
+<h5>Examples</h5>
+
+<p style="font-weight: normal;">Please note that the combination of these 
+ examples does <span style="x-text-underline: normal; /*begin!kadov{{*/ text-decoration: underline; /*}}end!kadov*/ ">not</span> 
+ describe a real AVR part!</p>
+
+<ol style="list-style: decimal;"
+	type=1>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code><span style="font-weight: normal;">#pragma AVRPART ADMIN PART_NAME ATmega32</span></p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code>#pragma AVRPART CORE CORE_VERSION V2</p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code>#pragma AVRPART CORE INSTRUCTIONS_NOT_SUPPORTED movw:break:lpm rd,z</p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code>#pragma AVRPART CORE NEW_INSTRUCTIONS lpm rd,z+</p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code>#pragma AVRPART MEMORY PROG_FLASH 131072</p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code>#pragma AVRPART MEMORY EEPROM 4096</p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code>#pragma AVRPART MEMORY INT_SRAM START_ADDR 0x60</p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code>#pragma AVRPART MEMORY INT_SRAM SIZE <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->4096</p></li>
+</ol>
+
+<h4><a name=empty></a># (empty directive)</h4>
+
+<h5>Syntax</h5>
+
+<p class=Preformatted-code>#</p>
+
+<h5><span style="font-weight: bold;">Description</span></h5>
+
+<p>Unsurprisingly, this directive does exactly nothing. The only reason 
+ it exists is that it is required by the ANSI C standard.</p>
+
+<h3><a name=Operators></a>Operators</h3>
+
+<h4><a name=Stringification></a>Stringification (#)</h4>
+
+<p>The stringification operators makes a quoted string token of a parameter 
+ to a function-type macro</p>
+
+<h5>Example</h5>
+
+<p class=Preformatted-code>#define MY_IDENT(X) .db #X, '\n', 0</p>
+
+<p>When called like this</p>
+
+<p class=Preformatted-code>MY_IDENT(FooFirmwareRev1)</p>
+
+<p>will expand to</p>
+
+<p class=Preformatted-code>.db &quot;FooFirmwareRev1&quot;, '\n', 0</p>
+
+<h5>Notes</h5>
+
+<ol style="list-style: decimal;"
+	type=1>
+	
+	<li class=kadov-p><p>Stringification can only be used with parameters 
+ to function-type macros</p></li>
+	
+	<li class=kadov-p><p>The parameter's value will be used literally, 
+ i.e. it will not be expanded before stringification.</p></li>
+</ol>
+
+<h4><a name=Concatenation></a>Concatenation (##)</h4>
+
+<p>The concatenation operator concatenates two preprocessor tokens, forming 
+ a new token. It is most useful when at least one of the tokens are a parameter 
+ to a function-type macro.</p>
+
+<h5>Example</h5>
+
+<p class=Preformatted-code>#define FOOBAR subi <!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}--></p>
+
+<ol style="list-style: decimal;"
+	type=1>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code>#define IMMED(X) <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->X##i</p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code>#define SUBI(X,Y) X ## Y</p></li>
+</ol>
+
+<p>When the IMMED and SUBI macros are called like this:</p>
+
+<ol style="list-style: decimal;"
+	type=1>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code><!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->IMMED(ld) r16,1</p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code><!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->SUBI(FOO,BAR) r16,1</p></li>
+</ol>
+
+<p>they will be expanded to</p>
+
+<ol style="list-style: decimal;"
+	type=1>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code><!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->ldi <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}-->r16,0x1</p></li>
+	
+	<li class=kadov-p-CPreformatted-code><p class=Preformatted-code><!--kadov_tag{{<spaces>}}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--kadov_tag{{</spaces>}}-->subi r16,0x1</p></li>
+</ol>
+
+<h5>Notes</h5>
+
+<ol style="list-style: decimal;"
+	type=1>
+	
+	<li class=kadov-p><p>The concatenation operator cannot appear first 
+ or last in a macro expansion</p></li>
+	
+	<li class=kadov-p><p>When used on a function-type macro argument, the 
+ argument will be used literally, i.e., it will not be expanded before 
+ concatenation. </p></li>
+	
+	<li class=kadov-p><p>The token formed by the concatenation <span style="font-style: italic;">will</span><span> 
+ be subject to further expansion. In example 2 above, the parameters FOO 
+ and BAR are first concatenated to FOOBAR, then FOOBAR is expanded to subi.</span></p></li>
+</ol>
+
+<h3><a name="Pre-defined macros"></a>Pre-defined macros</h3>
+
+<p>The preprocessor has a number of pre-defined macros. All have names 
+ starting and ending with two underscores (__). To avoid conflicts, user-defined 
+ macros should not use this naming convention.</p>
+
+<p>Pre-defined macros are either built-in, or they are set by the <a href="avr_assembler_2_preprocessor.htm#pragma">#pragma</a> 
+ directive, as indicated in the table.</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells
+		style="x-cell-content-align: top;
+				width: 100%;
+				border-spacing: 0px;
+				border-spacing: 0px;"
+		cellspacing=0
+		width=100%>
+<col style="width: 25%;">
+<col style="width: 13.198%;">
+<col style="width: 16.493%;">
+<col style="width: 40.911%;">
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-top-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;
+			border-top-color: #ffffff;
+			border-top-width: 1px;"
+	width=25%>
+<p style="font-weight: bold; text-align: center;"
+	align=center>Name</td>
+<td style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-top-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-top-color: #ffffff;
+			border-top-width: 1px;"
+	width=13.198%>
+<p style="font-weight: bold; text-align: center;"
+	align=center>Type</td>
+<td style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-top-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-top-color: #ffffff;
+			border-top-width: 1px;"
+	width=16.493%>
+<p style="font-weight: bold; text-align: center;"
+	align=center>Set by</td>
+<td style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-top-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-top-color: #ffffff;
+			border-top-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-weight: bold; text-align: center;"
+	align=center>Description</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;"
+	width=25%>
+<p style="font-family: 'Courier New', monospace; font-size: x-small;">__AVRASM_VERSION__</td>
+<td colspan=1
+	rowspan=1
+	style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=13.198%>
+<p style="font-size: x-small;">Integer</td>
+<td colspan=1
+	rowspan=1
+	style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=16.493%>
+<p style="font-size: x-small;">Built-in</td>
+<td colspan=1
+	rowspan=1
+	style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-size: x-small;">Assembler version, encoded as (1000*major 
+ + minor)</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;"
+	width=25%>
+<p style="font-size: x-small; font-family: 'Courier New', monospace;">__CORE_VERSION__</td>
+<td colspan=1
+	rowspan=1
+	style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=13.198%>
+<p style="font-size: x-small;">String</td>
+<td colspan=1
+	rowspan=1
+	style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=16.493%>
+<p style="font-size: x-small;"><a href="avr_assembler_2_preprocessor.htm#pragma">#pragma</a></td>
+<td colspan=1
+	rowspan=1
+	style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-size: x-small;">AVR core version.</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;"
+	width=25%>
+<p style="font-family: 'Courier New', monospace; font-size: x-small;">__DATE__</td>
+<td colspan=1
+	rowspan=1
+	style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=13.198%>
+<p style="font-size: x-small;">String</td>
+<td colspan=1
+	rowspan=1
+	style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=16.493%>
+<p style="font-size: x-small;">built-in</td>
+<td colspan=1
+	rowspan=1
+	style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-size: x-small;">Build date. Format: &quot;Jun 28 2004&quot;, 
+ see <a href="avr_assembler_2_command_line_options.htm#fdformat">-FD command-line 
+ option</a>.</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;"
+	width=25%>
+<p style="font-family: 'Courier New', monospace; font-size: x-small;"><span 
+ style="font-family: 'Courier New', monospace; font-size: x-small;">__TIME__ 
+ </span></td>
+<td colspan=1
+	rowspan=1
+	style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=13.198%>
+<p style="font-size: x-small;">String</td>
+<td colspan=1
+	rowspan=1
+	style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=16.493%>
+<p style="font-size: x-small;">built-in</td>
+<td colspan=1
+	rowspan=1
+	style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-size: x-small;">Build time. Format: &quot;HH:MM:SS&quot;. 
+ see <a href="avr_assembler_2_command_line_options.htm#fdformat">-FT command-line 
+ option</a></td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;"
+	width=25%>
+<p style="font-family: 'Courier New', monospace; font-size: x-small;">__CENTURY__</td>
+<td colspan=1
+	rowspan=1
+	style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=13.198%>
+<p style="font-size: x-small;">Integer</td>
+<td colspan=1
+	rowspan=1
+	style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=16.493%>
+<p style="font-size: x-small;">built-in</td>
+<td colspan=1
+	rowspan=1
+	style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-size: x-small;">Build time century (typically 20)</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;"
+	width=25%>
+<p style="font-family: 'Courier New', monospace; font-size: x-small;">__YEAR__</td>
+<td colspan=1
+	rowspan=1
+	style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=13.198%>
+<p style="font-size: x-small;">Integer</td>
+<td colspan=1
+	rowspan=1
+	style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=16.493%>
+<p style="font-size: x-small;">built-in</td>
+<td colspan=1
+	rowspan=1
+	style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-size: x-small;">Build time year, less century (0-99)</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;"
+	width=25%>
+<p style="font-family: 'Courier New', monospace; font-size: x-small;">__MONTH__</td>
+<td colspan=1
+	rowspan=1
+	style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=13.198%>
+<p style="font-size: x-small;">Integer</td>
+<td colspan=1
+	rowspan=1
+	style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=16.493%>
+<p style="font-size: x-small;">built-in</td>
+<td colspan=1
+	rowspan=1
+	style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-size: x-small;">Build time month (1-12)</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;"
+	width=25%>
+<p style="font-family: 'Courier New', monospace; font-size: x-small;">__DAY__</td>
+<td colspan=1
+	rowspan=1
+	style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=13.198%>
+<p style="font-size: x-small;">Integer</td>
+<td colspan=1
+	rowspan=1
+	style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=16.493%>
+<p style="font-size: x-small;">built-in</td>
+<td colspan=1
+	rowspan=1
+	style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-size: x-small;">Build time day (1-31)</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;"
+	width=25%>
+<p style="font-family: 'Courier New', monospace; font-size: x-small;">__HOUR__</td>
+<td colspan=1
+	rowspan=1
+	style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=13.198%>
+<p style="font-size: x-small;">Integer</td>
+<td colspan=1
+	rowspan=1
+	style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=16.493%>
+<p style="font-size: x-small;">built-in</td>
+<td colspan=1
+	rowspan=1
+	style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-size: x-small;">Build time hour (0-23)</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;"
+	width=25%>
+<p style="font-family: 'Courier New', monospace; font-size: x-small;">__MINUTE__</td>
+<td colspan=1
+	rowspan=1
+	style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=13.198%>
+<p style="font-size: x-small;">Integer</td>
+<td colspan=1
+	rowspan=1
+	style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=16.493%>
+<p style="font-size: x-small;">built-in</td>
+<td colspan=1
+	rowspan=1
+	style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-size: x-small;">Build time minute (0-59)</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;"
+	width=25%>
+<p style="font-family: 'Courier New', monospace; font-size: x-small;">__SECOND__</td>
+<td colspan=1
+	rowspan=1
+	style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=13.198%>
+<p style="font-size: x-small;">Integer</td>
+<td colspan=1
+	rowspan=1
+	style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=16.493%>
+<p style="font-size: x-small;">built-in</td>
+<td colspan=1
+	rowspan=1
+	style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-size: x-small;">Build time second (0-59)</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;"
+	width=25%>
+<p style="font-family: 'Courier New', monospace; font-size: x-small;">__FILE__</td>
+<td colspan=1
+	rowspan=1
+	style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=13.198%>
+<p style="font-size: x-small;">String</td>
+<td colspan=1
+	rowspan=1
+	style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=16.493%>
+<p style="font-size: x-small;">built-in</td>
+<td colspan=1
+	rowspan=1
+	style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-size: x-small;">Source file name.</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;"
+	width=25%>
+<p style="font-family: 'Courier New', monospace; font-size: x-small;">__LINE__</td>
+<td style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=13.198%>
+<p style="font-size: x-small;">Integer</td>
+<td style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=16.493%>
+<p style="font-size: x-small;">built-in</td>
+<td style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-size: x-small;">Current line number in source file.</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;"
+	width=25%>
+<p style="font-family: 'Courier New', monospace; font-size: x-small;">__PART_NAME__</td>
+<td style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=13.198%>
+<p style="font-size: x-small;">String</td>
+<td style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=16.493%>
+<p style="font-size: x-small;"><a href="avr_assembler_2_preprocessor.htm#pragma">#pragma</a></td>
+<td style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-size: x-small;">AVR part name.</td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;"
+	width=25%>
+<p style="font-family: 'Courier New', monospace; font-size: x-small;">__<span 
+ style="font-style: italic;">partname</span>__</td>
+<td colspan=1
+	rowspan=1
+	style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;"
+	width=13.198%>
+<p style="font-size: x-small;">Integer</td>
+<td colspan=1
+	rowspan=1
+	style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;"
+	width=16.493%>
+<p style="font-size: x-small;"><a href="avr_assembler_2_preprocessor.htm#pragma">#pragma</a></td>
+<td colspan=1
+	rowspan=1
+	style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-size: x-small;"><span style="font-style: italic;">partname</span><span> 
+ corresponds to the value of __PART_NAME__. Example:<br>
+#ifdef __ATmega8__</span></td></tr>
+
+<tr style="x-cell-content-align: top;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 25%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-left-style: Solid;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-left-color: #ffffff;
+			border-left-width: 1px;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;"
+	width=25%>
+<p style="font-family: 'Courier New', monospace; font-size: x-small;">__CORE_<span 
+ style="font-style: italic;">coreversion</span>__ <!--kadov_tag{{<spaces>}}-->&nbsp;<!--kadov_tag{{</spaces>}}--></td>
+<td style="width: 13.198%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;"
+	width=13.198%>
+<p style="font-size: x-small;">Integer</td>
+<td style="width: 16.493%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-right-color: #ffffff;
+			border-right-width: 1px;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;"
+	width=16.493%>
+<p style="font-size: x-small;"><a href="avr_assembler_2_preprocessor.htm#pragma">#pragma</a></td>
+<td style="width: 40.911%;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: #ffffff;
+			border-bottom-width: 1px;
+			border-right-color: #ffffff;
+			border-right-width: 1px;"
+	width=40.911%>
+<p style="font-size: x-small;"><span style="font-style: italic;">coreversion</span><span> 
+ corresponds to the value of __CORE_VERSION__. Example:<br>
+#ifdef __CORE_V2__</span></td></tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>
